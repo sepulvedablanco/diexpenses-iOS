@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>0216</key>
+	<string>targoBank_100.png</string>
+	<key>0049</key>
+	<string>Santander_100.png</string>
+	<key>0075</key>
+	<string>popular_100.png</string>
+	<key>0073</key>
+	<string>openBank_100.png</string>
+	<key>0131</key>
+	<string>novoBank.png</string>
+	<key>2048</key>
+	<string>liberbank_100.png</string>
+	<key>2100</key>
+	<string>lacaixa100.png</string>
+	<key>2095</key>
+	<string>kutxabank_100.png</string>
+	<key>1465</key>
+	<string>ing_direct100.png</string>
+	<key>2085</key>
+	<string>ibercaja_100.png</string>
+	<key>0239</key>
+	<string>evoBank_100.png</string>
+	<key>2108</key>
+	<string>EspañaDuero_100.png</string>
+	<key>0145</key>
+	<string>DeutscheBank_100.png</string>
+	<key>3058</key>
+	<string>cajamar_100.png</string>
+	<key>0057</key>
+	<string>BBVA_100.png</string>
+	<key>0128</key>
+	<string>bankinter_100.png</string>
+	<key>2038</key>
+	<string>bankia_100.png</string>
+</dict>
+</plist>

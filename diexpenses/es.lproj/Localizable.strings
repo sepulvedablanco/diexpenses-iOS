@@ -1,0 +1,68 @@
+/* 
+  Localizable.strings
+  diexpenses
+
+  Created by Diego Sepúlveda Blanco on 26/1/16.
+  Copyright © 2016 UPSA. All rights reserved.
+*/
+
+"common.error" = "Error";
+"common.close" = "Cerrar";
+"common.cancel" = "Cancelar";
+"common.delete" = "Eliminar";
+"common.edit" = "Editar";
+"common.update" = "Actualizar";
+"common.save" = "Guardar";
+"common.done" = "Hecho";
+"common.accept" = "Aceptar";
+"common.page" = "Pagina";
+"common.loadingData" = "Cargando datos...";
+"common.totalMovements" = "MovimientosTotales";
+"common.noData" = "No hay datos";
+"common.noBankAccounts" = "No hay cuentas bancaria";
+"common.noInternetConnection" = "Revisa tu conexión a internet";
+"common.unknownError" = "Ha ocurrido un error desconocido";
+"common.validator.required" = "Campo obligatorio";
+"common.validator.digit" = "Debe contener %d dígitos";
+"common.validator.decimal" = "Debe ser un valor decimal";
+"common.validator.password" = "Al menos 6 caracteres, conteniendo mayúsculas, minúsculas y dígitos";
+"common.validator.password.confirmation" = "Las contraseñas no coinciden.";
+
+"home.greetings" = "¡Hola %@!";
+"home.totalAmount" = "Ahorrado en total: %@";
+"home.totalIncomes" = "Ingresos del mes: %@";
+"home.totalExpenses" = "Gastos del mes: %@";
+"home.incomes" = "Ingresos";
+"home.expenses" = "Gastos";
+"home.chart.nodata" = "Todavía no hay datos este mes";
+"home.chart.nodata.description" = "Registra un ingreso o un gasto";
+"home.balance.high" = "Este mes vas bien";
+"home.balance.medium" = "No ahorras nada...";
+"home.balance.low" = "¡No gastes tanto!";
+
+"bankAccounts.requiredDescription" = "Introduce la descripción";
+"bankAccounts.noData" = "No hay cuentas bancarias";
+
+"expenseKind.select" = "Selecciona un tipo";
+"expenseKind.new" = "Nuevo tipo de gasto";
+"expenseKind.new.message" = "Introduce el nombre del tipo de gasto";
+"expenseKind.edit" = "Editar tipo de gasto";
+"expenseKind.edit.message" = "Introduce el nuevo nombre del tipo de gasto";
+"expenseKind.delete" = "Eliminar tipo de gasto";
+"expenseKind.delete.message" = "¿Está seguro que desea eliminar el tipo de gasto \"%@\"?";
+
+"expenseSubkind.select" = "Selecciona un subtipo";
+"expenseSubkind.selectKind" = "Selecciona un tipo primero";
+"expenseSubkind.new" = "Crear subtipo de gasto";
+"expenseSubkind.new.message" = "Introduce el nombre del subtipo de gasto";
+"expenseSubkind.edit" = "Editar subtipo de gasto";
+"expenseSubkind.edit.message" = "Introduce el nuevo nombre del subtipo de gasto";
+"expenseSubkind.delete" = "Eliminar subtipo de gasto";
+"expenseSubkind.delete.message" = "¿Está seguro que desea eliminar el subtipo de gasto \"%@\"?";
+
+"newMovement.select.bankAccount" = "Selecciona una cuenta";
+"newMovement.insert.concept" = "Introduce el concepto";
+"newMovement.insert.amount" = "Introduce el importe";
+"newMovement.insert.kind" = "Selecciona el tipo de gasto";
+"newMovement.insert.subkind" = "Selecciona el subtipo de gasto";
+"newMovement.insert.bankAccount" = "Selecciona la cuenta bancaria";

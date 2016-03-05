@@ -1,0 +1,68 @@
+/* 
+  Localizable.strings
+  diexpenses
+
+  Created by Diego Sepúlveda Blanco on 26/1/16.
+  Copyright © 2016 UPSA. All rights reserved.
+*/
+
+"common.error" = "Error";
+"common.close" = "Close";
+"common.cancel" = "Cancel";
+"common.delete" = "Delete";
+"common.edit" = "Edit";
+"common.update" = "Update";
+"common.save" = "Save";
+"common.done" = "Done";
+"common.page" = "Page";
+"common.accept" = "Accept";
+"common.loadingData" = "Loading data...";
+"common.totalMovements" = "TotalMovements";
+"common.noData" = "There is no data";
+"common.noBankAccounts" = "No bank accounts";
+"common.noInternetConnection" = "Check your Internet connection";
+"common.unknownError" = "An unknown error has occurred";
+"common.validator.required" = "Required field";
+"common.validator.digit" = "Must contain %d digits";
+"common.validator.decimal" = "It must be a decimal value";
+"common.validator.password" = "At least 6 characters, containing uppercase, lowercase and digits";
+"common.validator.password.confirmation" = "Passwords do not match.";
+
+"home.greetings" = "Hello %@!";
+"home.totalAmount" = "Total amount: %@";
+"home.totalIncomes" = "Month incomes: %@";
+"home.totalExpenses" = "Month expenses: %@";
+"home.incomes" = "Incomes";
+"home.expenses" = "Expenses";
+"home.chart.nodata" = "Still no data this month";
+"home.chart.nodata.description" = "Recorded an income or expense";
+"home.balance.high" = "This month you are doing well";
+"home.balance.medium" = "Spares nothing ...";
+"home.balance.low" = "Do not spend much!";
+
+"bankAccounts.requiredDescription" = "Enter a description";
+"bankAccounts.noData" = "No bank accounts";
+
+"expenseKind.select" = "Select a kind";
+"expenseKind.newExpenseKind" = "New kind of expense";
+"expenseKind.newExpenseKind.message" = "Enter the name of the kind of expense";
+"expenseKind.edit" = "Edit expense type";
+"expenseKind.edit.message" = "Enter the new name expense kind";
+"expenseKind.delete" = "Remove expense kind";
+"expenseKind.delete.message" = "Are you sure you want to delete the expense kind \"%@\"?";
+
+"expenseSubkind.select" = "Select a subkind";
+"expenseSubkind.selectKind" = "Select a kind first";
+"expenseSubkind.new" = "Create expense subkind";
+"expenseSubkind.new.message" = "Enter the name of the subkind expense";
+"expenseSubkind.edit" = "Edit subkind expense";
+"expenseSubkind.edit.message" = "Enter the new name of the subkind expense";
+"expenseSubkind.delete" = "Remove subkind expense";
+"expenseSubkind.delete.message" = "Are you sure you want to delete the expense subkind \"%@\"?";
+
+"newMovement.select.bankAccount" = "Select an account";
+"newMovement.insert.concept" = "Enter the concept";
+"newMovement.insert.amount" = "Enter the amount";
+"newMovement.insert.kind" = "Select the kind of expense";
+"newMovement.insert.subkind" = "Select the subkind of expense";
+"newMovement.insert.bankAccount" = "Select the bank account";

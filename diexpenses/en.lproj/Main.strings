@@ -1,0 +1,177 @@
+
+/* Class = "UILabel"; text = "Transaction date"; ObjectID = "0Fh-Wj-VGV"; */
+"0Fh-Wj-VGV.text" = "Transaction date";
+
+/* Class = "UILabel"; text = "Date:"; ObjectID = "22K-c0-ef7"; */
+"22K-c0-ef7.text" = "Date:";
+
+/* Class = "UIButton"; normalTitle = "Delete subkind"; ObjectID = "2Bp-4u-iIu"; */
+"2Bp-4u-iIu.normalTitle" = "Delete subkind";
+
+/* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "3Ub-Lh-NiP"; */
+"3Ub-Lh-NiP.normalTitle" = "Sign In";
+
+/* Class = "UILabel"; text = "Total amount:"; ObjectID = "4A5-mv-AGf"; */
+"4A5-mv-AGf.text" = "Total amount:";
+
+/* Class = "UILabel"; text = "Description & Amount"; ObjectID = "6Sv-N2-XXk"; */
+"6Sv-N2-XXk.text" = "Description & Amount";
+
+/* Class = "UILabel"; text = "Control digit:"; ObjectID = "72P-jm-DGl"; */
+"72P-jm-DGl.text" = "Control digit:";
+
+/* Class = "UIButton"; normalTitle = "New kind"; ObjectID = "7I2-Am-5sm"; */
+"7I2-Am-5sm.normalTitle" = "New kind";
+
+/* Class = "UILabel"; text = "Entity:"; ObjectID = "7l2-MO-zwt"; */
+"7l2-MO-zwt.text" = "Entity:";
+
+/* Class = "UINavigationItem"; title = "New bank account"; ObjectID = "AEW-52-v3R"; */
+"AEW-52-v3R.title" = "New bank account";
+
+/* Class = "UINavigationItem"; title = "Bank Accounts"; ObjectID = "B1p-II-G3d"; */
+"B1p-II-G3d.title" = "Bank Accounts";
+
+/* Class = "UILabel"; text = "Subkinds"; ObjectID = "BmM-aH-ahw"; */
+"BmM-aH-ahw.text" = "Subkinds";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "CAI-vy-RpM"; */
+"CAI-vy-RpM.title" = "Cancel";
+
+/* Class = "UISegmentedControl"; DBl-YI-Pco.segmentTitles[0] = "Expense"; ObjectID = "DBl-YI-Pco"; */
+"DBl-YI-Pco.segmentTitles[0]" = "Expense";
+
+/* Class = "UISegmentedControl"; DBl-YI-Pco.segmentTitles[1] = "Income"; ObjectID = "DBl-YI-Pco"; */
+"DBl-YI-Pco.segmentTitles[1]" = "Income";
+
+/* Class = "UIButton"; normalTitle = "Don't have an Account? Signup Now"; ObjectID = "Dve-4e-STW"; */
+"Dve-4e-STW.normalTitle" = "Don't have an Account? Signup Now";
+
+/* Class = "UIButton"; normalTitle = "Edit subkind"; ObjectID = "EJ2-WB-lxA"; */
+"EJ2-WB-lxA.normalTitle" = "Edit subkind";
+
+/* Class = "UILabel"; text = "Description:"; ObjectID = "EKe-3P-6cp"; */
+"EKe-3P-6cp.text" = "Description:";
+
+/* Class = "UILabel"; text = "Subkind:"; ObjectID = "FzA-eZ-BgH"; */
+"FzA-eZ-BgH.text" = "Subkind:";
+
+/* Class = "UILabel"; text = "Account number:"; ObjectID = "Hju-tH-MAI"; */
+"Hju-tH-MAI.text" = "Account number:";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "IRs-Qh-w4f"; */
+"IRs-Qh-w4f.title" = "Save";
+
+/* Class = "UILabel"; text = "Year"; ObjectID = "Iw1-7s-zhM"; */
+"Iw1-7s-zhM.text" = "Year";
+
+/* Class = "UIButton"; normalTitle = "Have an account? Login Now"; ObjectID = "JHY-ZT-1OA"; */
+"JHY-ZT-1OA.normalTitle" = "Have an account? Login Now";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "KjC-oI-4Qy"; */
+"KjC-oI-4Qy.normalTitle" = "Sign Up";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "M9G-Rj-Du1"; */
+"M9G-Rj-Du1.title" = "Cancel";
+
+/* Class = "UINavigationItem"; title = "Movements history"; ObjectID = "PIS-F9-Cdb"; */
+"PIS-F9-Cdb.title" = "Movements history";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "QPq-JM-OHD"; */
+"QPq-JM-OHD.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "Amount:"; ObjectID = "RNY-Ag-j8H"; */
+"RNY-Ag-j8H.text" = "Amount:";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "SBM-mK-1Xb"; */
+"SBM-mK-1Xb.title" = "Save";
+
+/* Class = "UINavigationItem"; title = "New movement"; ObjectID = "TnB-5B-wy6"; */
+"TnB-5B-wy6.title" = "New movement";
+
+/* Class = "UILabel"; text = "Kinds"; ObjectID = "U1C-dD-q4u"; */
+"U1C-dD-q4u.text" = "Kinds";
+
+/* Class = "UILabel"; text = "Login"; ObjectID = "VDF-dr-WuE"; */
+"VDF-dr-WuE.text" = "Login";
+
+/* Class = "UILabel"; text = "Month"; ObjectID = "WDk-em-UmT"; */
+"WDk-em-UmT.text" = "Month";
+
+/* Class = "UILabel"; text = "Complete Bank Account"; ObjectID = "Wuh-No-SVz"; */
+"Wuh-No-SVz.text" = "Complete Bank Account";
+
+/* Class = "UITabBarItem"; title = "Types"; ObjectID = "Y8b-9p-aRW"; */
+"Y8b-9p-aRW.title" = "Types";
+
+/* Class = "UILabel"; text = "Complete Bank Account"; ObjectID = "aX0-Ol-yo8"; */
+"aX0-Ol-yo8.text" = "Complete Bank Account";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "Home";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "b35-qx-jfR"; */
+"b35-qx-jfR.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "Concept:"; ObjectID = "bB4-FX-6Z1"; */
+"bB4-FX-6Z1.text" = "Concept:";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "bWK-3R-J8A"; */
+"bWK-3R-J8A.placeholder" = "Username";
+
+/* Class = "UITabBarItem"; title = "Bank Accounts"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "Bank Accounts";
+
+/* Class = "UIButton"; normalTitle = "Edit kind"; ObjectID = "gPH-pO-BCm"; */
+"gPH-pO-BCm.normalTitle" = "Edit kind";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "hwq-eQ-AEa"; */
+"hwq-eQ-AEa.placeholder" = "Username";
+
+/* Class = "UILabel"; text = "Month incomes:"; ObjectID = "is2-ea-66F"; */
+"is2-ea-66F.text" = "Month incomes:";
+
+/* Class = "UILabel"; text = "Balance:"; ObjectID = "j0V-On-yLe"; */
+"j0V-On-yLe.text" = "Balance:";
+
+/* Class = "UIButton"; normalTitle = "Delete kind"; ObjectID = "jtd-S7-HO3"; */
+"jtd-S7-HO3.normalTitle" = "Delete kind";
+
+/* Class = "UILabel"; text = "Account:"; ObjectID = "kAI-lZ-ebX"; */
+"kAI-lZ-ebX.text" = "Account:";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "kwx-Kf-h4p"; */
+"kwx-Kf-h4p.text" = "Description";
+
+/* Class = "UILabel"; text = "Office:"; ObjectID = "lbe-KJ-sxn"; */
+"lbe-KJ-sxn.text" = "Office:";
+
+/* Class = "UITabBarItem"; title = "Movements"; ObjectID = "m0T-V6-VLL"; */
+"m0T-V6-VLL.title" = "Movements";
+
+/* Class = "UILabel"; text = "Month expenses:"; ObjectID = "osg-G2-djG"; */
+"osg-G2-djG.text" = "Month expenses:";
+
+/* Class = "UILabel"; text = "Sign Up"; ObjectID = "pLW-WY-osc"; */
+"pLW-WY-osc.text" = "Sign Up";
+
+/* Class = "UILabel"; text = "¡Hello! "; ObjectID = "pcC-38-q1o"; */
+"pcC-38-q1o.text" = "¡Hello! ";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "qas-HZ-zZX"; */
+"qas-HZ-zZX.placeholder" = "Name";
+
+/* Class = "UILabel"; text = "Kind & Subkind"; ObjectID = "qih-VF-pQO"; */
+"qih-VF-pQO.text" = "Kind & Subkind";
+
+/* Class = "UITextField"; placeholder = "Confirm password"; ObjectID = "sDx-l1-Do5"; */
+"sDx-l1-Do5.placeholder" = "Confirm password";
+
+/* Class = "UIButton"; normalTitle = "New subkind"; ObjectID = "sPj-hC-qgQ"; */
+"sPj-hC-qgQ.normalTitle" = "New subkind";
+
+/* Class = "UILabel"; text = "Kind:"; ObjectID = "w9G-Ih-DN1"; */
+"w9G-Ih-DN1.text" = "Kind:";
+
+/* Class = "UILabel"; text = "IBAN:"; ObjectID = "zWN-j1-B4f"; */
+"zWN-j1-B4f.text" = "IBAN:";

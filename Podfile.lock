@@ -1,0 +1,16 @@
+PODS:
+  - Charts (2.1.6)
+  - Gloss (0.6.2)
+  - SwiftValidator (3.0.1)
+
+DEPENDENCIES:
+  - Charts
+  - Gloss
+  - SwiftValidator
+
+SPEC CHECKSUMS:
+  Charts: 5e1e5ac23898e5b09d226a2fc3e9d86bc281937e
+  Gloss: 22fd970682b5449e08e2f41c5087eefe7d7d084b
+  SwiftValidator: c59223144754045d7691febdc3b3ecc2e73b609c
+
+COCOAPODS: 0.39.0

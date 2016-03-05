@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Loaded by SecondViewController"; ObjectID = "NDk-cv-Gan"; */
+"NDk-cv-Gan.text" = "Loaded by SecondViewController";
+
+/* Class = "UITabBarItem"; title = "Second"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "Second";
+
+/* Class = "UILabel"; text = "Month income: {incomes}"; ObjectID = "is2-ea-66F"; */
+"is2-ea-66F.text" = "Month income: {incomes}";
+
+/* Class = "UILabel"; text = "{balance_message}"; ObjectID = "jAX-RQ-nVw"; */
+"jAX-RQ-nVw.text" = "{balance_message}";
+
+/* Class = "UILabel"; text = "Month expenses: {expenses}"; ObjectID = "osg-G2-djG"; */
+"osg-G2-djG.text" = "Month expenses: {expenses}";
+
+/* Class = "UILabel"; text = "Second View"; ObjectID = "zEq-FU-wV5"; */
+"zEq-FU-wV5.text" = "Second View";
+
+/* Class = "UILabel"; text = "Hola {nombre}"; ObjectID = "pcC-38-q1o"; */
+"pcC-38-q1o.text" = "Hello {nombre}";
