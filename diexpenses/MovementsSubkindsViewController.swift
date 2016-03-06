@@ -14,12 +14,7 @@ class MovementSubkindsViewController: UIViewController {
     var expenseKind: ExpenseKind!
     var expensesSubkinds: [ExpenseKind] = []
     
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "refreshMovementsSubkinds:", forControlEvents: .ValueChanged)
-        
-        return refreshControl
-    }()
+    lazy var refreshControl = Diexpenses.createRefreshControl(actionName: "refreshMovementsSubkinds:")
 
     @IBOutlet weak var movementesSubkindsTableView: UITableView!
     
@@ -39,10 +34,8 @@ class MovementSubkindsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        movementesSubkindsTableView.addSubview(self.refreshControl)
-        
-        self.loadMovementsSubkinds()
+
+        initVC()
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,82 +45,22 @@ class MovementSubkindsViewController: UIViewController {
 
 }
 
+// MARK: - Extension for legacy operations
 extension MovementSubkindsViewController {
     
+    // MARK: Initialize the View Controller
+    func initVC() {
+        movementesSubkindsTableView.addSubview(self.refreshControl)
+        self.loadMovementsSubkinds()
+    }
+    
+    // MARK: Refresh the movements subkinds table data
     func refreshMovementsSubkinds(refreshControl: UIRefreshControl) {
         loadMovementsSubkinds()
         refreshControl.endRefreshing()
     }
-}
-
-extension MovementSubkindsViewController: UITableViewDelegate {
     
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        
-        let remove = UITableViewRowAction(style: .Destructive, title: NSLocalizedString("common.delete", comment: "The delete title")) {
-            action, index in
-            
-            let cell = tableView.cellForRowAtIndexPath(indexPath)!
-            let movementSubkind = self.getExpenseKindFromCell(cell)
-            self.createAlert(NSLocalizedString("expenseSubkind.delete", comment: "The delete expense subkind message"), message: String.localizedStringWithFormat(NSLocalizedString("expenseSubkind.delete.message", comment: "The delete expense subkind description"), movementSubkind.description), actionButtonMessage: NSLocalizedString("common.delete", comment: "The common message delete"), expenseKind: movementSubkind, operation: .DELETE_SUBKIND)
-            
-        }
-        remove.backgroundColor = Diexpenses.redColor
-        
-        let edit = UITableViewRowAction(style: .Normal, title: NSLocalizedString("common.edit", comment: "The edit title")) {
-            action, index in
-            
-            let cell = tableView.cellForRowAtIndexPath(indexPath)!
-            let movementSubkind = self.getExpenseKindFromCell(cell)
-            self.createAlert(NSLocalizedString("expenseSubkind.edit", comment: "The edit expense subkind message"), message: NSLocalizedString("expenseSubkind.edit.message", comment: "The edit expense subkind description"), actionButtonMessage: NSLocalizedString("common.update", comment: "The common message update"), expenseKind: movementSubkind, operation: .EDIT_SUBKIND)
-        }
-        edit.backgroundColor = Diexpenses.greenColor
-        
-        return [remove, edit]
-    }
-    
-    func getExpenseKindFromCell(cell: UITableViewCell) -> ExpenseKind {
-        let id = cell.tag
-        let description = cell.textLabel?.text
-        return ExpenseKind(id: id, description: description!)
-    }
-}
-
-extension MovementSubkindsViewController: UITableViewDataSource {
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return expensesSubkinds.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Cell.BASIC_IDENTIFIER, forIndexPath: indexPath) as UITableViewCell
-        let expenseSubkind = expensesSubkinds[indexPath.row]
-        cell.tag = expenseSubkind.id.integerValue
-        cell.textLabel?.text = expenseSubkind.description
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if expensesSubkinds.isEmpty {
-            return NSLocalizedString("common.noData", comment: "The common no data message")
-        }
-        
-        return nil
-    }
-    
-}
-
-extension MovementSubkindsViewController {
-    
+    // MARK: Create a custom alert based on the kind of operation
     func createAlert(title: String, message: String, actionButtonMessage: String, var expenseKind: ExpenseKind?, operation: KindsOperations) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         
@@ -172,11 +105,80 @@ extension MovementSubkindsViewController {
         
         self.presentViewController(alert, animated: true, completion: nil)
     }
-
 }
 
+// MARK: - UITableViewDelegate implementation for MovementSubkindsViewController
+extension MovementSubkindsViewController: UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        let remove = UITableViewRowAction(style: .Destructive, title: NSLocalizedString("common.delete", comment: "The delete title")) {
+            action, index in
+            
+            let cell = tableView.cellForRowAtIndexPath(indexPath)!
+            let movementSubkind = self.getMovementSubkindFromCell(cell)
+            self.createAlert(NSLocalizedString("expenseSubkind.delete", comment: "The delete expense subkind message"), message: String.localizedStringWithFormat(NSLocalizedString("expenseSubkind.delete.message", comment: "The delete expense subkind description"), movementSubkind.description), actionButtonMessage: NSLocalizedString("common.delete", comment: "The common message delete"), expenseKind: movementSubkind, operation: .DELETE_SUBKIND)
+            
+        }
+        remove.backgroundColor = Diexpenses.redColor
+        
+        let edit = UITableViewRowAction(style: .Normal, title: NSLocalizedString("common.edit", comment: "The edit title")) {
+            action, index in
+            
+            let cell = tableView.cellForRowAtIndexPath(indexPath)!
+            let movementSubkind = self.getMovementSubkindFromCell(cell)
+            self.createAlert(NSLocalizedString("expenseSubkind.edit", comment: "The edit expense subkind message"), message: NSLocalizedString("expenseSubkind.edit.message", comment: "The edit expense subkind description"), actionButtonMessage: NSLocalizedString("common.update", comment: "The common message update"), expenseKind: movementSubkind, operation: .EDIT_SUBKIND)
+        }
+        edit.backgroundColor = Diexpenses.greenColor
+        
+        return [remove, edit]
+    }
+    
+    func getMovementSubkindFromCell(cell: UITableViewCell) -> ExpenseKind {
+        let id = cell.tag
+        let description = cell.textLabel?.text
+        return ExpenseKind(id: id, description: description!)
+    }
+}
+
+// MARK: - UITableViewDataSource implementation for MovementKindsViewController
+extension MovementSubkindsViewController: UITableViewDataSource {
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return expensesSubkinds.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Cell.BASIC_IDENTIFIER, forIndexPath: indexPath) as UITableViewCell
+        let expenseSubkind = expensesSubkinds[indexPath.row]
+        cell.tag = expenseSubkind.id.integerValue
+        cell.textLabel?.text = expenseSubkind.description
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if expensesSubkinds.isEmpty {
+            return NSLocalizedString("common.noData", comment: "The common no data message")
+        }
+        
+        return nil
+    }
+    
+}
+
+// MARK: - API Request
 extension MovementSubkindsViewController {
     
+    // MARK: Load the movements subkinds calling to diexpensesAPI
     func loadMovementsSubkinds() {
         
         let url = String.localizedStringWithFormat(Constants.API.LIST_FIN_MOV_SUBTYPES, expenseKind.id)
@@ -204,6 +206,7 @@ extension MovementSubkindsViewController {
         })
     }
     
+    // MARK: Create a movement subkind calling to diexpensesAPI
     func createSubkind(value: String) {
         
         let url = String.localizedStringWithFormat(Constants.API.CREATE_FIN_MOV_SUBTYPES, expenseKind.id)
@@ -216,6 +219,7 @@ extension MovementSubkindsViewController {
         })
     }
     
+    // MARK: Delete a movement subkind calling to diexpensesAPI
     func editSubkind(expenseSubkind: ExpenseKind) {
         
         let url = String.localizedStringWithFormat(Constants.API.UD_FIN_MOV_SUBTYPES, expenseKind.id, expenseSubkind.id)
@@ -227,6 +231,7 @@ extension MovementSubkindsViewController {
         })
     }
     
+    // MARK: Edit a movement subkind calling to diexpensesAPI
     func deleteSubkind(subkindId: NSNumber) {
         
         let url = String.localizedStringWithFormat(Constants.API.UD_FIN_MOV_SUBTYPES, expenseKind.id, subkindId)
@@ -237,6 +242,7 @@ extension MovementSubkindsViewController {
         })
     }
     
+    // MARK: Generic operation called after create, delete and edit movement subkind
     func loadSubkindsAfterOperation(data: NSData?, expectedCode: Int) {
         if Diexpenses.dealWithGenericResponse(self, responseData: data, expectedCode: expectedCode) {
             self.loadMovementsSubkinds()

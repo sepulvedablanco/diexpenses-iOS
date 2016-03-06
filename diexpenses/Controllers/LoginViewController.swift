@@ -19,52 +19,58 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordErrorLabel: UILabel!
     
+    // MARK: Method called when user push Sign in button
     @IBAction func onSignIn() {
-        // Validate fields
         validator.validate(self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        setTextFieldsDelegate()
-        setValidationStyles()
-        registerFieldsInValidator()
+
+        initVC()
     }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
-        
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 }
 
+// MARK: - Extension for legacy operations
 extension LoginViewController {
     
+    // MARK: Initialize the View Controller
+    func initVC() {
+        setTextFieldsDelegate()
+        setValidationStyles()
+        registerFieldsInValidator()
+    }
+    
+    // MARK: Set the user loaded in NSUserDefaults
     static func setUserInPrefs() {
         let prefs = NSUserDefaults.standardUserDefaults()
         prefs.setBool(true, forKey: Constants.Session.IS_LOGGED_IN)
         prefs.setObject(Diexpenses.user.toJSON(), forKey: Constants.Session.USER)
     }
     
+    // MARK: Redirection to HomeViewController. This method is called when the log in operation is performing succesfully
     func toHomeViewController() {
         self.performSegueWithIdentifier(Constants.Segue.TO_HOME_VC, sender: self)
     }
 
 }
 
+// MARK: - UITextFieldDelegate implementation for LoginViewController
 extension LoginViewController: UITextFieldDelegate {
     
+    // MARK: Set the UITextFields form delegate
     func setTextFieldsDelegate() {
         usernameTextField.delegate = self
         passwordTextField.delegate = self
     }
     
+    // MARK: Method called when the user push Next in the keyboard
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         dispatch_async(dispatch_get_main_queue(), {
             if textField == self.usernameTextField {
@@ -80,8 +86,24 @@ extension LoginViewController: UITextFieldDelegate {
 
 }
 
+// MARK: - ValidationDelegate implementation for LoginViewController
 extension LoginViewController: ValidationDelegate {
     
+    // MARK: Register the required fields
+    func registerFieldsInValidator() {
+        let requiredString = NSLocalizedString("common.validator.required", comment: "The required field message")
+        validator.registerField(usernameTextField, errorLabel: usernameErrorLabel, rules: [RequiredRule(message: requiredString)])
+        validator.registerField(passwordTextField, errorLabel: passwordErrorLabel, rules: [RequiredRule(message: requiredString)])
+    }
+    
+    // MARK: Method called when validation failed
+    func validationFailed(errors:[UITextField:ValidationError]) {
+        for (field, error) in validator.errors {
+            setErrorStyle(field, errorLabel: error.errorLabel!, errorMessage: error.errorMessage)
+        }
+    }
+    
+    // MARK: Set the validation styles for the UITextFields inside the form
     func setValidationStyles() {
         validator.styleTransformers(
             success:{ (validationRule) -> Void in
@@ -91,19 +113,8 @@ extension LoginViewController: ValidationDelegate {
                 self.setErrorStyle(validationError.textField, errorLabel: validationError.errorLabel!, errorMessage: validationError.errorMessage)
         })
     }
-    
-    func registerFieldsInValidator() {
-        let requiredString = NSLocalizedString("common.validator.required", comment: "The required field message")
-        validator.registerField(usernameTextField, errorLabel: usernameErrorLabel, rules: [RequiredRule(message: requiredString)])
-        validator.registerField(passwordTextField, errorLabel: passwordErrorLabel, rules: [RequiredRule(message: requiredString)])
-    }
-    
-    func validationFailed(errors:[UITextField:ValidationError]) {
-        for (field, error) in validator.errors {
-            setErrorStyle(field, errorLabel: error.errorLabel!, errorMessage: error.errorMessage)
-        }
-    }
-    
+
+    // MARK: Set the validation styles for valid fields
     func setValidStyle(input: UIView, errorLabel: UILabel) {
         input.layer.borderColor = Diexpenses.greenColor.CGColor
         input.layer.borderWidth = 0.5
@@ -112,6 +123,7 @@ extension LoginViewController: ValidationDelegate {
         errorLabel.text = ""
     }
     
+    // MARK: Set the validation styles for invalid fields
     func setErrorStyle(input: UIView, errorLabel: UILabel, errorMessage: String) {
         input.layer.borderColor = Diexpenses.redColor.CGColor
         input.layer.borderWidth = 1.0
@@ -119,14 +131,17 @@ extension LoginViewController: ValidationDelegate {
         errorLabel.hidden = false
     }
     
+    // MARK: Method called when form validation is succesfull
     func validationSuccessful() {
         doLogin()
     }
 }
 
 
+// MARK: - API Request
 extension LoginViewController {
     
+    // MARK: Log in the user on the APP calling to diexpensesAPI
     func doLogin() {
         let user = usernameTextField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         let password = passwordTextField.text!

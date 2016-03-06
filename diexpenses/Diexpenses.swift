@@ -125,6 +125,12 @@ class Diexpenses {
         }
         return headers
     }
+    
+    static func createRefreshControl(actionName name: Selector) -> UIRefreshControl {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: name, forControlEvents: .ValueChanged)
+        return refreshControl
+    }
 }
 
 enum HttpVerbs: String {

@@ -31,16 +31,8 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        scrollView.configure(view)
-        setTextFieldsDelegate()
-        setValidationStyles()
-        registerFieldsInValidator()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
-        
+
+        initVC()
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,8 +42,27 @@ class SignUpViewController: UIViewController {
     
 }
 
+// MARK: - Extension for legacy operations
+extension SignUpViewController {
+    
+    // MARK: Initialize the View Controller
+    func initVC() {
+        scrollView.configure(view)
+        setTextFieldsDelegate()
+        setValidationStyles()
+        registerFieldsInValidator()
+    }
+    
+    // MARK: Redirection to HomeViewController. This method is called when new user is created
+    func toHomeViewController() {
+        self.performSegueWithIdentifier(Constants.Segue.TO_HOME_VC, sender: self)
+    }
+}
+
+// MARK: - UITextFieldDelegate implementation for SignUpViewController
 extension SignUpViewController: UITextFieldDelegate {
     
+    // MARK: Set the UITextFields form delegate
     func setTextFieldsDelegate() {
         nameTextField.delegate = self
         usernameTextField.delegate = self
@@ -59,6 +70,7 @@ extension SignUpViewController: UITextFieldDelegate {
         confirmPasswordTextField.delegate = self
     }
     
+    // MARK: Method called when the user push Next in the keyboard
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         dispatch_async(dispatch_get_main_queue(), {
             if textField == self.nameTextField {
@@ -77,44 +89,28 @@ extension SignUpViewController: UITextFieldDelegate {
         })
         return true;
     }
+}
 
-    /*
-    func keyboardWillShow(sender: NSNotification) {
-        self.view.frame.origin.y -= 150
+// MARK: - ValidationDelegate implementation for SignUpViewController
+extension SignUpViewController: ValidationDelegate {
+    
+    // MARK: Register the required fields
+    func registerFieldsInValidator() {
+        let requiredString = NSLocalizedString("common.validator.required", comment: "The required field message")
+        validator.registerField(nameTextField, errorLabel: nameErrorLabel, rules: [RequiredRule(message: requiredString)])
+        validator.registerField(usernameTextField, errorLabel: usernameErrorLabel, rules: [RequiredRule(message: requiredString)])
+        validator.registerField(passwordTextField, errorLabel: passwordErrorLabel, rules: [RequiredRule(message: requiredString), CustomPasswordRule()])
+        validator.registerField(confirmPasswordTextField, errorLabel: confirmPasswordErrorLabel, rules: [RequiredRule(message: requiredString), ConfirmationRule(confirmField: passwordTextField, message: NSLocalizedString("common.validator.password.confirmation", comment: "The password confirmation message"))])
     }
     
-    func keyboardWillHide(sender: NSNotification) {
-        self.view.frame.origin.y += 150
-    }
-
-    func setTextFieldsMoving(up: Bool, textField: UITextField) {
-        if textField == self.confirmPasswordTextField {
-            animateViewMoving(up, moveValue: 180)
+    // MARK: Method called when validation failed
+    func validationFailed(errors:[UITextField:ValidationError]) {
+        for (field, error) in validator.errors {
+            setErrorStyle(field, errorLabel: error.errorLabel!, errorMessage: error.errorMessage)
         }
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-    //    setTextFieldsMoving(true, textField: textField)
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-    //    setTextFieldsMoving(false, textField: textField)
-    }
-    
-    func animateViewMoving(up:Bool, moveValue :CGFloat){
-        let movementDuration:NSTimeInterval = 0.3
-        let movement:CGFloat = (up ? -moveValue : moveValue)
-        UIView.beginAnimations("animateView", context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(movementDuration)
-        self.view.frame = CGRectOffset(self.view.frame, 0,  movement)
-        UIView.commitAnimations()
-    }*/
-
-}
-
-extension SignUpViewController: ValidationDelegate {
-    
+    // MARK: Set the validation styles for the UITextFields inside the form
     func setValidationStyles() {
         validator.styleTransformers(
             success:{ (validationRule) -> Void in
@@ -125,20 +121,7 @@ extension SignUpViewController: ValidationDelegate {
         })
     }
     
-    func registerFieldsInValidator() {
-        let requiredString = NSLocalizedString("common.validator.required", comment: "The required field message")
-        validator.registerField(nameTextField, errorLabel: nameErrorLabel, rules: [RequiredRule(message: requiredString)])
-        validator.registerField(usernameTextField, errorLabel: usernameErrorLabel, rules: [RequiredRule(message: requiredString)])
-        validator.registerField(passwordTextField, errorLabel: passwordErrorLabel, rules: [RequiredRule(message: requiredString), CustomPasswordRule()])
-        validator.registerField(confirmPasswordTextField, errorLabel: confirmPasswordErrorLabel, rules: [RequiredRule(message: requiredString), ConfirmationRule(confirmField: passwordTextField, message: NSLocalizedString("common.validator.password.confirmation", comment: "The password confirmation message"))])
-    }
-    
-    func validationFailed(errors:[UITextField:ValidationError]) {
-        for (field, error) in validator.errors {
-            setErrorStyle(field, errorLabel: error.errorLabel!, errorMessage: error.errorMessage)
-        }
-    }
-    
+    // MARK: Set the validation styles for valid fields
     func setValidStyle(input: UIView, errorLabel: UILabel) {
         input.layer.borderColor = Diexpenses.greenColor.CGColor
         input.layer.borderWidth = 0.5
@@ -147,6 +130,7 @@ extension SignUpViewController: ValidationDelegate {
         errorLabel.text = ""
     }
     
+    // MARK: Set the validation styles for invalid fields
     func setErrorStyle(input: UIView, errorLabel: UILabel, errorMessage: String) {
         input.layer.borderColor = Diexpenses.redColor.CGColor
         input.layer.borderWidth = 1.0
@@ -154,20 +138,16 @@ extension SignUpViewController: ValidationDelegate {
         errorLabel.hidden = false
     }
     
+    // MARK: Method called when form validation is succesfull
     func validationSuccessful() {
         createUser()
     }
 }
 
+// MARK: - API Request
 extension SignUpViewController {
     
-    func toHomeViewController() {
-        self.performSegueWithIdentifier(Constants.Segue.TO_HOME_VC, sender: self)
-    }
-}
-
-extension SignUpViewController {
-    
+    // MARK: Create a new user on the APP calling to diexpensesAPI
     func createUser() {
         let name = nameTextField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         let user = usernameTextField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
@@ -188,6 +168,7 @@ extension SignUpViewController {
         })
     }
 
+    // MARK: Log in the user on the APP calling to diexpensesAPI
     func doLogin(nameUserPass: NameUserPass) {
         let userPassJson = JsonUtils.JSONStringify(nameUserPass.toJSON()!, prettyPrinted: true)
         NSLog("\(userPassJson)")

@@ -27,12 +27,7 @@ class MovementsViewController: UIViewController {
         return years
     }()
     
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "refreshMovements:", forControlEvents: .ValueChanged)
-        
-        return refreshControl
-    }()
+    lazy var refreshControl = Diexpenses.createRefreshControl(actionName: "refreshMovements:")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +37,8 @@ class MovementsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        movementsTableView.addSubview(self.refreshControl)
-        
-        loadMonths()
-        loadMovements()
+
+        initVC()
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,6 +47,59 @@ class MovementsViewController: UIViewController {
     }
 }
 
+// MARK: - Extension for legacy operations
+extension MovementsViewController {
+    
+    // MARK: Initialize the View Controller
+    func initVC() {
+        movementsTableView.addSubview(self.refreshControl)
+        loadMonths()
+        loadMovements()
+    }
+    
+    // MARK: Refresh the movements table data
+    func refreshMovements(refreshControl: UIRefreshControl) {
+        loadMovements()
+        refreshControl.endRefreshing()
+    }
+
+    // MARK: Return the movement icon based on the operation (expense/incom)
+    func getMovementImage(isExpense: Bool) -> String {
+        if isExpense {
+            return Constants.Images.MINUS
+        } else {
+            return Constants.Images.PLUS
+        }
+    }
+
+    // MARK: Load month names an array based on the year 
+    func loadMonths(isThisYear: Bool = true) -> Bool {
+        // All past years have 12 months. If current month picker has 12 months we don't have to do anything.s
+        if !isThisYear && months.count == 12 {
+            return false
+        }
+        
+        var initialMonthIndex = 12
+        if isThisYear {
+            let todayDate = NSDate()
+            let todayCalendar = NSCalendar.currentCalendar()
+            let components = todayCalendar.components([.Month], fromDate: todayDate)
+            initialMonthIndex = components.month // Get current month
+        }
+        
+        let dateFormatter = NSDateFormatter()
+        let monthSymbols = dateFormatter.standaloneMonthSymbols
+        
+        months = [String]()
+        for var index = initialMonthIndex; index > 0; --index {
+            months.append(monthSymbols[index - 1])
+        }
+        
+        return true
+    }
+}
+
+// MARK: - UIPickerViewDelegate implementation for MovementsViewController
 extension MovementsViewController: UIPickerViewDelegate {
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -85,6 +130,7 @@ extension MovementsViewController: UIPickerViewDelegate {
 
 }
 
+// MARK: - UIPickerViewDataSource implementation for MovementsViewController
 extension MovementsViewController: UIPickerViewDataSource {
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -104,6 +150,26 @@ extension MovementsViewController: UIPickerViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate implementation for MovementsViewController
+extension MovementsViewController: UITableViewDelegate {
+
+    // MARK: Option showed when row is swiped
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        let remove = UITableViewRowAction(style: .Destructive, title: NSLocalizedString("common.delete", comment: "The delete title")) {
+            action, index in
+            
+            let cell = self.movementsTableView.cellForRowAtIndexPath(indexPath)!
+            let movementCell = cell as! MovementCell
+            self.removeMovement(movementCell.movement)
+        }
+        remove.backgroundColor = Diexpenses.redColor
+        return [remove]
+    }
+
+}
+
+// MARK: - UITableViewDataSource implementation for MovementsViewController
 extension MovementsViewController: UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -133,71 +199,15 @@ extension MovementsViewController: UITableViewDataSource {
         return movementCell
     }
     
-    // Swipe
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-        
-        let remove = UITableViewRowAction(style: .Destructive, title: NSLocalizedString("common.delete", comment: "The delete title")) {
-            action, index in
-            
-            let cell = self.movementsTableView.cellForRowAtIndexPath(indexPath)!
-            let movementCell = cell as! MovementCell
-            self.removeMovement(movementCell.movement)
-        }
-        remove.backgroundColor = Diexpenses.redColor
-        return [remove]
-    }
-    
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-    //end swipe
 }
 
+// MARK: - API Request
 extension MovementsViewController {
     
-    func refreshMovements(refreshControl: UIRefreshControl) {
-        loadMovements()
-        refreshControl.endRefreshing()
-    }
-    
-    func getMovementImage(isExpense: Bool) -> String {
-        if isExpense {
-            return Constants.Images.MINUS
-        } else {
-            return Constants.Images.PLUS
-        }
-    }
-}
-
-extension MovementsViewController {
-    
-    func loadMonths(isThisYear: Bool = true) -> Bool {
-        if !isThisYear && months.count == 12 {
-            return false
-        }
-        
-        var initialMonthIndex = 12
-        if isThisYear {
-            let todayDate = NSDate()
-            let todayCalendar = NSCalendar.currentCalendar()
-            let components = todayCalendar.components([.Month], fromDate: todayDate)
-            initialMonthIndex = components.month
-        }
-        
-        let dateFormatter = NSDateFormatter()
-        let monthSymbols = dateFormatter.standaloneMonthSymbols
-        
-        months = [String]()
-        for var index = initialMonthIndex; index > 0; --index {
-            months.append(monthSymbols[index - 1])
-        }
-        
-        return true
-    }
-}
-
-extension MovementsViewController {
-    
+    // MARK: Load the selected month movements calling to diexpensesAPI
     func loadMovements() {
         
         let year = String(years[datePickerView.selectedRowInComponent(0)])
@@ -223,6 +233,7 @@ extension MovementsViewController {
         })
     }
     
+    // MARK: Remove selected movement calling to diexpensesAPI
     func removeMovement(movement: Movement) {
         
         let movementsURL = String.localizedStringWithFormat(Constants.API.UD_MOVEMENT_URL, Diexpenses.user.id, movement.id)
@@ -234,6 +245,5 @@ extension MovementsViewController {
                 self.loadMovements()
             }
         })
-    }    
-
+    }
 }

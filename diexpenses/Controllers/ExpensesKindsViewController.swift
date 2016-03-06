@@ -9,6 +9,8 @@
 import UIKit
 import Gloss
 
+// MARK: - Deprecated View Controller. It has been replaced by MovementKindsViewController
+// The view associated to this View Controller is low user friendly and the behaviour of the buttons is complex to maintain.
 class ExpensesKindsViewController: UIViewController {
     
     static let noData = NSLocalizedString("common.noData", comment: "The no data common message")

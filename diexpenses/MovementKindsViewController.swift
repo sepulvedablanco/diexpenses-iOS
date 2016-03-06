@@ -15,17 +15,11 @@ class MovementKindsViewController: UIViewController {
 
     @IBOutlet weak var movementsKindsTableView: UITableView!
     
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "refreshMovementsKinds:", forControlEvents: .ValueChanged)
-        
-        return refreshControl
-    }()
+    lazy var refreshControl = Diexpenses.createRefreshControl(actionName: "refreshMovementsKinds:")
     
     @IBAction func onNewMovementKind(sender: UIBarButtonItem) {
         createAlert(NSLocalizedString("expenseKind.new", comment: "The new expense kind message"), message: NSLocalizedString("expenseKind.new.message", comment: "The new expense kind description"), actionButtonMessage: NSLocalizedString("common.save", comment: "The common message save"), expenseKind: nil, operation: .NEW_KIND)
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +30,7 @@ class MovementKindsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        movementsKindsTableView.addSubview(self.refreshControl)
-        
-        self.loadMovementsKinds()
+        initVC()
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,13 +40,22 @@ class MovementKindsViewController: UIViewController {
     
 }
 
+// MARK: - Extension for legacy operations
 extension MovementKindsViewController {
     
+    // MARK: Initialize the View Controller
+    func initVC() {
+        movementsKindsTableView.addSubview(self.refreshControl)
+        self.loadMovementsKinds()
+    }
+    
+    // MARK: Refresh the movements kinds table data
     func refreshMovementsKinds(refreshControl: UIRefreshControl) {
         loadMovementsKinds()
         refreshControl.endRefreshing()
     }
     
+    // MARK: System method called when performSegueWithIdentifier is called. It is fired when some row is pushed
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
             if identifier == Constants.Segue.TO_EXPENSES_SUBKINDS_VC {
@@ -67,79 +68,8 @@ extension MovementKindsViewController {
             }
         }
     }
-}
-
-extension MovementKindsViewController: UITableViewDelegate {
     
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        
-        let remove = UITableViewRowAction(style: .Destructive, title: NSLocalizedString("common.delete", comment: "The delete title")) {
-            action, index in
-            
-            let cell = tableView.cellForRowAtIndexPath(indexPath)!
-            let id = cell.tag
-            let description = cell.textLabel?.text
-            let movementKind = ExpenseKind(id: id, description: description!)
-            
-            self.createAlert(NSLocalizedString("expenseKind.delete", comment: "The delete expense kind message"), message: String.localizedStringWithFormat(NSLocalizedString("expenseKind.delete.message", comment: "The delete expense kind description"), movementKind.description), actionButtonMessage: NSLocalizedString("common.delete", comment: "The common message delete"), expenseKind: movementKind, operation: .DELETE_KIND)
-            
-        }
-        remove.backgroundColor = Diexpenses.redColor
-        
-        let edit = UITableViewRowAction(style: .Normal, title: NSLocalizedString("common.edit", comment: "The edit title")) {
-            action, index in
-            
-            let cell = tableView.cellForRowAtIndexPath(indexPath)!
-            let id = cell.tag
-            let description = cell.textLabel?.text
-            let movementKind = ExpenseKind(id: id, description: description!)
-            self.createAlert(NSLocalizedString("expenseKind.edit", comment: "The edit expense kind message"), message: NSLocalizedString("expenseKind.edit.message", comment: "The edit expense kind description"), actionButtonMessage: NSLocalizedString("common.update", comment: "The common message update"), expenseKind: movementKind, operation: .EDIT_KIND)
-        }
-        edit.backgroundColor = Diexpenses.greenColor
-        
-        return [remove, edit]
-    }
-
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier(Constants.Segue.TO_EXPENSES_SUBKINDS_VC, sender: tableView.cellForRowAtIndexPath(indexPath)!)
-    }
-}
-
-extension MovementKindsViewController: UITableViewDataSource {
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return expensesKinds.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Cell.BASIC_IDENTIFIER, forIndexPath: indexPath) as UITableViewCell
-        let expenseKind = expensesKinds[indexPath.row]
-        cell.tag = expenseKind.id.integerValue
-        cell.textLabel?.text = expenseKind.description
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if expensesKinds.isEmpty {
-            return NSLocalizedString("common.noData", comment: "The common no data message")
-        }
-        
-        return nil
-    }
-    
-}
-
-extension MovementKindsViewController {
-
+    // MARK: Create a custom alert based on the kind of operation
     func createAlert(title: String, message: String, actionButtonMessage: String, var expenseKind: ExpenseKind?, operation: KindsOperations) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         
@@ -186,8 +116,85 @@ extension MovementKindsViewController {
     }
 }
 
+// MARK: - UITableViewDelegate implementation for MovementKindsViewController
+extension MovementKindsViewController: UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        let remove = UITableViewRowAction(style: .Destructive, title: NSLocalizedString("common.delete", comment: "The delete title")) {
+            action, index in
+            
+            let cell = tableView.cellForRowAtIndexPath(indexPath)!
+            let movementKind = self.getMovementKindFromCell(cell)
+            
+            self.createAlert(NSLocalizedString("expenseKind.delete", comment: "The delete expense kind message"), message: String.localizedStringWithFormat(NSLocalizedString("expenseKind.delete.message", comment: "The delete expense kind description"), movementKind.description), actionButtonMessage: NSLocalizedString("common.delete", comment: "The common message delete"), expenseKind: movementKind, operation: .DELETE_KIND)
+            
+        }
+        remove.backgroundColor = Diexpenses.redColor
+        
+        let edit = UITableViewRowAction(style: .Normal, title: NSLocalizedString("common.edit", comment: "The edit title")) {
+            action, index in
+            
+            let cell = tableView.cellForRowAtIndexPath(indexPath)!
+            let movementKind = self.getMovementKindFromCell(cell)
+            self.createAlert(NSLocalizedString("expenseKind.edit", comment: "The edit expense kind message"), message: NSLocalizedString("expenseKind.edit.message", comment: "The edit expense kind description"), actionButtonMessage: NSLocalizedString("common.update", comment: "The common message update"), expenseKind: movementKind, operation: .EDIT_KIND)
+        }
+        edit.backgroundColor = Diexpenses.greenColor
+        
+        return [remove, edit]
+    }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier(Constants.Segue.TO_EXPENSES_SUBKINDS_VC, sender: tableView.cellForRowAtIndexPath(indexPath)!)
+    }
+    
+    // MARK: Create a ExpenseKind based on cell content
+    func getMovementKindFromCell(cell: UITableViewCell) -> ExpenseKind {
+        let id = cell.tag
+        let description = cell.textLabel?.text
+        return ExpenseKind(id: id, description: description!)
+    }
+
+}
+
+// MARK: - UITableViewDataSource implementation for MovementKindsViewController
+extension MovementKindsViewController: UITableViewDataSource {
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return expensesKinds.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Cell.BASIC_IDENTIFIER, forIndexPath: indexPath) as UITableViewCell
+        let expenseKind = expensesKinds[indexPath.row]
+        cell.tag = expenseKind.id.integerValue
+        cell.textLabel?.text = expenseKind.description
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if expensesKinds.isEmpty {
+            return NSLocalizedString("common.noData", comment: "The common no data message")
+        }
+        
+        return nil
+    }
+    
+}
+
+// MARK: - API Request
 extension MovementKindsViewController {
     
+    // MARK: Load the movements kinds calling to diexpensesAPI
     func loadMovementsKinds() {
         
         let url = String.localizedStringWithFormat(Constants.API.LIST_FIN_MOV_TYPES, Diexpenses.user.id)
@@ -214,6 +221,7 @@ extension MovementKindsViewController {
         })
     }
     
+    // MARK: Create a movement kind calling to diexpensesAPI
     func createKind(value: String) {
         let url = String.localizedStringWithFormat(Constants.API.CREATE_FIN_MOV_TYPES, Diexpenses.user.id)
         let expenseKind = ExpenseKind(description: value)
@@ -225,6 +233,7 @@ extension MovementKindsViewController {
         })
     }
 
+    // MARK: Delete a movement kind calling to diexpensesAPI
     func removeMovementKind(id: NSNumber) {
         let url = String.localizedStringWithFormat(Constants.API.UD_FIN_MOV_TYPES, Diexpenses.user.id, id)
         Diexpenses.doRequest(url, headers: Diexpenses.getTypicalHeaders(), verb: HttpVerbs.DELETE.rawValue, body: nil, completionHandler: {
@@ -234,6 +243,7 @@ extension MovementKindsViewController {
         })
     }
     
+    // MARK: Edit a movement kind calling to diexpensesAPI
     func editMovementKind(expenseKind: ExpenseKind) {
         let url = String.localizedStringWithFormat(Constants.API.UD_FIN_MOV_TYPES, Diexpenses.user.id, expenseKind.id)
         let expenseKindJson = JsonUtils.JSONStringify(expenseKind.toJSON()!, prettyPrinted: true)
@@ -244,6 +254,7 @@ extension MovementKindsViewController {
         })
     }
     
+    // MARK: Generic operation called after create, delete and edit movement kind
     func loadMovementsAfterOperation(data: NSData?, expectedCode: Int) {
         if Diexpenses.dealWithGenericResponse(self, responseData: data, expectedCode: expectedCode) {
             self.loadMovementsKinds()

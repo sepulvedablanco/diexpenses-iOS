@@ -15,13 +15,8 @@ class BankAccountsViewController: UIViewController {
     static let dataDictionary = NSDictionary(contentsOfFile: path!)!
 
     var bankAccounts : [BankAccount] = []
-    
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "refreshBankAccounts:", forControlEvents: .ValueChanged)
-        
-        return refreshControl
-    }()
+
+    lazy var refreshControl = Diexpenses.createRefreshControl(actionName: "refreshBankAccounts:")
 
     @IBOutlet weak var bankAccountsTableView: UITableView!
     
@@ -29,8 +24,6 @@ class BankAccountsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-      //  loadBankAccounts()
-      //  NSNotificationCenter.defaultCenter().addObserver(self, selector: "getBankAccounts", name:"refreshBankAccountsTableView", object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -48,14 +41,28 @@ class BankAccountsViewController: UIViewController {
     
 }
 
+// MARK: - Extension for legacy operations
 extension BankAccountsViewController {
     
+    // MARK: Refresh the bank accounts table data
     func refreshBankAccounts(refreshControl: UIRefreshControl) {
         loadBankAccounts()
         refreshControl.endRefreshing()
     }
     
+    // MARK: Return the name of the image for the bank entity
+    func getBankLogo(entity: String) -> String {
+        let entityImageOpt = BankAccountsViewController.dataDictionary[entity]
+        if let entityImage = entityImageOpt {
+            return entityImage as! String
+        }
+        
+        return Constants.Images.UNKNOW_ENTITY;
+    }
+    
+    // MARK: System method called when new bank account button is pushed
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         if let identifier = segue.identifier {
             if identifier == Constants.Segue.TO_NEW_BANK_ACCOUNT_VC {
                 if let destinationViewController = segue.destinationViewController as? UINavigationController {
@@ -71,15 +78,41 @@ extension BankAccountsViewController {
     }
 }
 
+// MARK: - UITableViewDelegate implementation for BankAccountsViewController
+extension BankAccountsViewController: UITableViewDelegate {
+    
+    // MARK: Menu showed when row is swiped
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        let remove = UITableViewRowAction(style: .Destructive, title: NSLocalizedString("common.delete", comment: "The delete title")) {
+            action, index in
+            
+            let cell = tableView.cellForRowAtIndexPath(indexPath)!
+            let bankCell = cell as! BankCell
+            self.removeBankAccount(bankCell.bankAccount.id)
+        }
+        remove.backgroundColor = Diexpenses.redColor
+        
+        let edit = UITableViewRowAction(style: .Normal, title: NSLocalizedString("common.edit", comment: "The edit title")) {
+            action, index in
+            
+            let cell = tableView.cellForRowAtIndexPath(indexPath)!
+            let bankCell = cell as! BankCell
+            self.performSegueWithIdentifier(Constants.Segue.TO_NEW_BANK_ACCOUNT_VC, sender: bankCell)
+            
+        }
+        edit.backgroundColor = Diexpenses.greenColor
+        
+        return [remove, edit]
+    }
+}
+
+// MARK: - UITableViewDataSource implementation for BankAccountsViewController
 extension BankAccountsViewController: UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    
-    /*func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Bank Accounts"
-    }*/
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bankAccounts.count
@@ -99,44 +132,9 @@ extension BankAccountsViewController: UITableViewDataSource {
         return cell
     }
     
-    func getBankLogo(entity: String) -> String {
-        let entityImageOpt = BankAccountsViewController.dataDictionary[entity]
-        if let entityImage = entityImageOpt {
-            return entityImage as! String
-        }
-        
-        return Constants.Images.UNKNOW_ENTITY;
-    }
-    
-    // Swipe
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-        
-        let remove = UITableViewRowAction(style: .Destructive, title: NSLocalizedString("common.delete", comment: "The delete title")) {
-            action, index in
-            
-            let cell = tableView.cellForRowAtIndexPath(indexPath)!
-            let bankCell = cell as! BankCell
-            self.removeBankAccount(bankCell.bankAccount.id)
-        }
-        remove.backgroundColor = Diexpenses.redColor
-
-        let edit = UITableViewRowAction(style: .Normal, title: NSLocalizedString("common.edit", comment: "The edit title")) {
-            action, index in
-            
-            let cell = tableView.cellForRowAtIndexPath(indexPath)!
-            let bankCell = cell as! BankCell
-            self.performSegueWithIdentifier(Constants.Segue.TO_NEW_BANK_ACCOUNT_VC, sender: bankCell)
-
-        }
-        edit.backgroundColor = Diexpenses.greenColor
-        
-        return [remove, edit]
-    }
-    
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-    // Swipe end
     
     func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if bankAccounts.isEmpty {
@@ -147,8 +145,10 @@ extension BankAccountsViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - API Request
 extension BankAccountsViewController {
     
+    // MARK: Load bank accounts calling to diexpensesAPI
     func loadBankAccounts() {
         
         let bankAccountsURL = String.localizedStringWithFormat(Constants.API.LIST_BANK_ACCOUNTS_URL, Diexpenses.user.id)
@@ -171,6 +171,7 @@ extension BankAccountsViewController {
         })
     }
 
+    // MARK: Remove a bank account calling to diexpensesAPI
     func removeBankAccount(id: NSNumber) {
         let bankAccountsURL = String.localizedStringWithFormat(Constants.API.UD_BANK_ACCOUNT_URL, Diexpenses.user.id, id)
         Diexpenses.doRequest(bankAccountsURL, headers: Diexpenses.getTypicalHeaders(), verb: HttpVerbs.DELETE.rawValue, body: nil, completionHandler: {

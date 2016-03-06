@@ -36,14 +36,6 @@ class NewMovementViewController: UIViewController {
     var selectedBankAccount: BankAccount!
     var selectedDate: NSDate!
     
-    @IBAction func onSegmentedActionPushed(sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            NSLog("expenses selected")
-        } else if sender.selectedSegmentIndex == 1 {
-            NSLog("incomes selected")
-        }
-    }
-    
     @IBAction func onCancel(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -53,29 +45,29 @@ class NewMovementViewController: UIViewController {
         
         let concept = conceptTextField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         if concept.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) == "" {
-            createAlert(NSLocalizedString("newMovement.insert.concept", comment: "There enter concept message"))
+            Diexpenses.showError(self, message: NSLocalizedString("newMovement.insert.concept", comment: "There enter concept message"))
             return
         }
         
         let amountString = amountTextField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         if amountString == "" {
-            createAlert(NSLocalizedString("newMovement.insert.amount", comment: "There enter amount message"))
+            Diexpenses.showError(self, message: NSLocalizedString("newMovement.insert.amount", comment: "There enter amount message"))
             return
         }
         
         let amount = Diexpenses.formatDecimalValue(string: amountString)
         guard let _ = selectedKind else {
-            createAlert(NSLocalizedString("newMovement.insert.kind", comment: "There select kind message"))
+            Diexpenses.showError(self, message: NSLocalizedString("newMovement.insert.kind", comment: "There select kind message"))
             return
         }
         
         guard let _ = selectedSubkind else {
-            createAlert(NSLocalizedString("newMovement.insert.subkind", comment: "There select subkind message"))
+            Diexpenses.showError(self, message: NSLocalizedString("newMovement.insert.subkind", comment: "There select subkind message"))
             return
         }
 
         guard let _ = selectedBankAccount else {
-            createAlert(NSLocalizedString("newMovement.insert.bankAccount", comment: "There select bank account message"))
+            Diexpenses.showError(self, message: NSLocalizedString("newMovement.insert.bankAccount", comment: "There select bank account message"))
             return
         }
         
@@ -87,11 +79,8 @@ class NewMovementViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        setTextFieldsDelegate()
-        configureCustomPickers()
-        loadExpensesKinds()
-        loadBankAccounts()
+
+        initVC()
     }
     
     override func didReceiveMemoryWarning() {
@@ -101,20 +90,22 @@ class NewMovementViewController: UIViewController {
     
 }
 
+// MARK: - Extension for legacy operations
 extension NewMovementViewController {
     
-    func setTextFieldsDelegate() {
-        conceptTextField.delegate = self
-        amountTextField.delegate = self
+    // MARK: Initialize the View Controller
+    func initVC() {
+        setTextFieldsDelegate()
+        configureCustomPickers()
+        loadExpensesKinds()
+        loadBankAccounts()
     }
+}
+
+// MARK: - Custom pickers operations
+extension NewMovementViewController {
     
-    func getBarItems(doneSelector: Selector, cancelSelector: Selector) -> [UIBarButtonItem] {
-        let cancelButton = UIBarButtonItem(title: NSLocalizedString("common.cancel", comment: "The common cancel message"), style: .Plain, target: self, action: cancelSelector)
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: NSLocalizedString("common.done", comment: "The common done message"), style: .Plain, target: self, action: doneSelector)
-        return [cancelButton, spaceButton, doneButton]
-    }
-    
+    // MARK: Configure custom pickers
     func configureCustomPickers() {
         
         kindsCustomPicker = CustomPicker(target: self, uiTextField: kindTextField, items: getBarItems("onKindSelected", cancelSelector: "onCancelKind"))
@@ -135,28 +126,123 @@ extension NewMovementViewController {
         bankAccountsCustomPicker.picker.dataSource = self
         bankAccountTextField.text = NSLocalizedString("newMovement.select.bankAccount", comment: "The select bank account message")
         bankAccountTextField.delegate = self
-
+        
         transactionDateCustomPicker = CustomDatePicker(target: self, uiTextField: transactionDateTextField, items: getBarItems("onTransactionDateSelected", cancelSelector: "onCancelTransactionDate"))
         transactionDateCustomPicker.picker.datePickerMode = .Date
         transactionDateTextField.text = Diexpenses.formatDate(NSDate(), format: Diexpenses.DAY_MONTH_YEAR)
         transactionDateTextField.delegate = self
         selectedDate = transactionDateCustomPicker.picker.date
     }
+
+    // MARK: This method create the UIBarButtonItem wich are contained inside the custom pickers
+    func getBarItems(doneSelector: Selector, cancelSelector: Selector) -> [UIBarButtonItem] {
+        let cancelButton = UIBarButtonItem(title: NSLocalizedString("common.cancel", comment: "The common cancel message"), style: .Plain, target: self, action: cancelSelector)
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: NSLocalizedString("common.done", comment: "The common done message"), style: .Plain, target: self, action: doneSelector)
+        return [cancelButton, spaceButton, doneButton]
+    }
+
+    // MARK: This method is called when some kind of custom picker is selected
+    func onKindSelected() {
+        let tempKind = expensesKinds[kindsCustomPicker.picker.selectedRowInComponent(0)]
+        if let _ = tempKind.id {
+            selectedKind = tempKind
+            kindsCustomPicker.doCommonOperations(tempKind.description)
+            subkindsCustomPicker.doCommonOperations(ExpensesKindsViewController.selectSubkind)
+            subkindTextField.enabled = true
+        }
+    }
     
+    // MARK: This method is called when cancel button of kind custom picker is selected
+    func onCancelKind() {
+        if let kind = selectedKind {
+            kindsCustomPicker.doCommonOperations(kind.description)
+        } else {
+            kindsCustomPicker.doCommonOperations(ExpensesKindsViewController.selectKind)
+        }
+    }
+    
+    // MARK: This method is called when some subkind of custom picker is selected
+    func onSubkindSelected() {
+        let tempSubkind = expensesSubKinds[subkindsCustomPicker.picker.selectedRowInComponent(0)]
+        if let _ = tempSubkind.id {
+            selectedSubkind = tempSubkind
+            subkindsCustomPicker.doCommonOperations(tempSubkind.description)
+        }
+    }
+    
+    // MARK: This method is called when cancel button of subkind custom picker is selected
+    func onCancelSubkind() {
+        // If previous subkind is selected, reselect
+        if let subkind = selectedSubkind {
+            subkindsCustomPicker.doCommonOperations(subkind.description)
+            return
+        }
+        
+        if let _ = selectedKind {
+            subkindsCustomPicker.doCommonOperations(ExpensesKindsViewController.selectKindFirst)
+        } else {
+            subkindsCustomPicker.doCommonOperations(ExpensesKindsViewController.selectSubkind)
+        }
+        
+    }
+    
+    // MARK: This method is called when some bank account of custom picker is selected
+    func onBankAccountSelected() {
+        let tempBankAccount = bankAccounts[bankAccountsCustomPicker.picker.selectedRowInComponent(0)]
+        if let _ = tempBankAccount.id {
+            selectedBankAccount = tempBankAccount
+            bankAccountsCustomPicker.doCommonOperations(tempBankAccount.description)
+        }
+    }
+    
+    // MARK: This method is called when cancel button of bank accounts custom picker is selected
+    func onCancelBankAccount() {
+        if let bankAccount = selectedBankAccount {
+            bankAccountsCustomPicker.doCommonOperations(bankAccount.description)
+        } else {
+            bankAccountsCustomPicker.doCommonOperations(NSLocalizedString("newMovement.select.bankAccount", comment: "The select bank account message"))
+        }
+    }
+    
+    // MARK: This method is called when some date of custom picker is selected
+    func onTransactionDateSelected() {
+        selectedDate = transactionDateCustomPicker.picker.date
+        transactionDateCustomPicker.doCommonOperations(Diexpenses.formatDate(selectedDate, format: Diexpenses.DAY_MONTH_YEAR))
+    }
+    
+    // MARK: This method is called when cancel button of transaction date custom picker is selected
+    func onCancelTransactionDate() {
+        if let date = selectedDate {
+            transactionDateCustomPicker.doCommonOperations(Diexpenses.formatDate(date, format: Diexpenses.DAY_MONTH_YEAR))
+        } else {
+            transactionDateCustomPicker.doCommonOperations(Diexpenses.formatDate(NSDate(), format: Diexpenses.DAY_MONTH_YEAR))
+        }
+    }
 }
 
+// MARK: - UITextFieldDelegate implementation for NewMovementViewController
 extension NewMovementViewController: UITextFieldDelegate {
     
+    // MARK: Set the UITextFields form delegate
+    func setTextFieldsDelegate() {
+        conceptTextField.delegate = self
+        amountTextField.delegate = self
+    }
+
     func textFieldDidBeginEditing(textField: UITextField) {
         if textField == kindTextField {
             loadExpensesKinds()
-        } else if textField == subkindTextField && selectedKind != nil {
-            loadExpensesSubkinds(selectedKind.id)
+        } else if textField == subkindTextField {
+            if let kind = selectedKind {
+                loadExpensesSubkinds(kind.id)
+            }
         } else if textField == bankAccountTextField {
             loadBankAccounts()
         }
     }
     
+    // MARK: Method called when the user push Next in the keyboard
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         dispatch_async(dispatch_get_main_queue(), {
             if textField == self.conceptTextField {
@@ -173,89 +259,7 @@ extension NewMovementViewController: UITextFieldDelegate {
 
 }
 
-extension NewMovementViewController {
-
-    func onKindSelected() {
-        let tempKind = expensesKinds[kindsCustomPicker.picker.selectedRowInComponent(0)]
-        if let _ = tempKind.id {
-            selectedKind = tempKind
-            kindsCustomPicker.doCommonOperations(tempKind.description)
-            subkindsCustomPicker.doCommonOperations(ExpensesKindsViewController.selectSubkind)
-            subkindTextField.enabled = true
-        }
-
-    }
-    
-    func onCancelKind() {
-        if let kind = selectedKind {
-            kindsCustomPicker.doCommonOperations(kind.description)
-        } else {
-            kindsCustomPicker.doCommonOperations(ExpensesKindsViewController.selectKind)
-        }
-    }
-    
-    func onSubkindSelected() {
-        let tempSubkind = expensesSubKinds[subkindsCustomPicker.picker.selectedRowInComponent(0)]
-        if let _ = tempSubkind.id {
-            selectedSubkind = tempSubkind
-            subkindsCustomPicker.doCommonOperations(tempSubkind.description)
-        }
-    }
-    
-    func onCancelSubkind() {
-        if let subkind = selectedSubkind {
-            subkindsCustomPicker.doCommonOperations(subkind.description)
-            return
-        }
-        
-        if let _ = selectedKind {
-            subkindsCustomPicker.doCommonOperations(ExpensesKindsViewController.selectKindFirst)
-        } else {
-            subkindsCustomPicker.doCommonOperations(ExpensesKindsViewController.selectSubkind)
-        }
-
-    }
-    
-    func onBankAccountSelected() {
-        let tempBankAccount = bankAccounts[bankAccountsCustomPicker.picker.selectedRowInComponent(0)]
-        if let _ = tempBankAccount.id {
-            selectedBankAccount = tempBankAccount
-            bankAccountsCustomPicker.doCommonOperations(tempBankAccount.description)
-        }
-    }
-    
-    func onCancelBankAccount() {
-        if let bankAccount = selectedBankAccount {
-            bankAccountsCustomPicker.doCommonOperations(bankAccount.description)
-        } else {
-            bankAccountsCustomPicker.doCommonOperations(NSLocalizedString("newMovement.select.bankAccount", comment: "The select bank account message"))
-        }
-    }
-    
-    func onTransactionDateSelected() {
-        selectedDate = transactionDateCustomPicker.picker.date
-        transactionDateCustomPicker.doCommonOperations(Diexpenses.formatDate(selectedDate, format: Diexpenses.DAY_MONTH_YEAR))
-    }
-    
-    func onCancelTransactionDate() {
-        if let date = selectedDate {
-            transactionDateCustomPicker.doCommonOperations(Diexpenses.formatDate(date, format: Diexpenses.DAY_MONTH_YEAR))
-        } else {
-            transactionDateCustomPicker.doCommonOperations(Diexpenses.formatDate(NSDate(), format: Diexpenses.DAY_MONTH_YEAR))
-        }
-    }
-    
-}
-
-extension NewMovementViewController {
-    
-    func createAlert(message: String) {
-        let alertLoginError = UIAlertController(title: NSLocalizedString("common.error", comment: "The error title"), message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertLoginError.addAction(UIAlertAction(title: NSLocalizedString("common.close", comment: "The close button"), style: .Default, handler: nil))
-        self.presentViewController(alertLoginError, animated: true, completion: nil)
-    }
-}
-
+// MARK: - UIPickerViewDelegate implementation for NewMovementViewController
 extension NewMovementViewController: UIPickerViewDelegate {
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -284,6 +288,7 @@ extension NewMovementViewController: UIPickerViewDelegate {
 
 }
 
+// MARK: - UIPickerViewDataSource implementation for NewMovementViewController
 extension NewMovementViewController: UIPickerViewDataSource {
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -307,8 +312,10 @@ extension NewMovementViewController: UIPickerViewDataSource {
     }
 }
 
+// MARK: - API Request
 extension NewMovementViewController {
  
+    // MARK: Load the expenses kinds calling to diexpensesAPI
     func loadExpensesKinds() {
         
         let url = String.localizedStringWithFormat(Constants.API.LIST_FIN_MOV_TYPES, Diexpenses.user.id)
@@ -337,6 +344,7 @@ extension NewMovementViewController {
         })
     }
 
+    // MARK: Load the expenses subkinds calling to diexpensesAPI
     func loadExpensesSubkinds(kindId: NSNumber) {
         
         let url = String.localizedStringWithFormat(Constants.API.LIST_FIN_MOV_SUBTYPES, kindId)
@@ -365,6 +373,7 @@ extension NewMovementViewController {
         })
     }
     
+    // MARK: Load the bank accounts calling to diexpensesAPI
     func loadBankAccounts() {
         
         let bankAccountsURL = String.localizedStringWithFormat(Constants.API.LIST_BANK_ACCOUNTS_URL, Diexpenses.user.id)
@@ -393,6 +402,7 @@ extension NewMovementViewController {
         })
     }
     
+    // MARK: Create a movement calling to diexpensesAPI
     func createMovement(movement: Movement) {
         
         guard let _ = Diexpenses.user.id else {
