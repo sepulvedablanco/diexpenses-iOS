@@ -410,7 +410,7 @@ extension NewMovementViewController {
             data, response, error in
             
             if Diexpenses.dealWithGenericResponse(self, responseData: data, expectedCode: 127) {
-                NSNotificationCenter.defaultCenter().postNotificationName("refreshMovementsTableView", object: nil)
+                Notificator.fireNotification(expense: movement.expense)
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         })

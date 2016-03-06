@@ -16,6 +16,9 @@ class HomeViewController: UIViewController {
     
     var messageFrame : UIView!
     
+    let date = NSDate()
+    let calendar = NSCalendar.currentCalendar()
+
     @IBOutlet weak var greetingLabel: UILabel!
     @IBOutlet weak var totalAmountLabel: UILabel!
     @IBOutlet weak var monthIncomeLabel: UILabel!
@@ -38,6 +41,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.registerNotifications()
         self.initChart()
         self.loadingMask.showMask(view)
         self.loadIncomes()
@@ -49,6 +53,12 @@ class HomeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func registerNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadTotalAmount", name:Constants.Notifications.BANK_ACCOUNTS_CHANGED, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadExpenses", name:Constants.Notifications.EXPENSES_CHANGED, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadIncomes", name:Constants.Notifications.INCOMES_CHANGED, object: nil)
     }
     
     func initChart() {
@@ -73,8 +83,6 @@ extension HomeViewController {
     }
     
     func loadExpenses() {
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Month , .Year], fromDate: date)
         
         let url = getAmountURL(String(Diexpenses.user.id), isExpense: true, month: String(components.month), year: String(components.year))
@@ -102,8 +110,6 @@ extension HomeViewController {
     }
 
     func loadIncomes() {
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Month , .Year], fromDate: date)
 
         let url = getAmountURL(String(Diexpenses.user.id), isExpense: false, month: String(components.month), year: String(components.year))

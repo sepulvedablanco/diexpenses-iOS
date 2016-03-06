@@ -67,6 +67,9 @@
 
 /* HomeViewController */
 
+/* Class = "UINavigationItem"; title = "Global Position"; ObjectID = "SzA-Ys-KLT"; */
+"SzA-Ys-KLT.title" = "Posición Global";
+
 /* Class = "UILabel"; text = "¡Hello!"; ObjectID = "pcC-38-q1o"; */
 "pcC-38-q1o.text" = "¡Hola!";
 
@@ -139,6 +142,9 @@
 /* Class = "UILabel"; text = "Kinds"; ObjectID = "U1C-dD-q4u"; */
 "U1C-dD-q4u.text" = "Tipos de gasto";
 
+/* Class = "UILabel"; text = "Title"; ObjectID = "42m-r5-4vk"; */
+"42m-r5-4vk.text" = "";
+
 /* Class = "UIButton"; normalTitle = "New kind"; ObjectID = "7I2-Am-5sm"; */
 "7I2-Am-5sm.normalTitle" = "Nuevo tipo";
 
@@ -161,6 +167,14 @@
 "2Bp-4u-iIu.normalTitle" = "Eliminar subtipo";
 
 /* ExpensesKindsViewController End */
+
+
+/* MovementSubkindsViewController */
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "JeE-Qk-kxN"; */
+"JeE-Qk-kxN.title" = "Atras";
+
+/* MovementSubkindsViewController End */
 
 
 /* MovementsViewController */

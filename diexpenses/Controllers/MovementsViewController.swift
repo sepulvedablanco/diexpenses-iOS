@@ -9,8 +9,6 @@
 import UIKit
 import Gloss
 
-let movementCellIdentifier = "MovementCell"
-
 class MovementsViewController: UIViewController {
 
     @IBOutlet weak var datePickerView: UIPickerView!
@@ -118,7 +116,7 @@ extension MovementsViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(movementCellIdentifier, forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Cell.MOVEMENT_IDENTIFIER, forIndexPath: indexPath) as UITableViewCell
         
         let movementCell = cell as! MovementCell
         let movement = movements[indexPath.row]
@@ -143,7 +141,7 @@ extension MovementsViewController: UITableViewDataSource {
             
             let cell = self.movementsTableView.cellForRowAtIndexPath(indexPath)!
             let movementCell = cell as! MovementCell
-            self.removeMovement(movementCell.movement.id)
+            self.removeMovement(movementCell.movement)
         }
         remove.backgroundColor = Diexpenses.redColor
         return [remove]
@@ -225,16 +223,17 @@ extension MovementsViewController {
         })
     }
     
-    func removeMovement(id: NSNumber) {
+    func removeMovement(movement: Movement) {
         
-        let movementsURL = String.localizedStringWithFormat(Constants.API.UD_MOVEMENT_URL, Diexpenses.user.id, id)
+        let movementsURL = String.localizedStringWithFormat(Constants.API.UD_MOVEMENT_URL, Diexpenses.user.id, movement.id)
         Diexpenses.doRequest(movementsURL, headers: Diexpenses.getTypicalHeaders(), verb: HttpVerbs.DELETE.rawValue, body: nil, completionHandler: {
             data, response, error in
             
             if Diexpenses.dealWithGenericResponse(self, responseData: data, expectedCode: 133) {
-                    self.loadMovements()
+                Notificator.fireNotification(expense: movement.expense)
+                self.loadMovements()
             }
         })
-    }
+    }    
 
 }

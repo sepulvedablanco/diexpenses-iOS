@@ -177,6 +177,7 @@ extension BankAccountsViewController {
             data, response, error in
             
             if Diexpenses.dealWithGenericResponse(self, responseData: data, expectedCode: 44) {
+                Notificator.fireNotification(notificationName: Constants.Notifications.BANK_ACCOUNTS_CHANGED)
                 self.loadBankAccounts()
             }
         })

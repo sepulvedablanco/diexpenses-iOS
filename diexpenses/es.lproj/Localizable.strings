@@ -50,6 +50,7 @@
 "expenseKind.edit.message" = "Introduce el nuevo nombre del tipo de gasto";
 "expenseKind.delete" = "Eliminar tipo de gasto";
 "expenseKind.delete.message" = "¿Está seguro que desea eliminar el tipo de gasto \"%@\"?";
+"expenseKind.required" = "Debes introducir un valor obligatoriamente";
 
 "expenseSubkind.select" = "Selecciona un subtipo";
 "expenseSubkind.selectKind" = "Selecciona un tipo primero";

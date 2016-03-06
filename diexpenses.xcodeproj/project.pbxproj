@@ -20,9 +20,12 @@
 		F10807701C86528600468399 /* CustomPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108076D1C86528600468399 /* CustomPasswordRule.swift */; };
 		F10807711C86528600468399 /* DecimalRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108076E1C86528600468399 /* DecimalRule.swift */; };
 		F10807721C86528600468399 /* DigitRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108076F1C86528600468399 /* DigitRule.swift */; };
+		F111CA8F1C8B6C9F00476135 /* MovementKindsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111CA8E1C8B6C9F00476135 /* MovementKindsViewController.swift */; };
 		F114EEE01C6649C700680980 /* ExpenseKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F114EEDF1C6649C700680980 /* ExpenseKind.swift */; };
 		F11AA2D71C60048800AD805D /* JsonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AA2D61C60048800AD805D /* JsonUtils.swift */; };
 		F11AA2DA1C6012CA00AD805D /* GenericApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AA2D91C6012CA00AD805D /* GenericApiResponse.swift */; };
+		F11AAA4A1C8C4149009CE0C6 /* MovementsSubkindsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AAA491C8C4149009CE0C6 /* MovementsSubkindsViewController.swift */; };
+		F11AAA501C8C859A009CE0C6 /* Notificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AAA4F1C8C859A009CE0C6 /* Notificator.swift */; };
 		F11B1DE41C7E5BB00079B09B /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B1DE31C7E5BB00079B09B /* CustomPicker.swift */; };
 		F11D0C311C61480E00D4822A /* ing_direct100.png in Resources */ = {isa = PBXBuildFile; fileRef = F11D0C301C61480E00D4822A /* ing_direct100.png */; };
 		F11DA42C1C7095E10058E1D6 /* NameUserPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11DA42B1C7095E10058E1D6 /* NameUserPass.swift */; };
@@ -63,6 +66,7 @@
 		F19F0D4E1C5E5FD3007EB848 /* lacaixa100.png in Resources */ = {isa = PBXBuildFile; fileRef = F19F0D4C1C5E5FD3007EB848 /* lacaixa100.png */; };
 		F19F0D4F1C5E5FD3007EB848 /* Unknown.png in Resources */ = {isa = PBXBuildFile; fileRef = F19F0D4D1C5E5FD3007EB848 /* Unknown.png */; };
 		F1CE1B3F1C5975C8002CA6C1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE1B3E1C5975C8002CA6C1 /* Constants.swift */; };
+		F1F3F24E1C8B09C000A7929B /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F3F24D1C8B09C000A7929B /* CustomScrollView.swift */; };
 		F1FC95001C6FB786001E4FD0 /* shutdown.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FC94FF1C6FB786001E4FD0 /* shutdown.png */; };
 /* End PBXBuildFile section */
 
@@ -86,7 +90,6 @@
 /* Begin PBXFileReference section */
 		6ED6AD324E2CA0A9FA1E19F9 /* Pods-diexpenses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diexpenses.release.xcconfig"; path = "Pods/Target Support Files/Pods-diexpenses/Pods-diexpenses.release.xcconfig"; sourceTree = "<group>"; };
 		EF3DC620AA11350E86ED451D /* Pods-diexpenses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diexpenses.debug.xcconfig"; path = "Pods/Target Support Files/Pods-diexpenses/Pods-diexpenses.debug.xcconfig"; sourceTree = "<group>"; };
-		F108075A1C8650F900468399 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F108075B1C86523E00468399 /* EntryPointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryPointViewController.swift; path = Controllers/EntryPointViewController.swift; sourceTree = "<group>"; };
 		F108075C1C86523E00468399 /* ExpensesKindsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpensesKindsViewController.swift; path = Controllers/ExpensesKindsViewController.swift; sourceTree = "<group>"; };
 		F108075D1C86523E00468399 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/HomeViewController.swift; sourceTree = "<group>"; };
@@ -99,9 +102,13 @@
 		F108076D1C86528600468399 /* CustomPasswordRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomPasswordRule.swift; path = Validators/CustomPasswordRule.swift; sourceTree = "<group>"; };
 		F108076E1C86528600468399 /* DecimalRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DecimalRule.swift; path = Validators/DecimalRule.swift; sourceTree = "<group>"; };
 		F108076F1C86528600468399 /* DigitRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DigitRule.swift; path = Validators/DigitRule.swift; sourceTree = "<group>"; };
+		F111CA8E1C8B6C9F00476135 /* MovementKindsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementKindsViewController.swift; sourceTree = "<group>"; };
 		F114EEDF1C6649C700680980 /* ExpenseKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseKind.swift; sourceTree = "<group>"; };
 		F11AA2D61C60048800AD805D /* JsonUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonUtils.swift; path = Models/JsonUtils.swift; sourceTree = "<group>"; };
 		F11AA2D91C6012CA00AD805D /* GenericApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericApiResponse.swift; sourceTree = "<group>"; };
+		F11AAA491C8C4149009CE0C6 /* MovementsSubkindsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementsSubkindsViewController.swift; sourceTree = "<group>"; };
+		F11AAA4E1C8C7203009CE0C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		F11AAA4F1C8C859A009CE0C6 /* Notificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notificator.swift; sourceTree = "<group>"; };
 		F11B1DE31C7E5BB00079B09B /* CustomPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
 		F11D0C301C61480E00D4822A /* ing_direct100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ing_direct100.png; sourceTree = "<group>"; };
 		F11DA42B1C7095E10058E1D6 /* NameUserPass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameUserPass.swift; sourceTree = "<group>"; };
@@ -153,6 +160,7 @@
 		F19F0D4C1C5E5FD3007EB848 /* lacaixa100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lacaixa100.png; sourceTree = "<group>"; };
 		F19F0D4D1C5E5FD3007EB848 /* Unknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unknown.png; sourceTree = "<group>"; };
 		F1CE1B3E1C5975C8002CA6C1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F1F3F24D1C8B09C000A7929B /* CustomScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
 		F1FC94FF1C6FB786001E4FD0 /* shutdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shutdown.png; sourceTree = "<group>"; };
 		FA3ECED3B82F43C595EEC1C5 /* Pods_diexpenses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_diexpenses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -209,6 +217,8 @@
 				F108075D1C86523E00468399 /* HomeViewController.swift */,
 				F108075E1C86523E00468399 /* LoginViewController.swift */,
 				F108075F1C86523E00468399 /* MovementsViewController.swift */,
+				F111CA8E1C8B6C9F00476135 /* MovementKindsViewController.swift */,
+				F11AAA491C8C4149009CE0C6 /* MovementsSubkindsViewController.swift */,
 				F10807601C86523E00468399 /* NewBankAccountViewController.swift */,
 				F10807611C86523E00468399 /* NewMovementViewController.swift */,
 				F10807621C86523E00468399 /* SignUpViewController.swift */,
@@ -220,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				F11AA2D61C60048800AD805D /* JsonUtils.swift */,
+				F11AAA4F1C8C859A009CE0C6 /* Notificator.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -306,6 +317,7 @@
 				F19F0D441C5E5CA9007EB848 /* BankCell.swift */,
 				F19F0D451C5E5CA9007EB848 /* LoadingMask.swift */,
 				F12CB0B21C73D29B00FFF841 /* MovementCell.swift */,
+				F1F3F24D1C8B09C000A7929B /* CustomScrollView.swift */,
 				F11B1DE31C7E5BB00079B09B /* CustomPicker.swift */,
 				F15C0B161C84FB0E00B6CD40 /* CustomDatePicker.swift */,
 			);
@@ -578,13 +590,17 @@
 				F10807631C86523E00468399 /* EntryPointViewController.swift in Sources */,
 				F19F0D471C5E5CA9007EB848 /* LoadingMask.swift in Sources */,
 				F10807671C86523E00468399 /* MovementsViewController.swift in Sources */,
+				F1F3F24E1C8B09C000A7929B /* CustomScrollView.swift in Sources */,
+				F11AAA501C8C859A009CE0C6 /* Notificator.swift in Sources */,
 				F155317F1C67F559001C6153 /* Movement.swift in Sources */,
 				F15C0B171C84FB0E00B6CD40 /* CustomDatePicker.swift in Sources */,
 				F10807691C86523E00468399 /* NewMovementViewController.swift in Sources */,
 				F11B1DE41C7E5BB00079B09B /* CustomPicker.swift in Sources */,
 				F12CB0B31C73D29B00FFF841 /* MovementCell.swift in Sources */,
+				F11AAA4A1C8C4149009CE0C6 /* MovementsSubkindsViewController.swift in Sources */,
 				F10807711C86528600468399 /* DecimalRule.swift in Sources */,
 				F19F0D461C5E5CA9007EB848 /* BankCell.swift in Sources */,
+				F111CA8F1C8B6C9F00476135 /* MovementKindsViewController.swift in Sources */,
 				F15531811C67F89F001C6153 /* MovementPage.swift in Sources */,
 				F19F0D411C5E5B12007EB848 /* BankAccount.swift in Sources */,
 				F10807681C86523E00468399 /* NewBankAccountViewController.swift in Sources */,
@@ -643,7 +659,7 @@
 			children = (
 				F17A74691C56CAEA00BEF254 /* Base */,
 				F172800E1C57F4CB00E9F22E /* es */,
-				F108075A1C8650F900468399 /* en */,
+				F11AAA4E1C8C7203009CE0C6 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

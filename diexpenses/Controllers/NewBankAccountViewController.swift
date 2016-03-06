@@ -281,7 +281,7 @@ extension NewBankAccountViewController {
             data, response, error in
             
             if Diexpenses.dealWithGenericResponse(self, responseData: data, expectedCode: 30) {
-                NSNotificationCenter.defaultCenter().postNotificationName("refreshBankAccountsTableView", object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName(Constants.Notifications.BANK_ACCOUNTS_CHANGED, object: nil)
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         })
@@ -301,7 +301,7 @@ extension NewBankAccountViewController {
             data, response, error in
             
             if Diexpenses.dealWithGenericResponse(self, responseData: data, expectedCode: 39) {
-                NSNotificationCenter.defaultCenter().postNotificationName("refreshBankAccountsTableView", object: nil)
+                Notificator.fireNotification(notificationName: Constants.Notifications.BANK_ACCOUNTS_CHANGED)
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         })

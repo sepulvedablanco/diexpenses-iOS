@@ -44,12 +44,13 @@
 "bankAccounts.noData" = "No bank accounts";
 
 "expenseKind.select" = "Select a kind";
-"expenseKind.newExpenseKind" = "New kind of expense";
-"expenseKind.newExpenseKind.message" = "Enter the name of the kind of expense";
+"expenseKind.new" = "New kind of expense";
+"expenseKind.new.message" = "Enter the name of the kind of expense";
 "expenseKind.edit" = "Edit expense type";
 "expenseKind.edit.message" = "Enter the new name expense kind";
 "expenseKind.delete" = "Remove expense kind";
 "expenseKind.delete.message" = "Are you sure you want to delete the expense kind \"%@\"?";
+"expenseKind.required" = "You must enter a mandatory value";
 
 "expenseSubkind.select" = "Select a subkind";
 "expenseSubkind.selectKind" = "Select a kind first";
