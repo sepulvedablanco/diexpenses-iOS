@@ -34,42 +34,6 @@ class NewBankAccountViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func onBalanceEditingDidChanged(sender: UITextField) {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .DecimalStyle
-        formatter.locale = NSLocale.currentLocale()
-        
-        let text = sender.text!
-        if text.isEmpty {
-            return
-        }
-        
-        let newString = text.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: "01234567890" + formatter.currencyGroupingSeparator + formatter.currencyDecimalSeparator).invertedSet).joinWithSeparator("")
-        
-        if newString.isEmpty {
-            sender.text = ""
-            return
-        }
-
-        let decimalSeparators = newString.componentsSeparatedByString(formatter.currencyDecimalSeparator)
-        if decimalSeparators.count == 1 {
-            let newBalance = newString.stringByReplacingOccurrencesOfString(formatter.currencyGroupingSeparator, withString: "")
-            sender.text = Diexpenses.formatDecimalValue(number: Diexpenses.formatDecimalValue(string: newBalance))
-        } else if decimalSeparators.count == 3 {
-            let rangeOfIndex = newString.rangeOfCharacterFromSet(NSCharacterSet(charactersInString: formatter.currencyDecimalSeparator), options: .BackwardsSearch)
-            let tempText = newString.stringByReplacingOccurrencesOfString(formatter.currencyDecimalSeparator, withString: "", range: rangeOfIndex)
-            let newBalance = tempText.stringByReplacingOccurrencesOfString(formatter.currencyGroupingSeparator, withString: "")
-            sender.text = Diexpenses.formatDecimalValue(number: Diexpenses.formatDecimalValue(string: newBalance))
-        } else {
-            if newString.endsWith(formatter.currencyDecimalSeparator) {
-                sender.text = newString
-            } else {
-                let newBalance = newString.stringByReplacingOccurrencesOfString(formatter.currencyGroupingSeparator, withString: "")
-                sender.text = Diexpenses.formatDecimalValue(number: Diexpenses.formatDecimalValue(string: newBalance))
-            }
-        }
-    }
-    
     @IBOutlet weak var saveAndUpdateButton: UIBarButtonItem!
     @IBAction func onUpdateOrSave() {
         if descriptionTextView.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) == "" {
@@ -215,24 +179,6 @@ extension NewBankAccountViewController: UITextFieldDelegate {
     }
 
 }
-
-// TODO: Sacar esto de aqui
-extension String {
-    func beginsWith (str: String) -> Bool {
-        if let range = self.rangeOfString(str) {
-            return range.startIndex == self.startIndex
-        }
-        return false
-    }
-    
-    func endsWith (str: String) -> Bool {
-        if let range = self.rangeOfString(str, options:NSStringCompareOptions.BackwardsSearch) {
-            return range.endIndex == self.endIndex
-        }
-        return false
-    }
-}
-// TODO END
 
 // MARK: - ValidationDelegate implementation for NewBankAccountViewController
 extension NewBankAccountViewController: ValidationDelegate {
