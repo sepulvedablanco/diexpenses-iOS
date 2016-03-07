@@ -56,7 +56,6 @@
 		F17A74631C56CAEA00BEF254 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A74621C56CAEA00BEF254 /* AppDelegate.swift */; };
 		F17A746A1C56CAEA00BEF254 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F17A74681C56CAEA00BEF254 /* Main.storyboard */; };
 		F17A746C1C56CAEA00BEF254 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F17A746B1C56CAEA00BEF254 /* Assets.xcassets */; };
-		F17A746F1C56CAEA00BEF254 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F17A746D1C56CAEA00BEF254 /* LaunchScreen.storyboard */; };
 		F17A747A1C56CAEA00BEF254 /* diexpensesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A74791C56CAEA00BEF254 /* diexpensesTests.swift */; };
 		F17A74851C56CAEA00BEF254 /* diexpensesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A74841C56CAEA00BEF254 /* diexpensesUITests.swift */; };
 		F19E6ACF1C5A92F9008D6A8B /* Diexpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19E6ACE1C5A92F9008D6A8B /* Diexpenses.swift */; };
@@ -137,14 +136,12 @@
 		F15531801C67F89F001C6153 /* MovementPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementPage.swift; sourceTree = "<group>"; };
 		F15C0B161C84FB0E00B6CD40 /* CustomDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		F172800E1C57F4CB00E9F22E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
-		F172800F1C57F4CB00E9F22E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F17280111C57F52900E9F22E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F17280131C57F53300E9F22E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F17A745F1C56CAEA00BEF254 /* diexpenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diexpenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F17A74621C56CAEA00BEF254 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F17A74691C56CAEA00BEF254 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F17A746B1C56CAEA00BEF254 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F17A746E1C56CAEA00BEF254 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F17A74701C56CAEA00BEF254 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F17A74751C56CAEA00BEF254 /* diexpensesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = diexpensesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F17A74791C56CAEA00BEF254 /* diexpensesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diexpensesTests.swift; sourceTree = "<group>"; };
@@ -152,7 +149,6 @@
 		F17A74801C56CAEA00BEF254 /* diexpensesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = diexpensesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F17A74841C56CAEA00BEF254 /* diexpensesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diexpensesUITests.swift; sourceTree = "<group>"; };
 		F17A74861C56CAEA00BEF254 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F17CCB091C71280400766368 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F17CCB0A1C71282100766368 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F19E6ACE1C5A92F9008D6A8B /* Diexpenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diexpenses.swift; sourceTree = "<group>"; };
 		F19F0D3F1C5E5B12007EB848 /* BankAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
@@ -273,7 +269,6 @@
 				F19E6ACE1C5A92F9008D6A8B /* Diexpenses.swift */,
 				F17280101C57F52900E9F22E /* Localizable.strings */,
 				F17A74681C56CAEA00BEF254 /* Main.storyboard */,
-				F17A746D1C56CAEA00BEF254 /* LaunchScreen.storyboard */,
 				F17A746B1C56CAEA00BEF254 /* Assets.xcassets */,
 				F17A74701C56CAEA00BEF254 /* Info.plist */,
 				F13EAA3B1C8A1986009343FA /* Entities.plist */,
@@ -487,7 +482,6 @@
 				F13EAA3C1C8A1986009343FA /* Entities.plist in Resources */,
 				F1210BC61C75206700EA93AD /* liberbank_100.png in Resources */,
 				F1210BC81C7520A000EA93AD /* openBank_100.png in Resources */,
-				F17A746F1C56CAEA00BEF254 /* LaunchScreen.storyboard in Resources */,
 				F1210BCE1C75210000EA93AD /* targoBank_100.png in Resources */,
 				F1210BC01C751FF800EA93AD /* evoBank_100.png in Resources */,
 				F1210BD01C75216A00EA93AD /* novoBank.png in Resources */,
@@ -666,16 +660,6 @@
 				F11AAA4E1C8C7203009CE0C6 /* en */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F17A746D1C56CAEA00BEF254 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F17A746E1C56CAEA00BEF254 /* Base */,
-				F172800F1C57F4CB00E9F22E /* es */,
-				F17CCB091C71280400766368 /* en */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
