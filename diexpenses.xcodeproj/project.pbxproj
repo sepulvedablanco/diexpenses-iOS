@@ -26,6 +26,7 @@
 		F11AA2DA1C6012CA00AD805D /* GenericApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AA2D91C6012CA00AD805D /* GenericApiResponse.swift */; };
 		F11AAA4A1C8C4149009CE0C6 /* MovementsSubkindsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AAA491C8C4149009CE0C6 /* MovementsSubkindsViewController.swift */; };
 		F11AAA501C8C859A009CE0C6 /* Notificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AAA4F1C8C859A009CE0C6 /* Notificator.swift */; };
+		F11AAA521C8CF760009CE0C6 /* CustomValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AAA511C8CF760009CE0C6 /* CustomValidator.swift */; };
 		F11B1DE41C7E5BB00079B09B /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B1DE31C7E5BB00079B09B /* CustomPicker.swift */; };
 		F11D0C311C61480E00D4822A /* ing_direct100.png in Resources */ = {isa = PBXBuildFile; fileRef = F11D0C301C61480E00D4822A /* ing_direct100.png */; };
 		F11DA42C1C7095E10058E1D6 /* NameUserPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11DA42B1C7095E10058E1D6 /* NameUserPass.swift */; };
@@ -109,6 +110,7 @@
 		F11AAA491C8C4149009CE0C6 /* MovementsSubkindsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementsSubkindsViewController.swift; sourceTree = "<group>"; };
 		F11AAA4E1C8C7203009CE0C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F11AAA4F1C8C859A009CE0C6 /* Notificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notificator.swift; sourceTree = "<group>"; };
+		F11AAA511C8CF760009CE0C6 /* CustomValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomValidator.swift; sourceTree = "<group>"; };
 		F11B1DE31C7E5BB00079B09B /* CustomPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
 		F11D0C301C61480E00D4822A /* ing_direct100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ing_direct100.png; sourceTree = "<group>"; };
 		F11DA42B1C7095E10058E1D6 /* NameUserPass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameUserPass.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				F108076D1C86528600468399 /* CustomPasswordRule.swift */,
 				F108076E1C86528600468399 /* DecimalRule.swift */,
 				F108076F1C86528600468399 /* DigitRule.swift */,
+				F11AAA511C8CF760009CE0C6 /* CustomValidator.swift */,
 			);
 			name = Validators;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				F10807721C86528600468399 /* DigitRule.swift in Sources */,
 				F17A74631C56CAEA00BEF254 /* AppDelegate.swift in Sources */,
 				F19F0D421C5E5B12007EB848 /* User.swift in Sources */,
+				F11AAA521C8CF760009CE0C6 /* CustomValidator.swift in Sources */,
 				F10807661C86523E00468399 /* LoginViewController.swift in Sources */,
 				F10807631C86523E00468399 /* EntryPointViewController.swift in Sources */,
 				F19F0D471C5E5CA9007EB848 /* LoadingMask.swift in Sources */,

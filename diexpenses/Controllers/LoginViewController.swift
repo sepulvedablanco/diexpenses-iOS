@@ -12,7 +12,7 @@ import SwiftValidator
 
 class LoginViewController: UIViewController {
 
-    let validator = Validator();
+    let customValidator = CustomValidator();
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var usernameErrorLabel: UILabel!
@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
     
     // MARK: Method called when user push Sign in button
     @IBAction func onSignIn() {
-        validator.validate(self)
+        customValidator.validate(self)
     }
     
     override func viewDidLoad() {
@@ -43,7 +43,6 @@ extension LoginViewController {
     // MARK: Initialize the View Controller
     func initVC() {
         setTextFieldsDelegate()
-        setValidationStyles()
         registerFieldsInValidator()
     }
     
@@ -92,43 +91,13 @@ extension LoginViewController: ValidationDelegate {
     // MARK: Register the required fields
     func registerFieldsInValidator() {
         let requiredString = NSLocalizedString("common.validator.required", comment: "The required field message")
-        validator.registerField(usernameTextField, errorLabel: usernameErrorLabel, rules: [RequiredRule(message: requiredString)])
-        validator.registerField(passwordTextField, errorLabel: passwordErrorLabel, rules: [RequiredRule(message: requiredString)])
+        customValidator.registerField(usernameTextField, errorLabel: usernameErrorLabel, rules: [RequiredRule(message: requiredString)])
+        customValidator.registerField(passwordTextField, errorLabel: passwordErrorLabel, rules: [RequiredRule(message: requiredString)])
     }
     
     // MARK: Method called when validation failed
     func validationFailed(errors:[UITextField:ValidationError]) {
-        for (field, error) in validator.errors {
-            setErrorStyle(field, errorLabel: error.errorLabel!, errorMessage: error.errorMessage)
-        }
-    }
-    
-    // MARK: Set the validation styles for the UITextFields inside the form
-    func setValidationStyles() {
-        validator.styleTransformers(
-            success:{ (validationRule) -> Void in
-                self.setValidStyle(validationRule.textField, errorLabel: validationRule.errorLabel!)
-            },
-            error:{ (validationError) -> Void in
-                self.setErrorStyle(validationError.textField, errorLabel: validationError.errorLabel!, errorMessage: validationError.errorMessage)
-        })
-    }
-
-    // MARK: Set the validation styles for valid fields
-    func setValidStyle(input: UIView, errorLabel: UILabel) {
-        input.layer.borderColor = Diexpenses.greenColor.CGColor
-        input.layer.borderWidth = 0.5
-        // clear error label
-        errorLabel.hidden = true
-        errorLabel.text = ""
-    }
-    
-    // MARK: Set the validation styles for invalid fields
-    func setErrorStyle(input: UIView, errorLabel: UILabel, errorMessage: String) {
-        input.layer.borderColor = Diexpenses.redColor.CGColor
-        input.layer.borderWidth = 1.0
-        errorLabel.text = errorMessage
-        errorLabel.hidden = false
+        customValidator.validationFailed(errors)
     }
     
     // MARK: Method called when form validation is succesfull
