@@ -29,8 +29,8 @@
 /* Class = "UILabel"; text = "Entity:"; ObjectID = "7l2-MO-zwt"; */
 "7l2-MO-zwt.text" = "Entity:";
 
-/* Class = "UINavigationItem"; title = "New bank account"; ObjectID = "AEW-52-v3R"; */
-"AEW-52-v3R.title" = "New bank account";
+/* Class = "UINavigationItem"; title = "New Bank Account"; ObjectID = "AEW-52-v3R"; */
+"AEW-52-v3R.title" = "New Bank Account";
 
 /* Class = "UINavigationItem"; title = "Expense Subkinds"; ObjectID = "B0Q-8e-9U7"; */
 "B0Q-8e-9U7.title" = "Expense Subkinds";
@@ -92,8 +92,8 @@
 /* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "M9G-Rj-Du1"; */
 "M9G-Rj-Du1.title" = "Cancel";
 
-/* Class = "UINavigationItem"; title = "Movements history"; ObjectID = "PIS-F9-Cdb"; */
-"PIS-F9-Cdb.title" = "Movements history";
+/* Class = "UINavigationItem"; title = "Movements History"; ObjectID = "PIS-F9-Cdb"; */
+"PIS-F9-Cdb.title" = "Movements History";
 
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "QPq-JM-OHD"; */
 "QPq-JM-OHD.placeholder" = "Password";
@@ -107,8 +107,8 @@
 /* Class = "UINavigationItem"; title = "Global Position"; ObjectID = "SzA-Ys-KLT"; */
 "SzA-Ys-KLT.title" = "Global Position";
 
-/* Class = "UINavigationItem"; title = "New movement"; ObjectID = "TnB-5B-wy6"; */
-"TnB-5B-wy6.title" = "New movement";
+/* Class = "UINavigationItem"; title = "New Movement"; ObjectID = "TnB-5B-wy6"; */
+"TnB-5B-wy6.title" = "New Movement";
 
 /* Class = "UILabel"; text = "Kinds"; ObjectID = "U1C-dD-q4u"; */
 "U1C-dD-q4u.text" = "Kinds";

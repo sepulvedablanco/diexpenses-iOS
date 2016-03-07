@@ -107,8 +107,8 @@
 
 /* NewBankAccountViewController */
 
-/* Class = "UINavigationItem"; title = "New bank account"; ObjectID = "AEW-52-v3R"; */
-"AEW-52-v3R.title" = "Nueva cuenta bancaria";
+/* Class = "UINavigationItem"; title = "New Bank Account"; ObjectID = "AEW-52-v3R"; */
+"AEW-52-v3R.title" = "Nueva Cuenta Bancaria";
 
 /* Class = "UILeftBarButtonItem"; title = "Cancel"; ObjectID = "CAI-vy-RpM"; */
 "CAI-vy-RpM.title" = "Cancel";
@@ -191,7 +191,7 @@
 /* MovementsViewController */
 
 /* Class = "UINavigationItem"; title = "Movements history"; ObjectID = "PIS-F9-Cdb"; */
-"PIS-F9-Cdb.title" = "Historial de movimientos";
+"PIS-F9-Cdb.title" = "Historial de Movimientos";
 
 /* Class = "UILabel"; text = "Year"; ObjectID = "Iw1-7s-zhM"; */
 "Iw1-7s-zhM.text" = "Año";
@@ -224,7 +224,7 @@
 "M9G-Rj-Du1.title" = "Cancelar";
 
 /* Class = "UINavigationItem"; title = "New movement"; ObjectID = "TnB-5B-wy6"; */
-"TnB-5B-wy6.title" = "Nuevo movimiento";
+"TnB-5B-wy6.title" = "Nuevo Movimiento";
 
 /* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "SBM-mK-1Xb"; */
 "SBM-mK-1Xb.title" = "Guardar";

@@ -14,7 +14,7 @@ class CustomDatePicker {
     let uiTextField: UITextField
     
     init(target: UIViewController, uiTextField: UITextField, items: [UIBarButtonItem]) {
-        self.picker = UIDatePicker(frame: CGRectMake(0, 0, target.view.frame.width, 150))
+        self.picker = UIDatePicker(frame: CGRectMake(0, 0, target.view.frame.width, 250))
         self.uiTextField = uiTextField
         
         picker.backgroundColor = Diexpenses.iosBorderColor

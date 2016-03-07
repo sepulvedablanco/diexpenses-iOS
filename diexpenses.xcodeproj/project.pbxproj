@@ -104,10 +104,10 @@
 		F108076F1C86528600468399 /* DigitRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DigitRule.swift; path = Validators/DigitRule.swift; sourceTree = "<group>"; };
 		F111CA8E1C8B6C9F00476135 /* MovementKindsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementKindsViewController.swift; sourceTree = "<group>"; };
 		F114EEDF1C6649C700680980 /* ExpenseKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseKind.swift; sourceTree = "<group>"; };
+		F119E5551C8E44A300F3BFA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F11AA2D61C60048800AD805D /* JsonUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonUtils.swift; path = Models/JsonUtils.swift; sourceTree = "<group>"; };
 		F11AA2D91C6012CA00AD805D /* GenericApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericApiResponse.swift; sourceTree = "<group>"; };
 		F11AAA491C8C4149009CE0C6 /* MovementsSubkindsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementsSubkindsViewController.swift; sourceTree = "<group>"; };
-		F11AAA4E1C8C7203009CE0C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F11AAA4F1C8C859A009CE0C6 /* Notificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notificator.swift; sourceTree = "<group>"; };
 		F11AAA511C8CF760009CE0C6 /* CustomValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomValidator.swift; sourceTree = "<group>"; };
 		F11B1DE31C7E5BB00079B09B /* CustomPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
@@ -657,7 +657,7 @@
 			children = (
 				F17A74691C56CAEA00BEF254 /* Base */,
 				F172800E1C57F4CB00E9F22E /* es */,
-				F11AAA4E1C8C7203009CE0C6 /* en */,
+				F119E5551C8E44A300F3BFA2 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

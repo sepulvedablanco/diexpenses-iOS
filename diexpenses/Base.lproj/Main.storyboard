@@ -22,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="2262" y="859"/>
         </scene>
-        <!--New bank account-->
+        <!--New Bank Account-->
         <scene sceneID="a0e-JD-H4G">
             <objects>
                 <viewController storyboardIdentifier="newBankAccountViewController" automaticallyAdjustsScrollViewInsets="NO" id="RQi-9E-tKc" customClass="NewBankAccountViewController" customModule="diexpenses" sceneMemberID="viewController">
@@ -259,7 +259,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="New bank account" id="AEW-52-v3R">
+                    <navigationItem key="navigationItem" title="New Bank Account" id="AEW-52-v3R">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="CAI-vy-RpM">
                             <connections>
                                 <action selector="onCancel:" destination="RQi-9E-tKc" id="8wp-CE-Iut"/>
@@ -552,7 +552,7 @@
                                     <constraint firstAttribute="height" constant="55" id="9IN-mo-Zvr"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Movements history" id="PIS-F9-Cdb">
+                                    <navigationItem title="Movements History" id="PIS-F9-Cdb">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lgY-UA-iUq">
                                             <connections>
                                                 <segue destination="RnU-eM-dpw" kind="presentation" id="NoT-sl-zDG"/>
@@ -729,7 +729,7 @@
             </objects>
             <point key="canvasLocation" x="165" y="1587"/>
         </scene>
-        <!--New movement-->
+        <!--New Movement-->
         <scene sceneID="JL7-NC-xYn">
             <objects>
                 <viewController id="lvY-do-N7w" customClass="NewMovementViewController" customModule="diexpenses" customModuleProvider="target" sceneMemberID="viewController">
@@ -866,7 +866,7 @@
                             <constraint firstItem="kAI-lZ-ebX" firstAttribute="leading" secondItem="22K-c0-ef7" secondAttribute="leading" id="yjF-ay-6bt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New movement" id="TnB-5B-wy6">
+                    <navigationItem key="navigationItem" title="New Movement" id="TnB-5B-wy6">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="M9G-Rj-Du1">
                             <connections>
                                 <action selector="onCancel:" destination="lvY-do-N7w" id="8bb-q5-aC5"/>
