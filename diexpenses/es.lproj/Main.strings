@@ -7,8 +7,11 @@
 /* Class = "UITabBarItem"; title = "Bank Accounts"; ObjectID = "cPa-gy-q4n"; */
 "cPa-gy-q4n.title" = "Cuentas";
 
-/* Class = "UITabBarItem"; title = "Expenses Kinds"; ObjectID = "Y8b-9p-aRW"; */
+/* Class = "UITabBarItem"; title = "Types"; ObjectID = "Y8b-9p-aRW"; */
 "Y8b-9p-aRW.title" = "Tipos";
+
+/* Class = "UITabBarItem"; title = "Types"; ObjectID = "W9F-OF-9Y6"; */
+"W9F-OF-9Y6.title" = "Tipos";
 
 /* Class = "UITabBarItem"; title = "Movements"; ObjectID = "m0T-V6-VLL"; */
 "m0T-V6-VLL.title" = "Movimientos";
@@ -169,6 +172,14 @@
 /* ExpensesKindsViewController End */
 
 
+/* MovementKindsViewController */
+ 
+/* Class = "UINavigationItem"; title = "Expense Kinds"; ObjectID = "Dkc-Cl-vB2"; */
+"Dkc-Cl-vB2.title" = "Tipos de Gastos";
+
+/* MovementKindsViewController End */
+ 
+ 
 /* MovementSubkindsViewController */
 
 /* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "JeE-Qk-kxN"; */

@@ -38,9 +38,9 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKe-3P-6cp">
-                                        <rect key="frame" x="19" y="8" width="93" height="20"/>
+                                        <rect key="frame" x="19" y="8" width="98" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="93" id="tFe-dR-ha2"/>
+                                            <constraint firstAttribute="width" constant="98" id="tFe-dR-ha2"/>
                                             <constraint firstAttribute="height" constant="20" id="vRb-XJ-xYS"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -228,7 +228,7 @@
                                     <constraint firstItem="u5l-Hb-O7I" firstAttribute="top" secondItem="72P-jm-DGl" secondAttribute="bottom" constant="8" symbolic="YES" id="qNw-gU-5JM"/>
                                     <constraint firstItem="ubB-I8-and" firstAttribute="trailing" secondItem="cKj-VD-rp3" secondAttribute="trailing" id="qm9-cK-MQs"/>
                                     <constraint firstItem="j3v-dg-44d" firstAttribute="trailing" secondItem="H5P-Bk-3Y2" secondAttribute="trailing" id="r6G-Zy-oAS"/>
-                                    <constraint firstItem="cKj-VD-rp3" firstAttribute="leading" secondItem="EKe-3P-6cp" secondAttribute="trailing" constant="2" id="rkc-aO-PEj"/>
+                                    <constraint firstItem="cKj-VD-rp3" firstAttribute="leading" secondItem="EKe-3P-6cp" secondAttribute="trailing" constant="-3" id="rkc-aO-PEj"/>
                                     <constraint firstItem="u5l-Hb-O7I" firstAttribute="leading" secondItem="lbe-KJ-sxn" secondAttribute="leading" id="sbP-cS-eeo"/>
                                     <constraint firstItem="FDV-2b-hdy" firstAttribute="trailing" secondItem="ubB-I8-and" secondAttribute="trailing" id="scn-L3-amP"/>
                                     <constraint firstItem="j3v-dg-44d" firstAttribute="trailing" secondItem="1gW-5W-X6F" secondAttribute="trailing" id="tJ4-Qd-eUx"/>
@@ -616,15 +616,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete Bank Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX0-Ol-yo8">
-                                                    <rect key="frame" x="72" y="62" width="378" height="21"/>
+                                                    <rect key="frame" x="72" y="62" width="406" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fh-Wj-VGV">
-                                                    <rect key="frame" x="458" y="62" width="134" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fh-Wj-VGV">
+                                                    <rect key="frame" x="486" y="62" width="106" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="134" id="xsn-zk-jbf"/>
+                                                        <constraint firstAttribute="width" constant="106" id="xsn-zk-jbf"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
