@@ -16,7 +16,8 @@ class NewBankAccountViewController: UIViewController {
     let customValidator = CustomValidator()
     var bankAccount: BankAccount!
 
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var scrollView: CustomScrollView!
+    @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var descriptionErrorLabel: UILabel!
     @IBOutlet weak var ibanTextFied: UITextField!
     @IBOutlet weak var entityTextFied: UITextField!
@@ -36,11 +37,6 @@ class NewBankAccountViewController: UIViewController {
     
     @IBOutlet weak var saveAndUpdateButton: UIBarButtonItem!
     @IBAction func onUpdateOrSave() {
-        if descriptionTextView.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) == "" {
-            customValidator.setErrorStyle(descriptionTextView, errorLabel: descriptionErrorLabel, errorMessage: NSLocalizedString("bankAccounts.requiredDescription", comment: "The required description message"))
-        } else {
-            customValidator.setValidStyle(descriptionTextView, errorLabel: descriptionErrorLabel)
-        }
         customValidator.validate(self)
     }
     
@@ -68,9 +64,8 @@ extension NewBankAccountViewController {
     
     // MARK: Initialize the View Controller
     func initVC() {
+        scrollView.configure(view)
         setTextFieldsDelegate()
-        setTextViewBorder()
-    //    customValidator.setValidationStyles()
         registerFieldsInValidator()
     }
     
@@ -84,7 +79,7 @@ extension NewBankAccountViewController {
     
     // MARK: Fill the form with the bank account data when is editing mode
     func fillForm() {
-        descriptionTextView.text = bankAccount.description
+        descriptionTextField.text = bankAccount.description
         ibanTextFied.text = bankAccount.iban
         entityTextFied.text = bankAccount.entity
         officeTextFied.text = bankAccount.office
@@ -99,6 +94,7 @@ extension NewBankAccountViewController: UITextFieldDelegate {
     
     // MARK: Set the UITextFields form delegate
     func setTextFieldsDelegate() {
+        descriptionTextField.delegate = self
         ibanTextFied.delegate = self
         entityTextFied.delegate = self
         officeTextFied.delegate = self
@@ -108,16 +104,12 @@ extension NewBankAccountViewController: UITextFieldDelegate {
     }
     
     // MARK: Method called when the user push Next in the keyboard
-    func setTextViewBorder () {
-        descriptionTextView.layer.borderColor = Diexpenses.iosBorderColor.CGColor
-        descriptionTextView.layer.borderWidth = 0.5
-        descriptionTextView.layer.cornerRadius = 5.0
-    }
-    
-    // MARK: Method called when the user push Next in the keyboard
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         dispatch_async(dispatch_get_main_queue(), {
-            if textField == self.ibanTextFied {
+            if textField == self.descriptionTextField {
+                textField.resignFirstResponder()
+                self.ibanTextFied.becomeFirstResponder()
+            } else if textField == self.ibanTextFied {
                 textField.resignFirstResponder()
                 self.entityTextFied.becomeFirstResponder()
             } else if textField == self.entityTextFied {
@@ -139,44 +131,6 @@ extension NewBankAccountViewController: UITextFieldDelegate {
         })
         return true;
     }
-    
-    // MARK: Moves the form when focus changed
-    func setTextFieldsMoving(up: Bool, textField: UITextField) {
-        if textField == self.ibanTextFied {
-            animateViewMoving(up, moveValue: 140)
-        } else if textField == self.entityTextFied {
-            animateViewMoving(up, moveValue: 160)
-        } else if textField == self.officeTextFied {
-            animateViewMoving(up, moveValue: 180)
-        } else if textField == self.controlDigitTextFied {
-            animateViewMoving(up, moveValue: 200)
-        } else if textField == self.accountNumberTextFied {
-            animateViewMoving(up, moveValue: 200)
-        } else if textField == self.balanceTextFied {
-            animateViewMoving(up, moveValue: 200)
-        }
-    }
-    
-    // MARK: Fires when UITextField get focus
-    func textFieldDidBeginEditing(textField: UITextField) {
-        setTextFieldsMoving(true, textField: textField)
-    }
-    
-    // MARK: Fires when UITextField lost focus
-    func textFieldDidEndEditing(textField: UITextField) {
-        setTextFieldsMoving(false, textField: textField)
-    }
-    
-    // MARK: Moves the form
-    func animateViewMoving(up:Bool, moveValue :CGFloat){
-        let movementDuration:NSTimeInterval = 0.3
-        let movement:CGFloat = (up ? -moveValue : moveValue)
-        UIView.beginAnimations("animateView", context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(movementDuration )
-        self.view.frame = CGRectOffset(self.view.frame, 0,  movement)
-        UIView.commitAnimations()
-    }
 
 }
 
@@ -186,6 +140,7 @@ extension NewBankAccountViewController: ValidationDelegate {
     // MARK: Register the required fields
     func registerFieldsInValidator() {
         let requiredString = NSLocalizedString("common.validator.required", comment: "The required field message")
+        customValidator.registerField(descriptionTextField, errorLabel: descriptionErrorLabel, rules: [RequiredRule(message: NSLocalizedString("bankAccounts.requiredDescription", comment: "The required description message"))])
         customValidator.registerField(entityTextFied, errorLabel: entityErrorLabel, rules: [RequiredRule(message: requiredString), DigitRule(length: 4)])
         customValidator.registerField(officeTextFied, errorLabel: officeErrorLabel, rules: [RequiredRule(message: requiredString), DigitRule(length: 4)])
         customValidator.registerField(controlDigitTextFied, errorLabel: controlDigitErrorLabel, rules: [RequiredRule(message: requiredString), DigitRule(length: 2)])
@@ -219,7 +174,7 @@ extension NewBankAccountViewController {
             ibanTrim = nil
         }
         
-        let bankAccount = BankAccount(iban: ibanTrim, entity: entityTextFied.text!, office: officeTextFied.text!, controlDigit: controlDigitTextFied.text!, accountNumber: accountNumberTextFied.text!, balance: Diexpenses.formatDecimalValue(string: balanceTextFied.text!), description: descriptionTextView.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()))
+        let bankAccount = BankAccount(iban: ibanTrim, entity: entityTextFied.text!, office: officeTextFied.text!, controlDigit: controlDigitTextFied.text!, accountNumber: accountNumberTextFied.text!, balance: Diexpenses.formatDecimalValue(string: balanceTextFied.text!), description: descriptionTextField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()))
         
         let url = String.localizedStringWithFormat(Constants.API.CREATE_BANK_ACCOUNT_URL, Diexpenses.user.id)
         let bankAccountJson = JsonUtils.JSONStringify(bankAccount.toJSON()!, prettyPrinted: true)
@@ -240,7 +195,7 @@ extension NewBankAccountViewController {
             ibanTrim = nil
         }
         
-        let newBankAccount = BankAccount(id: bankAccount.id, iban: ibanTrim, entity: entityTextFied.text!, office: officeTextFied.text!, controlDigit: controlDigitTextFied.text!, accountNumber: accountNumberTextFied.text!, balance: Diexpenses.formatDecimalValue(string: balanceTextFied.text!), description: descriptionTextView.text)
+        let newBankAccount = BankAccount(id: bankAccount.id, iban: ibanTrim, entity: entityTextFied.text!, office: officeTextFied.text!, controlDigit: controlDigitTextFied.text!, accountNumber: accountNumberTextFied.text!, balance: Diexpenses.formatDecimalValue(string: balanceTextFied.text!), description: descriptionTextField.text!)
         
         let url = String.localizedStringWithFormat(Constants.API.UD_BANK_ACCOUNT_URL, Diexpenses.user.id, newBankAccount.id)
         let newBankAccountJson = JsonUtils.JSONStringify(newBankAccount.toJSON()!, prettyPrinted: true)
