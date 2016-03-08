@@ -40,6 +40,8 @@
 "home.balance.medium" = "No ahorras nada...";
 "home.balance.low" = "¡No gastes tanto!";
 
+"bankAccounts.delete" = "Eliminar cuenta bancaria";
+"bankAccounts.delete.message" = "¿Está seguro de que desea eliminar la cuenta bancaria?";
 "bankAccounts.requiredDescription" = "Introduce la descripción";
 "bankAccounts.noData" = "No hay cuentas bancarias";
 
@@ -60,6 +62,9 @@
 "expenseSubkind.edit.message" = "Introduce el nuevo nombre del subtipo de gasto";
 "expenseSubkind.delete" = "Eliminar subtipo de gasto";
 "expenseSubkind.delete.message" = "¿Está seguro que desea eliminar el subtipo de gasto \"%@\"?";
+
+"movements.delete" = "Eliminar movimiento";
+"movements.delete.message" = "¿Está seguro de que desea eliminar el movimiento?";
 
 "newMovement.select.bankAccount" = "Selecciona una cuenta";
 "newMovement.insert.concept" = "Introduce el concepto";

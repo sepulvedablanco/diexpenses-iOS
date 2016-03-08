@@ -52,6 +52,8 @@ extension MovementsViewController {
     
     // MARK: Initialize the View Controller
     func initVC() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadMovements", name:Constants.Notifications.EXPENSES_CHANGED, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadMovements", name:Constants.Notifications.INCOMES_CHANGED, object: nil)
         self.refreshControl = Diexpenses.createRefreshControl(self, actionName: "refreshMovements:")
         movementsTableView.addSubview(self.refreshControl)
         loadMonths()
@@ -162,7 +164,16 @@ extension MovementsViewController: UITableViewDelegate {
             
             let cell = self.movementsTableView.cellForRowAtIndexPath(indexPath)!
             let movementCell = cell as! MovementCell
-            self.removeMovement(movementCell.movement)
+            
+            let alert = UIAlertController(title: NSLocalizedString("movements.delete", comment: "Delete movement title"), message: NSLocalizedString("movements.delete.message", comment: "Delete movement message"), preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("common.delete", comment: "The common message delete"), style: .Destructive, handler: {
+                (action) -> Void in
+                
+                self.removeMovement(movementCell.movement)
+            }))
+            
+            alert.addAction(UIAlertAction(title: NSLocalizedString("common.cancel", comment: "The common cancel message"), style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
         remove.backgroundColor = Diexpenses.redColor
         return [remove]

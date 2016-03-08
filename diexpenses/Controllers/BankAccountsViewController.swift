@@ -44,6 +44,7 @@ extension BankAccountsViewController {
     
     // MARK: Initialize the View Controller
     func initVC() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadBankAccounts", name:Constants.Notifications.BANK_ACCOUNTS_CHANGED, object: nil)
         refreshControl = Diexpenses.createRefreshControl(self, actionName: "refreshBankAccounts:")
         bankAccountsTableView.addSubview(self.refreshControl)
         self.loadBankAccounts()
@@ -94,7 +95,16 @@ extension BankAccountsViewController: UITableViewDelegate {
             
             let cell = tableView.cellForRowAtIndexPath(indexPath)!
             let bankCell = cell as! BankCell
-            self.removeBankAccount(bankCell.bankAccount.id)
+
+            let alert = UIAlertController(title: NSLocalizedString("bankAccounts.delete", comment: "Delete bank account title"), message: NSLocalizedString("bankAccounts.delete.message", comment: "Delete bank account message"), preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("common.delete", comment: "The common message delete"), style: .Destructive, handler: {
+                (action) -> Void in
+                
+                self.removeBankAccount(bankCell.bankAccount.id)
+            }))
+            
+            alert.addAction(UIAlertAction(title: NSLocalizedString("common.cancel", comment: "The common cancel message"), style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
         remove.backgroundColor = Diexpenses.redColor
         

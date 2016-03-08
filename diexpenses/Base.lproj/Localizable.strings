@@ -40,6 +40,8 @@
 "home.balance.medium" = "Spares nothing ...";
 "home.balance.low" = "Do not spend much!";
 
+"bankAccounts.delete" = "Delete bank account";
+"bankAccounts.delete.message" = "Are you sure you want to delete the bank account?";
 "bankAccounts.requiredDescription" = "Enter a description";
 "bankAccounts.noData" = "No bank accounts";
 
@@ -60,6 +62,9 @@
 "expenseSubkind.edit.message" = "Enter the new name of the subkind expense";
 "expenseSubkind.delete" = "Remove subkind expense";
 "expenseSubkind.delete.message" = "Are you sure you want to delete the expense subkind \"%@\"?";
+
+"movements.delete" = "Delete movement";
+"movements.delete.message" = "Are you sure you want to delete the movement?";
 
 "newMovement.select.bankAccount" = "Select an account";
 "newMovement.insert.concept" = "Enter the concept";

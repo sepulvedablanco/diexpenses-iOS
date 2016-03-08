@@ -99,7 +99,7 @@ class Diexpenses {
     }
     
     static func formatDecimalValue(string number: String) -> NSNumber {
-        NSLog("\(number)")
+        NSLog("Number to format:\(number)")
         let formatter = NSNumberFormatter()
         formatter.numberStyle = .DecimalStyle
         formatter.locale = NSLocale.currentLocale()
