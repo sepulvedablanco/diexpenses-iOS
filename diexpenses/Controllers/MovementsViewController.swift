@@ -27,18 +27,18 @@ class MovementsViewController: UIViewController {
         return years
     }()
     
-    lazy var refreshControl = Diexpenses.createRefreshControl(actionName: "refreshMovements:")
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+
+        initVC()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
-        initVC()
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,6 +52,7 @@ extension MovementsViewController {
     
     // MARK: Initialize the View Controller
     func initVC() {
+        self.refreshControl = Diexpenses.createRefreshControl(self, actionName: "refreshMovements:")
         movementsTableView.addSubview(self.refreshControl)
         loadMonths()
         loadMovements()

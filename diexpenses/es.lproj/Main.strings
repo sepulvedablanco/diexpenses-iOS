@@ -185,6 +185,15 @@
 /* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "JeE-Qk-kxN"; */
 "JeE-Qk-kxN.title" = "Atras";
 
+/* Class = "UITabBarItem"; title = "Types"; ObjectID = "JcO-Dv-2ro"; */
+"JcO-Dv-2ro.title" = "Tipos";
+
+/* Class = "UINavigationItem"; title = "Expense Subkinds"; ObjectID = "B0Q-8e-9U7"; */
+"B0Q-8e-9U7.title" = "Subtipos de Gastos";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Gpw-1f-XJG"; */
+"Gpw-1f-XJG.text" = "";
+
 /* MovementSubkindsViewController End */
 
 

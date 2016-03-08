@@ -16,7 +16,7 @@ class BankAccountsViewController: UIViewController {
 
     var bankAccounts : [BankAccount] = []
 
-    lazy var refreshControl = Diexpenses.createRefreshControl(actionName: "refreshBankAccounts:")
+    var refreshControl: UIRefreshControl!
 
     @IBOutlet weak var bankAccountsTableView: UITableView!
     
@@ -24,14 +24,12 @@ class BankAccountsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        initVC()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        bankAccountsTableView.addSubview(self.refreshControl)
-        
-        self.loadBankAccounts()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +41,13 @@ class BankAccountsViewController: UIViewController {
 
 // MARK: - Extension for legacy operations
 extension BankAccountsViewController {
+    
+    // MARK: Initialize the View Controller
+    func initVC() {
+        refreshControl = Diexpenses.createRefreshControl(self, actionName: "refreshBankAccounts:")
+        bankAccountsTableView.addSubview(self.refreshControl)
+        self.loadBankAccounts()
+    }
     
     // MARK: Refresh the bank accounts table data
     func refreshBankAccounts(refreshControl: UIRefreshControl) {

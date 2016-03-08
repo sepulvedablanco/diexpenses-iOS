@@ -63,16 +63,19 @@ class Diexpenses {
     }
     
     static func showUnknownError(controller: UIViewController) -> Void {
-        let unknownError = UIAlertController(title: NSLocalizedString("common.error", comment: "The error title"), message: NSLocalizedString("common.unknownError", comment: "The unknown error message"), preferredStyle: .Alert)
-        unknownError.addAction(UIAlertAction(title: NSLocalizedString("common.close", comment: "The close button"), style: .Default, handler: nil))
-        controller.presentViewController(unknownError, animated: true, completion: nil)
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            let unknownError = UIAlertController(title: NSLocalizedString("common.error", comment: "The error title"), message: NSLocalizedString("common.unknownError", comment: "The unknown error message"), preferredStyle: .Alert)
+            unknownError.addAction(UIAlertAction(title: NSLocalizedString("common.close", comment: "The close button"), style: .Default, handler: nil))
+            controller.presentViewController(unknownError, animated: true, completion: nil)
+        })
     }
 
     static func showError(controller: UIViewController, message: String) -> Void {
-        let error = UIAlertController(title: NSLocalizedString("common.error", comment: "The error title"), message: message, preferredStyle: .Alert)
-        error.addAction(UIAlertAction(title: NSLocalizedString("common.close", comment: "The close button"), style: .Default, handler: nil))
-        controller.presentViewController(error, animated: true, completion: nil)
-
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            let error = UIAlertController(title: NSLocalizedString("common.error", comment: "The error title"), message: message, preferredStyle: .Alert)
+            error.addAction(UIAlertAction(title: NSLocalizedString("common.close", comment: "The close button"), style: .Default, handler: nil))
+            controller.presentViewController(error, animated: true, completion: nil)
+        })
     }
 
     static func formatDate(date: NSDate, format: String) -> String {
@@ -126,9 +129,9 @@ class Diexpenses {
         return headers
     }
     
-    static func createRefreshControl(actionName name: Selector) -> UIRefreshControl {
+    static func createRefreshControl(controller: UIViewController, actionName name: Selector) -> UIRefreshControl {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: name, forControlEvents: .ValueChanged)
+        refreshControl.addTarget(controller, action: name, forControlEvents: .ValueChanged)
         return refreshControl
     }
 }

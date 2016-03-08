@@ -14,7 +14,7 @@ class MovementSubkindsViewController: UIViewController {
     var expenseKind: ExpenseKind!
     var expensesSubkinds: [ExpenseKind] = []
     
-    lazy var refreshControl = Diexpenses.createRefreshControl(actionName: "refreshMovementsSubkinds:")
+    var refreshControl: UIRefreshControl!
 
     @IBOutlet weak var movementesSubkindsTableView: UITableView!
     
@@ -50,6 +50,7 @@ extension MovementSubkindsViewController {
     
     // MARK: Initialize the View Controller
     func initVC() {
+        self.refreshControl = Diexpenses.createRefreshControl(self, actionName: "refreshMovementsSubkinds:")
         movementesSubkindsTableView.addSubview(self.refreshControl)
         self.loadMovementsSubkinds()
     }

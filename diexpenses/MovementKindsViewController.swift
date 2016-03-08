@@ -15,7 +15,7 @@ class MovementKindsViewController: UIViewController {
 
     @IBOutlet weak var movementsKindsTableView: UITableView!
     
-    lazy var refreshControl = Diexpenses.createRefreshControl(actionName: "refreshMovementsKinds:")
+    var refreshControl: UIRefreshControl!
     
     @IBAction func onNewMovementKind(sender: UIBarButtonItem) {
         createAlert(NSLocalizedString("expenseKind.new", comment: "The new expense kind message"), message: NSLocalizedString("expenseKind.new.message", comment: "The new expense kind description"), actionButtonMessage: NSLocalizedString("common.save", comment: "The common message save"), expenseKind: nil, operation: .NEW_KIND)
@@ -25,12 +25,12 @@ class MovementKindsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        initVC()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        initVC()
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,6 +45,7 @@ extension MovementKindsViewController {
     
     // MARK: Initialize the View Controller
     func initVC() {
+        self.refreshControl = Diexpenses.createRefreshControl(self, actionName: "refreshMovementsKinds:")
         movementsKindsTableView.addSubview(self.refreshControl)
         self.loadMovementsKinds()
     }
