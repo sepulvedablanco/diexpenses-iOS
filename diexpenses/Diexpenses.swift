@@ -77,6 +77,13 @@ class Diexpenses {
             controller.presentViewController(error, animated: true, completion: nil)
         })
     }
+    
+    static func switchButton(button: UIButton) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            button.enabled = !button.enabled
+            button.alpha = button.enabled ? 1.0 : 0.5
+        })
+    }
 
     static func formatDate(date: NSDate, format: String) -> String {
         let dayTimePeriodFormatter = NSDateFormatter()

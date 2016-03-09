@@ -14,6 +14,7 @@ class SignUpViewController: UIViewController {
     
     let customValidator = CustomValidator()
 
+    @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var scrollView: CustomScrollView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nameErrorLabel: UILabel!
@@ -25,6 +26,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var confirmPasswordErrorLabel: UILabel!
     
     @IBAction func onSignUp() {
+        Diexpenses.switchButton(signUpButton)
         customValidator.validate(self)
     }
     
@@ -127,6 +129,7 @@ extension SignUpViewController {
         Diexpenses.doRequest(Constants.API.CREATE_USER_URL, headers: Diexpenses.getTypicalHeaders(false), verb: HttpVerbs.POST.rawValue, body: nameUserPassJson, completionHandler: {
             data, response, error in
             
+            Diexpenses.switchButton(self.signUpButton)
             if let d = data {
                 if Diexpenses.dealWithGenericResponse(self, responseData: d, expectedCode: 3) {
                     self.doLogin(nameUserPass)

@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
 
     let customValidator = CustomValidator();
 
+    @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var usernameErrorLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -21,6 +22,7 @@ class LoginViewController: UIViewController {
     
     // MARK: Method called when user push Sign in button
     @IBAction func onSignIn() {
+        Diexpenses.switchButton(signInButton)
         customValidator.validate(self)
     }
     
@@ -120,6 +122,7 @@ extension LoginViewController {
         Diexpenses.doRequest(Constants.API.LOGIN_URL, headers: Diexpenses.getTypicalHeaders(false), verb: HttpVerbs.POST.rawValue, body: userPassJson, completionHandler: {
             data, response, error in
             
+            Diexpenses.switchButton(self.signInButton)
             if let d = data {
                 do {
                     let userJson: AnyObject! = try NSJSONSerialization.JSONObjectWithData(d, options: NSJSONReadingOptions(rawValue: 0))
