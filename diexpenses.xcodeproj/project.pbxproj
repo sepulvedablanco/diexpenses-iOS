@@ -66,6 +66,7 @@
 		F19F0D4F1C5E5FD3007EB848 /* Unknown.png in Resources */ = {isa = PBXBuildFile; fileRef = F19F0D4D1C5E5FD3007EB848 /* Unknown.png */; };
 		F1CE1B3F1C5975C8002CA6C1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE1B3E1C5975C8002CA6C1 /* Constants.swift */; };
 		F1F3F24E1C8B09C000A7929B /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F3F24D1C8B09C000A7929B /* CustomScrollView.swift */; };
+		F1FC65471C922EB000DA03CC /* BasePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC65461C922EB000DA03CC /* BasePicker.swift */; };
 		F1FC95001C6FB786001E4FD0 /* shutdown.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FC94FF1C6FB786001E4FD0 /* shutdown.png */; };
 /* End PBXBuildFile section */
 
@@ -157,6 +158,7 @@
 		F19F0D4D1C5E5FD3007EB848 /* Unknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unknown.png; sourceTree = "<group>"; };
 		F1CE1B3E1C5975C8002CA6C1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F1F3F24D1C8B09C000A7929B /* CustomScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
+		F1FC65461C922EB000DA03CC /* BasePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePicker.swift; sourceTree = "<group>"; };
 		F1FC94FF1C6FB786001E4FD0 /* shutdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shutdown.png; sourceTree = "<group>"; };
 		FA3ECED3B82F43C595EEC1C5 /* Pods_diexpenses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_diexpenses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -314,6 +316,7 @@
 				F1F3F24D1C8B09C000A7929B /* CustomScrollView.swift */,
 				F11B1DE31C7E5BB00079B09B /* CustomPicker.swift */,
 				F15C0B161C84FB0E00B6CD40 /* CustomDatePicker.swift */,
+				F1FC65461C922EB000DA03CC /* BasePicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				F11B1DE41C7E5BB00079B09B /* CustomPicker.swift in Sources */,
 				F12CB0B31C73D29B00FFF841 /* MovementCell.swift in Sources */,
 				F11AAA4A1C8C4149009CE0C6 /* MovementsSubkindsViewController.swift in Sources */,
+				F1FC65471C922EB000DA03CC /* BasePicker.swift in Sources */,
 				F10807711C86528600468399 /* DecimalRule.swift in Sources */,
 				F19F0D461C5E5CA9007EB848 /* BankCell.swift in Sources */,
 				F111CA8F1C8B6C9F00476135 /* MovementKindsViewController.swift in Sources */,

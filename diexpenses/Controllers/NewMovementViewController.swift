@@ -11,8 +11,14 @@ import Gloss
 
 class NewMovementViewController: UIViewController {
     
-    var expensesKinds : [ExpenseKind] = [ExpenseKind(description: ExpensesKindsViewController.noData)]
-    var expensesSubKinds : [ExpenseKind] = [ExpenseKind(description: ExpensesKindsViewController.noData)]
+    static let noData = NSLocalizedString("common.noData", comment: "The no data common message")
+    static let loadingData = NSLocalizedString("common.loadingData", comment: "The loading data message")
+    static let selectKind = NSLocalizedString("expenseKind.select", comment: "The select kind message")
+    static let selectSubkind = NSLocalizedString("expenseSubkind.select", comment: "The select subkind message")
+    static let selectKindFirst = NSLocalizedString("expenseSubkind.selectKind", comment: "The select kind first message")
+
+    var expensesKinds : [ExpenseKind] = [ExpenseKind(description: noData)]
+    var expensesSubKinds : [ExpenseKind] = [ExpenseKind(description: noData)]
     var bankAccounts : [BankAccount] = []
 
     @IBOutlet weak var expensesSegmentedControl: UISegmentedControl!
@@ -111,14 +117,14 @@ extension NewMovementViewController {
         kindsCustomPicker = CustomPicker(target: self, uiTextField: kindTextField, items: getBarItems("onKindSelected", cancelSelector: "onCancelKind"))
         kindsCustomPicker.picker.delegate = self
         kindsCustomPicker.picker.dataSource = self
-        kindTextField.text = ExpensesKindsViewController.selectKind
+        kindTextField.text = NewMovementViewController.selectKind
         kindTextField.delegate = self
         
         subkindsCustomPicker = CustomPicker(target: self, uiTextField: subkindTextField, items: getBarItems("onSubkindSelected", cancelSelector: "onCancelSubkind"))
         subkindsCustomPicker.picker.delegate = self
         subkindsCustomPicker.picker.dataSource = self
         subkindTextField.enabled = false
-        subkindTextField.text = ExpensesKindsViewController.selectKindFirst
+        subkindTextField.text = NewMovementViewController.selectKindFirst
         subkindTextField.delegate = self
         
         bankAccountsCustomPicker = CustomPicker(target: self, uiTextField: bankAccountTextField, items: getBarItems("onBankAccountSelected", cancelSelector: "onCancelBankAccount"))
@@ -148,7 +154,7 @@ extension NewMovementViewController {
         if let _ = tempKind.id {
             selectedKind = tempKind
             kindsCustomPicker.doCommonOperations(tempKind.description)
-            subkindsCustomPicker.doCommonOperations(ExpensesKindsViewController.selectSubkind)
+            subkindsCustomPicker.doCommonOperations(NewMovementViewController.selectSubkind)
             subkindTextField.enabled = true
         }
     }
@@ -158,7 +164,7 @@ extension NewMovementViewController {
         if let kind = selectedKind {
             kindsCustomPicker.doCommonOperations(kind.description)
         } else {
-            kindsCustomPicker.doCommonOperations(ExpensesKindsViewController.selectKind)
+            kindsCustomPicker.doCommonOperations(NewMovementViewController.selectKind)
         }
     }
     
@@ -180,9 +186,9 @@ extension NewMovementViewController {
         }
         
         if let _ = selectedKind {
-            subkindsCustomPicker.doCommonOperations(ExpensesKindsViewController.selectKindFirst)
+            subkindsCustomPicker.doCommonOperations(NewMovementViewController.selectKindFirst)
         } else {
-            subkindsCustomPicker.doCommonOperations(ExpensesKindsViewController.selectSubkind)
+            subkindsCustomPicker.doCommonOperations(NewMovementViewController.selectSubkind)
         }
         
     }
@@ -327,7 +333,7 @@ extension NewMovementViewController {
                     let expensesKindsJson: AnyObject! = (try NSJSONSerialization.JSONObjectWithData(d, options: NSJSONReadingOptions(rawValue: 0))  as? NSArray)!
                     let newExpensesKinds = ExpenseKind.modelsFromJSONArray(expensesKindsJson as! [JSON])!
                     if newExpensesKinds.isEmpty {
-                        self.expensesKinds = [ExpenseKind(description: ExpensesKindsViewController.noData)]
+                        self.expensesKinds = [ExpenseKind(description: NewMovementViewController.noData)]
                     } else {
                         self.expensesKinds = newExpensesKinds
                         self.loadExpensesSubkinds(self.expensesKinds[0].id)
@@ -356,7 +362,7 @@ extension NewMovementViewController {
                     let expensesSubkindsJson: AnyObject! = (try NSJSONSerialization.JSONObjectWithData(d, options: NSJSONReadingOptions(rawValue: 0))  as? NSArray)!
                     let newExpensesSubkinds = ExpenseKind.modelsFromJSONArray(expensesSubkindsJson as! [JSON])!
                     if newExpensesSubkinds.count == 0 {
-                        self.expensesSubKinds = [ExpenseKind(description: ExpensesKindsViewController.noData)]
+                        self.expensesSubKinds = [ExpenseKind(description: NewMovementViewController.noData)]
                     } else {
                         self.expensesSubKinds = newExpensesSubkinds
                     }
@@ -386,7 +392,7 @@ extension NewMovementViewController {
                     
                     let lstBankAccounts = BankAccount.modelsFromJSONArray(bankAccountsJson as! [JSON])!
                     if lstBankAccounts.isEmpty {
-                        //    self.bankAccounts = [BankAccount(description: ExpensesKindsViewController.noData)]
+                        //    self.bankAccounts = [BankAccount(description: NewMovementViewController.noData)]
                     }else {
                         self.bankAccounts = lstBankAccounts
                     }

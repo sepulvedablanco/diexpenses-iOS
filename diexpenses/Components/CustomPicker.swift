@@ -9,36 +9,17 @@
 import UIKit
 
 // MARK: - UIPickerView with UIToolbar that is showed when an UITextField is selected
-class CustomPicker {
+class CustomPicker: BasePicker {
     
     let picker: UIPickerView
-    let uiTextField: UITextField
     
     init(target: UIViewController, uiTextField: UITextField, items: [UIBarButtonItem]) {
         self.picker = UIPickerView(frame: CGRectMake(0, 0, target.view.frame.width, 250))
-        self.uiTextField = uiTextField
+        super.init(uiTextField: uiTextField, items: items);
         
-        picker.backgroundColor = Diexpenses.iosBorderColor
-        
-        picker.showsSelectionIndicator = true
-        
-        let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.BlackTranslucent
-        toolBar.translucent = true
-        toolBar.tintColor = UIColor.whiteColor()
-        toolBar.sizeToFit()
-                
-        
-        toolBar.setItems(items, animated: false)
-        toolBar.userInteractionEnabled = true
-        
-        uiTextField.inputView = picker
-        uiTextField.inputAccessoryView = toolBar
+        self.picker.backgroundColor = Diexpenses.iosBorderColor
+        self.picker.showsSelectionIndicator = true
+        self.uiTextField.inputView = picker
     }
     
-    // MARK: Set text in associated UITextField and hides the picker
-    func doCommonOperations(text: String) {
-        uiTextField.text = text
-        uiTextField.resignFirstResponder()
-    }
 }
