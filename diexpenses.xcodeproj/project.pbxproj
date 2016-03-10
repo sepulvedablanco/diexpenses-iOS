@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		42ECBF5AEBD997A91C1CFB55 /* Pods_diexpenses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3ECED3B82F43C595EEC1C5 /* Pods_diexpenses.framework */; };
 		F10807631C86523E00468399 /* EntryPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108075B1C86523E00468399 /* EntryPointViewController.swift */; };
-		F10807641C86523E00468399 /* ExpensesKindsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108075C1C86523E00468399 /* ExpensesKindsViewController.swift */; };
 		F10807651C86523E00468399 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108075D1C86523E00468399 /* HomeViewController.swift */; };
 		F10807661C86523E00468399 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108075E1C86523E00468399 /* LoginViewController.swift */; };
 		F10807671C86523E00468399 /* MovementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108075F1C86523E00468399 /* MovementsViewController.swift */; };
@@ -91,7 +90,6 @@
 		6ED6AD324E2CA0A9FA1E19F9 /* Pods-diexpenses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diexpenses.release.xcconfig"; path = "Pods/Target Support Files/Pods-diexpenses/Pods-diexpenses.release.xcconfig"; sourceTree = "<group>"; };
 		EF3DC620AA11350E86ED451D /* Pods-diexpenses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diexpenses.debug.xcconfig"; path = "Pods/Target Support Files/Pods-diexpenses/Pods-diexpenses.debug.xcconfig"; sourceTree = "<group>"; };
 		F108075B1C86523E00468399 /* EntryPointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryPointViewController.swift; path = Controllers/EntryPointViewController.swift; sourceTree = "<group>"; };
-		F108075C1C86523E00468399 /* ExpensesKindsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpensesKindsViewController.swift; path = Controllers/ExpensesKindsViewController.swift; sourceTree = "<group>"; };
 		F108075D1C86523E00468399 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/HomeViewController.swift; sourceTree = "<group>"; };
 		F108075E1C86523E00468399 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
 		F108075F1C86523E00468399 /* MovementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovementsViewController.swift; path = Controllers/MovementsViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 		F108076F1C86528600468399 /* DigitRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DigitRule.swift; path = Validators/DigitRule.swift; sourceTree = "<group>"; };
 		F111CA8E1C8B6C9F00476135 /* MovementKindsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementKindsViewController.swift; sourceTree = "<group>"; };
 		F114EEDF1C6649C700680980 /* ExpenseKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseKind.swift; sourceTree = "<group>"; };
-		F119E5551C8E44A300F3BFA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F11AA2D61C60048800AD805D /* JsonUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonUtils.swift; path = Models/JsonUtils.swift; sourceTree = "<group>"; };
 		F11AA2D91C6012CA00AD805D /* GenericApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericApiResponse.swift; sourceTree = "<group>"; };
 		F11AAA491C8C4149009CE0C6 /* MovementsSubkindsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementsSubkindsViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +125,7 @@
 		F1210BCB1C7520EB00EA93AD /* Santander_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Santander_100.png; sourceTree = "<group>"; };
 		F1210BCD1C75210000EA93AD /* targoBank_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = targoBank_100.png; sourceTree = "<group>"; };
 		F1210BCF1C75216A00EA93AD /* novoBank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = novoBank.png; sourceTree = "<group>"; };
+		F12965461C8F6BE700E07C54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F12CB0B21C73D29B00FFF841 /* MovementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementCell.swift; sourceTree = "<group>"; };
 		F12CB0B41C73E17F00FFF841 /* minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus.png; sourceTree = "<group>"; };
 		F12CB0B61C73E18500FFF841 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
@@ -211,7 +209,6 @@
 			children = (
 				F108076B1C86525D00468399 /* BankAccountsViewController.swift */,
 				F108075B1C86523E00468399 /* EntryPointViewController.swift */,
-				F108075C1C86523E00468399 /* ExpensesKindsViewController.swift */,
 				F108075D1C86523E00468399 /* HomeViewController.swift */,
 				F108075E1C86523E00468399 /* LoginViewController.swift */,
 				F108075F1C86523E00468399 /* MovementsViewController.swift */,
@@ -579,7 +576,6 @@
 				F10807651C86523E00468399 /* HomeViewController.swift in Sources */,
 				F114EEE01C6649C700680980 /* ExpenseKind.swift in Sources */,
 				F108076A1C86523E00468399 /* SignUpViewController.swift in Sources */,
-				F10807641C86523E00468399 /* ExpensesKindsViewController.swift in Sources */,
 				F10807721C86528600468399 /* DigitRule.swift in Sources */,
 				F17A74631C56CAEA00BEF254 /* AppDelegate.swift in Sources */,
 				F19F0D421C5E5B12007EB848 /* User.swift in Sources */,
@@ -657,7 +653,7 @@
 			children = (
 				F17A74691C56CAEA00BEF254 /* Base */,
 				F172800E1C57F4CB00E9F22E /* es */,
-				F119E5551C8E44A300F3BFA2 /* en */,
+				F12965461C8F6BE700E07C54 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -682,8 +678,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Diego Sep Bla (JM323JPV48)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Diego Sep Bla (JM323JPV48)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: MIMO. Master de Informatica Movil - Universidad Pontificia de Salamanca (A5UCFNWB8C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MIMO. Master de Informatica Movil - Universidad Pontificia de Salamanca (A5UCFNWB8C)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -705,7 +701,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "73f8780f-468e-4494-a110-29b10e6d35f2";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -728,8 +724,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Diego Sep Bla (JM323JPV48)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Diego Sep Bla (JM323JPV48)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: MIMO. Master de Informatica Movil - Universidad Pontificia de Salamanca (A5UCFNWB8C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MIMO. Master de Informatica Movil - Universidad Pontificia de Salamanca (A5UCFNWB8C)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -744,7 +740,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "73f8780f-468e-4494-a110-29b10e6d35f2";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -755,14 +751,14 @@
 			baseConfigurationReference = EF3DC620AA11350E86ED451D /* Pods-diexpenses.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Diego Sep Bla (JM323JPV48)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Diego Sep Bla (JM323JPV48)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: MIMO. Master de Informatica Movil - Universidad Pontificia de Salamanca (A5UCFNWB8C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MIMO. Master de Informatica Movil - Universidad Pontificia de Salamanca (A5UCFNWB8C)";
 				INFOPLIST_FILE = diexpenses/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = es.upsa.mimo.diexpenses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "73f8780f-468e-4494-a110-29b10e6d35f2";
 			};
 			name = Debug;
 		};
@@ -771,14 +767,14 @@
 			baseConfigurationReference = 6ED6AD324E2CA0A9FA1E19F9 /* Pods-diexpenses.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Diego Sep Bla (JM323JPV48)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Diego Sep Bla (JM323JPV48)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: MIMO. Master de Informatica Movil - Universidad Pontificia de Salamanca (A5UCFNWB8C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MIMO. Master de Informatica Movil - Universidad Pontificia de Salamanca (A5UCFNWB8C)";
 				INFOPLIST_FILE = diexpenses/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = es.upsa.mimo.diexpenses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "73f8780f-468e-4494-a110-29b10e6d35f2";
 			};
 			name = Release;
 		};
