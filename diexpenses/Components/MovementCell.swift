@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Custom UITableViewCell for MovementsViewController table view
 class MovementCell: UITableViewCell {
     
     internal static let identifier = "MovementCell"

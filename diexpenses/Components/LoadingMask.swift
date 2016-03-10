@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Loading mask for heavy operations.
 class LoadingMask {
 
     var messageFrame : UIView!

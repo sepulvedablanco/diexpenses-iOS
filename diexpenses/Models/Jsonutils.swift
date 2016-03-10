@@ -8,8 +8,10 @@
 
 import Foundation
 
+// MARK: - Set of utilities for working with JSON objects 
 class JsonUtils {
     
+    // MARK: Utility that converts a JSON object into a String
     static func JSONStringify(value: AnyObject, prettyPrinted:Bool = false) -> String {
         
         let options = prettyPrinted ? NSJSONWritingOptions.PrettyPrinted : NSJSONWritingOptions(rawValue: 0)

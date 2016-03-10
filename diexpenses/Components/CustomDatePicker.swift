@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - UIDatePicker with UIToolbar that is showed when an UITextField is selected
 class CustomDatePicker {
 
     let picker: UIDatePicker
@@ -33,6 +34,7 @@ class CustomDatePicker {
         uiTextField.inputAccessoryView = toolBar
     }
     
+    // MARK: Set text in associated UITextField and hides the picker
     func doCommonOperations(text: String) {
         uiTextField.text = text
         uiTextField.resignFirstResponder()

@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Custom UITableViewCell for BankAccountsViewController table view
 class BankCell: UITableViewCell {
     
     internal static let identifier = "BankCell"

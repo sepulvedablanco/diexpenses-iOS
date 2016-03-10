@@ -8,6 +8,7 @@
 
 import SwiftValidator
 
+// MARK: - Digit validator for SwiftValidator. Validate that a String has n digits (4 by default)
 public class DigitRule: Rule {
     
     private var length: Int = 4
@@ -24,12 +25,14 @@ public class DigitRule: Rule {
         self.message = message
     }
 
+    // MARK: Validate implementation for Rule protocol
     public func validate(value: String) -> Bool {
         let regex = String.localizedStringWithFormat("^\\d{%d}$", length)
         let test = NSPredicate(format: "SELF MATCHES %@", regex)
         return test.evaluateWithObject(value)
     }
     
+    // MARK: Error message implementation for Rule protocol
     public func errorMessage() -> String {
         return String.localizedStringWithFormat(message, length)
     }

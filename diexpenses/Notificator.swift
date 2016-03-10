@@ -8,8 +8,10 @@
 
 import Foundation
 
+// MARK: - Set of utilities for notifications between view-controllers
 class Notificator {
     
+    // MARK: Utility that is launched after the creation or deletion of a movement (expense or income)
     static func fireNotification(expense expense: Bool!) {
         if let isExpense = expense {
             let notification = isExpense ? Constants.Notifications.EXPENSES_CHANGED : Constants.Notifications.INCOMES_CHANGED
@@ -21,9 +23,9 @@ class Notificator {
         }
     }
     
+    // MARK: Utility that sends a parameterized notification
     static func fireNotification(notificationName notificationName: String) {
         NSNotificationCenter.defaultCenter().postNotificationName(notificationName, object: nil)
     }
 
-    
 }

@@ -8,6 +8,8 @@
 
 import SwiftValidator
 
+//Validator
+// MARK: - Generic APP form validator. It is an extension for SwiftValidator with the common source code.
 class CustomValidator: Validator {
     
     override init() {

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Gloss
 
+// MARK: - Main usefulness of the application
 class Diexpenses {
     
     static var user : User!
@@ -21,6 +22,11 @@ class Diexpenses {
     static let redColor = UIColor(red: 211/255, green: 73/255, blue: 78/255, alpha: 1.0)
     static let greenColor = UIColor(red: 116/255, green: 201/255, blue: 116/255, alpha: 1.0)
     static let blueColor = UIColor(red: 134/255, green: 216/255, blue: 247/255, alpha: 1.0)
+    
+}
+
+// MARK: - HTTP Utils
+extension Diexpenses {
     
     static func doRequest(url: String, headers: [NSObject : AnyObject], verb: String, body: String?, completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) {
         
@@ -62,29 +68,18 @@ class Diexpenses {
         return false
     }
     
-    static func showUnknownError(controller: UIViewController) -> Void {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            let unknownError = UIAlertController(title: NSLocalizedString("common.error", comment: "The error title"), message: NSLocalizedString("common.unknownError", comment: "The unknown error message"), preferredStyle: .Alert)
-            unknownError.addAction(UIAlertAction(title: NSLocalizedString("common.close", comment: "The close button"), style: .Default, handler: nil))
-            controller.presentViewController(unknownError, animated: true, completion: nil)
-        })
+    static func getTypicalHeaders(sendToken: Bool = true) -> [NSObject : AnyObject] {
+        var headers = ["Content-type": "application/json", "Accept-Language" : NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode)!]
+        if sendToken {
+            headers.add(["X-AUTH-TOKEN" : user.authToken])
+        }
+        return headers
     }
+}
 
-    static func showError(controller: UIViewController, message: String) -> Void {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            let error = UIAlertController(title: NSLocalizedString("common.error", comment: "The error title"), message: message, preferredStyle: .Alert)
-            error.addAction(UIAlertAction(title: NSLocalizedString("common.close", comment: "The close button"), style: .Default, handler: nil))
-            controller.presentViewController(error, animated: true, completion: nil)
-        })
-    }
+// MARK: - Formatters Utils
+extension Diexpenses {
     
-    static func switchButton(button: UIButton) {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            button.enabled = !button.enabled
-            button.alpha = button.enabled ? 1.0 : 0.5
-        })
-    }
-
     static func formatDate(date: NSDate, format: String) -> String {
         let dayTimePeriodFormatter = NSDateFormatter()
         dayTimePeriodFormatter.dateFormat = format
@@ -127,13 +122,32 @@ class Diexpenses {
         formatter.maximumFractionDigits = 2
         return formatter.stringFromNumber(number)!
     }
+}
+
+// MARK: - UI Utils
+extension Diexpenses {
     
-    static func getTypicalHeaders(sendToken: Bool = true) -> [NSObject : AnyObject] {
-        var headers = ["Content-type": "application/json", "Accept-Language" : NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode)!]
-        if sendToken {
-            headers.add(["X-AUTH-TOKEN" : user.authToken])
-        }
-        return headers
+    static func showUnknownError(controller: UIViewController) -> Void {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            let unknownError = UIAlertController(title: NSLocalizedString("common.error", comment: "The error title"), message: NSLocalizedString("common.unknownError", comment: "The unknown error message"), preferredStyle: .Alert)
+            unknownError.addAction(UIAlertAction(title: NSLocalizedString("common.close", comment: "The close button"), style: .Default, handler: nil))
+            controller.presentViewController(unknownError, animated: true, completion: nil)
+        })
+    }
+    
+    static func showError(controller: UIViewController, message: String) -> Void {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            let error = UIAlertController(title: NSLocalizedString("common.error", comment: "The error title"), message: message, preferredStyle: .Alert)
+            error.addAction(UIAlertAction(title: NSLocalizedString("common.close", comment: "The close button"), style: .Default, handler: nil))
+            controller.presentViewController(error, animated: true, completion: nil)
+        })
+    }
+    
+    static func switchButton(button: UIButton) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            button.enabled = !button.enabled
+            button.alpha = button.enabled ? 1.0 : 0.5
+        })
     }
     
     static func createRefreshControl(controller: UIViewController, actionName name: Selector) -> UIRefreshControl {
