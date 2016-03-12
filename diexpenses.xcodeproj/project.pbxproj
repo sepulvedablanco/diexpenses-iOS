@@ -126,7 +126,7 @@
 		F1210BCB1C7520EB00EA93AD /* Santander_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Santander_100.png; sourceTree = "<group>"; };
 		F1210BCD1C75210000EA93AD /* targoBank_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = targoBank_100.png; sourceTree = "<group>"; };
 		F1210BCF1C75216A00EA93AD /* novoBank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = novoBank.png; sourceTree = "<group>"; };
-		F1225BA11C94AB5900261A1F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		F1225BA51C94BEA600261A1F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F12CB0B21C73D29B00FFF841 /* MovementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementCell.swift; sourceTree = "<group>"; };
 		F12CB0B41C73E17F00FFF841 /* minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus.png; sourceTree = "<group>"; };
 		F12CB0B61C73E18500FFF841 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
@@ -657,7 +657,7 @@
 			children = (
 				F17A74691C56CAEA00BEF254 /* Base */,
 				F172800E1C57F4CB00E9F22E /* es */,
-				F1225BA11C94AB5900261A1F /* en */,
+				F1225BA51C94BEA600261A1F /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

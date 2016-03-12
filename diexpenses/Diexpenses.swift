@@ -81,18 +81,21 @@ extension Diexpenses {
 extension Diexpenses {
     
     static func formatDate(date: NSDate, format: String) -> String {
+        NSLog("formatDate -> Date to format:\(date). Format:\(format)")
         let dayTimePeriodFormatter = NSDateFormatter()
         dayTimePeriodFormatter.dateFormat = format
         return dayTimePeriodFormatter.stringFromDate(date)
     }
     
     static func formatDate(stringDate: String) -> NSDate {
+        NSLog("formatDate -> String to format:\(stringDate)")
         let dayTimePeriodFormatter = NSDateFormatter()
         dayTimePeriodFormatter.dateFormat = DAY_MONTH_YEAR_WITH_HOUR
         return dayTimePeriodFormatter.dateFromString(stringDate)!
     }
     
     static func formatCurrency(value: NSNumber) -> String {
+        NSLog("formatCurrency -> Number to format:\(value)")
         let formatter = NSNumberFormatter()
         formatter.numberStyle = .CurrencyStyle
         formatter.locale = NSLocale.currentLocale()
@@ -101,21 +104,17 @@ extension Diexpenses {
     }
     
     static func formatDecimalValue(string number: String) -> NSNumber {
-        NSLog("Number to format:\(number)")
+        NSLog("formatDecimalValue -> String to format:\(number)")
         let formatter = NSNumberFormatter()
         formatter.numberStyle = .DecimalStyle
         formatter.locale = NSLocale.currentLocale()
-        // Why current locale doesn't change the grouping and decimal separator? :(
-        if formatter.locale.objectForKey(NSLocaleLanguageCode)! as! String == "en" {
-            formatter.groupingSeparator = ","
-            formatter.decimalSeparator = "."
-        }
         formatter.maximumFractionDigits = 2
         formatter.usesGroupingSeparator = true
         return formatter.numberFromString(number)!
     }
     
     static func formatDecimalValue(number number: NSNumber) -> String {
+        NSLog("formatDecimalValue -> Number to format:\(number)")
         let formatter = NSNumberFormatter()
         formatter.numberStyle = .DecimalStyle
         formatter.locale = NSLocale.currentLocale()

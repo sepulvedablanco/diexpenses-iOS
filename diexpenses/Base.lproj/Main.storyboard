@@ -475,6 +475,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Bank Accounts" id="d0L-oh-9wy">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="5E8-X2-w7e"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NUP-sD-TzU">
                             <connections>
                                 <segue destination="RQi-9E-tKc" kind="show" identifier="toNewBankAccountViewController" id="C4g-fq-9sQ"/>
@@ -531,7 +532,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="88"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sgq-sN-4DA" id="gpN-oc-9eQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="87.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="88"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Ug-2H-EOr">
@@ -663,6 +664,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Movements History" id="BYI-5n-s31" userLabel="Movements History">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="vO8-v5-P6i"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rCR-Eg-6f1">
                             <connections>
                                 <segue destination="lvY-do-N7w" kind="show" id="ExJ-80-ip2"/>
@@ -1250,6 +1252,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Expenses Kinds" id="mT6-iZ-W8r">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="prF-u6-cf1"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="CSG-1e-aio">
                             <connections>
                                 <action selector="onNewMovementKind:" destination="AuL-LF-rG4" id="Jch-WM-pB7"/>

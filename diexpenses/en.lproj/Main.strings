@@ -17,6 +17,9 @@
 /* Class = "UILabel"; text = "Total amount:"; ObjectID = "4A5-mv-AGf"; */
 "4A5-mv-AGf.text" = "Total amount:";
 
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "5E8-X2-w7e"; */
+"5E8-X2-w7e.title" = "Back";
+
 /* Class = "UILabel"; text = "Description & Amount"; ObjectID = "6Sv-N2-XXk"; */
 "6Sv-N2-XXk.text" = "Description & Amount";
 
@@ -149,6 +152,9 @@
 /* Class = "UILabel"; text = "¡Hello!"; ObjectID = "pcC-38-q1o"; */
 "pcC-38-q1o.text" = "¡Hello!";
 
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "prF-u6-cf1"; */
+"prF-u6-cf1.title" = "Back";
+
 /* Class = "UITextField"; placeholder = "Name"; ObjectID = "qas-HZ-zZX"; */
 "qas-HZ-zZX.placeholder" = "Name";
 
@@ -157,6 +163,9 @@
 
 /* Class = "UITextField"; placeholder = "Confirm password"; ObjectID = "sDx-l1-Do5"; */
 "sDx-l1-Do5.placeholder" = "Confirm password";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "vO8-v5-P6i"; */
+"vO8-v5-P6i.title" = "Back";
 
 /* Class = "UILabel"; text = "Kind:"; ObjectID = "w9G-Ih-DN1"; */
 "w9G-Ih-DN1.text" = "Kind:";
