@@ -427,7 +427,9 @@ extension NewMovementViewController {
             
             if Diexpenses.dealWithGenericResponse(self, responseData: data, expectedCode: 127) {
                 Notificator.fireNotification(expense: movement.expense)
-                self.dismissViewControllerAnimated(true, completion: nil)
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.navigationController?.popViewControllerAnimated(true)
+                })
             }
         })
     }

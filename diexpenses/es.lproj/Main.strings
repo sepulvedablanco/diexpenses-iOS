@@ -1,242 +1,33 @@
 
-/* TabBarItems */
-
-/* Class = "UITabBarItem"; title = "Home"; ObjectID = "acW-dT-cKf"; */
-"acW-dT-cKf.title" = "Inicio";
-
-/* Class = "UITabBarItem"; title = "Bank Accounts"; ObjectID = "cPa-gy-q4n"; */
-"cPa-gy-q4n.title" = "Cuentas";
-
-/* Class = "UITabBarItem"; title = "Types"; ObjectID = "Y8b-9p-aRW"; */
-"Y8b-9p-aRW.title" = "Tipos";
-
-/* Class = "UITabBarItem"; title = "Types"; ObjectID = "W9F-OF-9Y6"; */
-"W9F-OF-9Y6.title" = "Tipos";
-
-/* Class = "UITabBarItem"; title = "Movements"; ObjectID = "m0T-V6-VLL"; */
-"m0T-V6-VLL.title" = "Movimientos";
-
-/* Class = "UITabBarItem"; title = "Statistics"; ObjectID = "W0z-ZH-11c"; */
-"W0z-ZH-11c.title" = "Estadísticas";
-
-/* TabBarItems End */
-
-
-/* LoginViewController */
-
-/* Class = "UILabel"; text = "Login"; ObjectID = "VDF-dr-WuE"; */
-"VDF-dr-WuE.text" = "Iniciar sesión";
-
-/* Class = "UITextField"; placeholder = "Username"; ObjectID = "hwq-eQ-AEa"; */
-"hwq-eQ-AEa.placeholder" = "Usuario";
-
-/* Class = "UITextField"; placeholder = "Password"; ObjectID = "QPq-JM-OHD"; */
-"QPq-JM-OHD.placeholder" = "Contraseña";
-
-/* Class = "UIButton"; normalTitle = "Sign in"; ObjectID = "3Ub-Lh-NiP"; */
-"3Ub-Lh-NiP.normalTitle" = "Entrar";
-
-/* Class = "UIButton"; normalTitle = "Don't have an Account? Signup Now"; ObjectID = "Dve-4e-STW"; */
-"Dve-4e-STW.normalTitle" = "¿No tienes una cuenta? Regístrate ahora";
-
-/* LoginViewController End */
-
-
-/* SignUpViewController */
-
-/* Class = "UILabel"; text = "Sign Up"; ObjectID = "pLW-WY-osc"; */
-"pLW-WY-osc.text" = "Registro";
-
-/* Class = "UITextField"; placeholder = "Name"; ObjectID = "qas-HZ-zZX"; */
-"qas-HZ-zZX.placeholder" = "Nombre";
-
-/* Class = "UITextField"; placeholder = "Username"; ObjectID = "bWK-3R-J8A"; */
-"bWK-3R-J8A.placeholder" = "Usuario";
-
-/* Class = "UITextField"; placeholder = "Password"; ObjectID = "b35-qx-jfR"; */
-"b35-qx-jfR.placeholder" = "Contraseña";
-
-/* Class = "UITextField"; placeholder = "Confirm password"; ObjectID = "sDx-l1-Do5"; */
-"sDx-l1-Do5.placeholder" = "Confirmar contraseña";
-
-/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "KjC-oI-4Qy"; */
-"KjC-oI-4Qy.normalTitle" = "Crear cuenta";
-
-/* Class = "UIButton"; normalTitle = "Have an account? Login Now"; ObjectID = "JHY-ZT-1OA"; */
-"JHY-ZT-1OA.normalTitle" = "¿Tienes una cuenta? Inicia sesión ahora";
-
-/* SignUpViewController End */
-
-
-/* HomeViewController */
-
-/* Class = "UINavigationItem"; title = "Global Position"; ObjectID = "SzA-Ys-KLT"; */
-"SzA-Ys-KLT.title" = "Posición Global";
-
-/* Class = "UILabel"; text = "¡Hello!"; ObjectID = "pcC-38-q1o"; */
-"pcC-38-q1o.text" = "¡Hola!";
-
-/* Class = "UILabel"; text = "Total amount:"; ObjectID = "4A5-mv-AGf"; */
-"4A5-mv-AGf.text" = "Ahorrado en total:";
-
-/* Class = "UILabel"; text = "Month incomes:"; ObjectID = "is2-ea-66F"; */
-"is2-ea-66F.text" = "Ingresos del mes:";
-
-/* Class = "UILabel"; text = "Month expenses:"; ObjectID = "osg-G2-djG"; */
-"osg-G2-djG.text" = "Gastos del mes:";
-
-/* Class = "UILabel"; text = ""; ObjectID = "jAX-RQ-nVw"; */
-"jAX-RQ-nVw.text" = "";
-
-/* HomeViewController End */
-
-
-/* BankAccountsViewController */
-
-/* Class = "UINavigationItem"; title = "Bank Accounts"; ObjectID = "B1p-II-G3d"; */
-"B1p-II-G3d.title" = "Cuentas Bancarias";
-
-/* Class = "UILabel"; text = ""; ObjectID = "Wuh-No-SVz"; */
-"Wuh-No-SVz.text" = "";
-
-/* Class = "UILabel"; text = ""; ObjectID = "kwx-Kf-h4p"; */
-"kwx-Kf-h4p.text" = "";
-
-/* BankAccountsViewController End */
-
-
-/* NewBankAccountViewController */
-
-/* Class = "UINavigationItem"; title = "New Bank Account"; ObjectID = "AEW-52-v3R"; */
-"AEW-52-v3R.title" = "Nueva Cuenta Bancaria";
-
-/* Class = "UILeftBarButtonItem"; title = "Cancel"; ObjectID = "CAI-vy-RpM"; */
-"CAI-vy-RpM.title" = "Cancel";
-
-/* Class = "UIRightBarButtonItem"; title = "Save"; ObjectID = "IRs-Qh-w4f"; */
-"IRs-Qh-w4f.title" = "Guardar";
-
-/* Class = "UILabel"; text = "Description:"; ObjectID = "EKe-3P-6cp"; */
-"EKe-3P-6cp.text" = "Descripción:";
-
-/* Class = "UILabel"; text = "IBAN:"; ObjectID = "zWN-j1-B4f"; */
-"zWN-j1-B4f.text" = "IBAN:";
-
-/* Class = "UILabel"; text = "Entity:"; ObjectID = "7l2-MO-zwt"; */
-"7l2-MO-zwt.text" = "Entidad:";
-
-/* Class = "UILabel"; text = "Office:"; ObjectID = "lbe-KJ-sxn"; */
-"lbe-KJ-sxn.text" = "Sucursal:";
-
-/* Class = "UILabel"; text = "Control digit:"; ObjectID = "72P-jm-DGl"; */
-"72P-jm-DGl.text" = "Dígito de control:";
-
-/* Class = "UILabel"; text = "Account number:"; ObjectID = "Hju-tH-MAI"; */
-"Hju-tH-MAI.text" = "Número de cuenta:";
-
-/* Class = "UILabel"; text = "Balance:"; ObjectID = "j0V-On-yLe"; */
-"j0V-On-yLe.text" = "Saldo:";
-
-/* NewBankAccountViewController End */
-
-
-/* ExpensesKindsViewController */
-
-/* Class = "UILabel"; text = "Kinds"; ObjectID = "U1C-dD-q4u"; */
-"U1C-dD-q4u.text" = "Tipos de gasto";
-
-/* Class = "UILabel"; text = "Title"; ObjectID = "42m-r5-4vk"; */
-"42m-r5-4vk.text" = "";
-
-/* Class = "UIButton"; normalTitle = "New kind"; ObjectID = "7I2-Am-5sm"; */
-"7I2-Am-5sm.normalTitle" = "Nuevo tipo";
-
-/* Class = "UIButton"; normalTitle = "Edit kind"; ObjectID = "gPH-pO-BCm"; */
-"gPH-pO-BCm.normalTitle" = "Editar tipo";
-
-/* Class = "UIButton"; normalTitle = "Delete kind"; ObjectID = "jtd-S7-HO3"; */
-"jtd-S7-HO3.normalTitle" = "Eliminar tipo";
-
-/* Class = "UILabel"; text = "Subkinds"; ObjectID = "BmM-aH-ahw"; */
-"BmM-aH-ahw.text" = "Subtipos de gasto";
-
-/* Class = "UIButton"; normalTitle = "New subkind"; ObjectID = "sPj-hC-qgQ"; */
-"sPj-hC-qgQ.normalTitle" = "Nuevo subtipo";
-
-/* Class = "UIButton"; normalTitle = "Edit subkind"; ObjectID = "EJ2-WB-lxA"; */
-"EJ2-WB-lxA.normalTitle" = "Editar subtipo";
-
-/* Class = "UIButton"; normalTitle = "Delete subkind"; ObjectID = "2Bp-4u-iIu"; */
-"2Bp-4u-iIu.normalTitle" = "Eliminar subtipo";
-
-/* ExpensesKindsViewController End */
-
-
-/* MovementKindsViewController */
- 
-/* Class = "UINavigationItem"; title = "Expense Kinds"; ObjectID = "Dkc-Cl-vB2"; */
-"Dkc-Cl-vB2.title" = "Tipos de Gastos";
-
-/* MovementKindsViewController End */
- 
- 
-/* MovementSubkindsViewController */
-
-/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "JeE-Qk-kxN"; */
-"JeE-Qk-kxN.title" = "Atras";
-
-/* Class = "UITabBarItem"; title = "Types"; ObjectID = "JcO-Dv-2ro"; */
-"JcO-Dv-2ro.title" = "Tipos";
-
-/* Class = "UINavigationItem"; title = "Expense Subkinds"; ObjectID = "B0Q-8e-9U7"; */
-"B0Q-8e-9U7.title" = "Subtipos de Gastos";
-
-/* Class = "UILabel"; text = "Title"; ObjectID = "Gpw-1f-XJG"; */
-"Gpw-1f-XJG.text" = "";
-
-/* MovementSubkindsViewController End */
-
-
-/* MovementsViewController */
-
-/* Class = "UINavigationItem"; title = "Movements history"; ObjectID = "PIS-F9-Cdb"; */
-"PIS-F9-Cdb.title" = "Historial de Movimientos";
-
-/* Class = "UILabel"; text = "Year"; ObjectID = "Iw1-7s-zhM"; */
-"Iw1-7s-zhM.text" = "Año";
-
-/* Class = "UILabel"; text = "Month"; ObjectID = "WDk-em-UmT"; */
-"WDk-em-UmT.text" = "Mes";
-
-/* MovementCell */
-
-/* Class = "UILabel"; text = "Description &amp; Amount"; ObjectID = "6Sv-N2-XXk"; */
-"6Sv-N2-XXk.text" = "Descripción e Importe";
-
-/* Class = "UILabel"; text = "Kind & Subkind"; ObjectID = "qih-VF-pQO"; */
-"qih-VF-pQO.text" = "Tipo y Subtipo";
-
-/* Class = "UILabel"; text = "Complete Bank Account"; ObjectID = "aX0-Ol-yo8"; */
-"aX0-Ol-yo8.text" = "Cuenta Bancaria";
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "04B-Df-zQc"; */
+"04B-Df-zQc.title" = "Guardar";
 
 /* Class = "UILabel"; text = "Transaction date"; ObjectID = "0Fh-Wj-VGV"; */
 "0Fh-Wj-VGV.text" = "Fecha del movimiento";
 
-/* MovementCell End */
+/* Class = "UILabel"; text = "Date:"; ObjectID = "22K-c0-ef7"; */
+"22K-c0-ef7.text" = "Fecha:";
 
-/* MovementsViewController End */
+/* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "3Ub-Lh-NiP"; */
+"3Ub-Lh-NiP.normalTitle" = "Entrar";
 
+/* Class = "UILabel"; text = "Title"; ObjectID = "42m-r5-4vk"; */
+"42m-r5-4vk.text" = "";
 
-/* NewMovementViewController */
+/* Class = "UILabel"; text = "Total amount:"; ObjectID = "4A5-mv-AGf"; */
+"4A5-mv-AGf.text" = "Ahorrado en total:";
 
-/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "M9G-Rj-Du1"; */
-"M9G-Rj-Du1.title" = "Cancelar";
+/* Class = "UILabel"; text = "Description & Amount"; ObjectID = "6Sv-N2-XXk"; */
+"6Sv-N2-XXk.text" = "Descripción e Importe";
 
-/* Class = "UINavigationItem"; title = "New movement"; ObjectID = "TnB-5B-wy6"; */
-"TnB-5B-wy6.title" = "Nuevo Movimiento";
+/* Class = "UILabel"; text = "Control digit:"; ObjectID = "72P-jm-DGl"; */
+"72P-jm-DGl.text" = "Dígito de control:";
 
-/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "SBM-mK-1Xb"; */
-"SBM-mK-1Xb.title" = "Guardar";
+/* Class = "UILabel"; text = "Entity:"; ObjectID = "7l2-MO-zwt"; */
+"7l2-MO-zwt.text" = "Entidad:";
+
+/* Class = "UINavigationItem"; title = "Movements History"; ObjectID = "BYI-5n-s31"; */
+"BYI-5n-s31.title" = "Historial de Movimientos";
 
 /* Class = "UISegmentedControl"; DBl-YI-Pco.segmentTitles[0] = "Expense"; ObjectID = "DBl-YI-Pco"; */
 "DBl-YI-Pco.segmentTitles[0]" = "Gasto";
@@ -244,25 +35,131 @@
 /* Class = "UISegmentedControl"; DBl-YI-Pco.segmentTitles[1] = "Income"; ObjectID = "DBl-YI-Pco"; */
 "DBl-YI-Pco.segmentTitles[1]" = "Ingreso";
 
-/* Class = "UILabel"; text = "Concept:"; ObjectID = "bB4-FX-6Z1"; */
-"bB4-FX-6Z1.text" = "Concepto:";
+/* Class = "UIButton"; normalTitle = "Don't have an Account? Signup Now"; ObjectID = "Dve-4e-STW"; */
+"Dve-4e-STW.normalTitle" = "¿No tienes una cuenta? Regístrate ahora";
 
-/* Class = "UILabel"; text = "Amount:"; ObjectID = "RNY-Ag-j8H"; */
-"RNY-Ag-j8H.text" = "Importe:";
+/* Class = "UILabel"; text = "Description:"; ObjectID = "EKe-3P-6cp"; */
+"EKe-3P-6cp.text" = "Descripción:";
 
-/* Class = "UILabel"; text = "Kind:"; ObjectID = "w9G-Ih-DN1"; */
-"w9G-Ih-DN1.text" = "Tipo:";
+/* Class = "UINavigationItem"; title = "New Bank Account"; ObjectID = "FWF-86-Zlf"; */
+"FWF-86-Zlf.title" = "Nueva Cuenta Bancaria";
 
 /* Class = "UILabel"; text = "Subkind:"; ObjectID = "FzA-eZ-BgH"; */
 "FzA-eZ-BgH.text" = "Subtipo:";
 
+/* Class = "UILabel"; text = "Title"; ObjectID = "Gpw-1f-XJG"; */
+"Gpw-1f-XJG.text" = "";
+
+/* Class = "UILabel"; text = "Account number:"; ObjectID = "Hju-tH-MAI"; */
+"Hju-tH-MAI.text" = "Número de cuenta:";
+
+/* Class = "UILabel"; text = "Year"; ObjectID = "Iw1-7s-zhM"; */
+"Iw1-7s-zhM.text" = "Año";
+
+/* Class = "UIButton"; normalTitle = "Have an account? Login Now"; ObjectID = "JHY-ZT-1OA"; */
+"JHY-ZT-1OA.normalTitle" = "¿Tienes una cuenta? Inicia sesión ahora";
+
+/* Class = "UITabBarItem"; title = "Types"; ObjectID = "JcO-Dv-2ro"; */
+"JcO-Dv-2ro.title" = "Tipos";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "KjC-oI-4Qy"; */
+"KjC-oI-4Qy.normalTitle" = "Crear cuenta";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "QPq-JM-OHD"; */
+"QPq-JM-OHD.placeholder" = "Contraseña";
+
+/* Class = "UILabel"; text = "Amount:"; ObjectID = "RNY-Ag-j8H"; */
+"RNY-Ag-j8H.text" = "Importe:";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "SBM-mK-1Xb"; */
+"SBM-mK-1Xb.title" = "Guardar";
+
+/* Class = "UINavigationItem"; title = "Global Position"; ObjectID = "SzA-Ys-KLT"; */
+"SzA-Ys-KLT.title" = "Posición Global";
+
+/* Class = "UINavigationItem"; title = "New Movement"; ObjectID = "TnB-5B-wy6"; */
+"TnB-5B-wy6.title" = "Nuevo Movimiento";
+
+/* Class = "UILabel"; text = "Login"; ObjectID = "VDF-dr-WuE"; */
+"VDF-dr-WuE.text" = "Iniciar sesión";
+
+/* Class = "UITabBarItem"; title = "Types"; ObjectID = "W9F-OF-9Y6"; */
+"W9F-OF-9Y6.title" = "Tipos";
+
+/* Class = "UILabel"; text = "Month"; ObjectID = "WDk-em-UmT"; */
+"WDk-em-UmT.text" = "Mes";
+
+/* Class = "UILabel"; text = "Complete Bank Account"; ObjectID = "Wuh-No-SVz"; */
+"Wuh-No-SVz.text" = "";
+
+/* Class = "UINavigationItem"; title = "Expenses Subkinds"; ObjectID = "aRq-md-UgV"; */
+"aRq-md-UgV.title" = "Subtipos de Gastos";
+
+/* Class = "UILabel"; text = "Complete Bank Account"; ObjectID = "aX0-Ol-yo8"; */
+"aX0-Ol-yo8.text" = "Cuenta Bancaria";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "Inicio";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "b35-qx-jfR"; */
+"b35-qx-jfR.placeholder" = "Contraseña";
+
+/* Class = "UILabel"; text = "Concept:"; ObjectID = "bB4-FX-6Z1"; */
+"bB4-FX-6Z1.text" = "Concepto:";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "bWK-3R-J8A"; */
+"bWK-3R-J8A.placeholder" = "Usuario";
+
+/* Class = "UITabBarItem"; title = "Bank Accounts"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "Cuentas";
+
+/* Class = "UINavigationItem"; title = "Bank Accounts"; ObjectID = "d0L-oh-9wy"; */
+"d0L-oh-9wy.title" = "Cuentas Bancarias";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "hwq-eQ-AEa"; */
+"hwq-eQ-AEa.placeholder" = "Usuario";
+
+/* Class = "UILabel"; text = "Month incomes:"; ObjectID = "is2-ea-66F"; */
+"is2-ea-66F.text" = "Ingresos del mes:";
+
+/* Class = "UILabel"; text = "Balance:"; ObjectID = "j0V-On-yLe"; */
+"j0V-On-yLe.text" = "Saldo:";
+
 /* Class = "UILabel"; text = "Account:"; ObjectID = "kAI-lZ-ebX"; */
 "kAI-lZ-ebX.text" = "Cuenta:";
 
-/* Class = "UILabel"; text = "Date:"; ObjectID = "22K-c0-ef7"; */
-"22K-c0-ef7.text" = "Fecha:";
+/* Class = "UILabel"; text = "Description"; ObjectID = "kwx-Kf-h4p"; */
+"kwx-Kf-h4p.text" = "";
 
-/* Class = "UILabel"; text = "Transaction date"; ObjectID = "6qp-kp-WTF"; */
-"6qp-kp-WTF.text" = "Fecha del movimiento";
+/* Class = "UILabel"; text = "Office:"; ObjectID = "lbe-KJ-sxn"; */
+"lbe-KJ-sxn.text" = "Sucursal:";
 
-/* NewMovementViewController End */
+/* Class = "UITabBarItem"; title = "Movements"; ObjectID = "m0T-V6-VLL"; */
+"m0T-V6-VLL.title" = "Movimientos";
+
+/* Class = "UINavigationItem"; title = "Expenses Kinds"; ObjectID = "mT6-iZ-W8r"; */
+"mT6-iZ-W8r.title" = "Tipos de Gastos";
+
+/* Class = "UILabel"; text = "Month expenses:"; ObjectID = "osg-G2-djG"; */
+"osg-G2-djG.text" = "Gastos del mes:";
+
+/* Class = "UILabel"; text = "Sign Up"; ObjectID = "pLW-WY-osc"; */
+"pLW-WY-osc.text" = "Registro";
+
+/* Class = "UILabel"; text = "¡Hello!"; ObjectID = "pcC-38-q1o"; */
+"pcC-38-q1o.text" = "¡Hola!";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "qas-HZ-zZX"; */
+"qas-HZ-zZX.placeholder" = "Nombre";
+
+/* Class = "UILabel"; text = "Kind & Subkind"; ObjectID = "qih-VF-pQO"; */
+"qih-VF-pQO.text" = "Tipo y Subtipo";
+
+/* Class = "UITextField"; placeholder = "Confirm password"; ObjectID = "sDx-l1-Do5"; */
+"sDx-l1-Do5.placeholder" = "Confirmar contraseña";
+
+/* Class = "UILabel"; text = "Kind:"; ObjectID = "w9G-Ih-DN1"; */
+"w9G-Ih-DN1.text" = "Tipo:";
+
+/* Class = "UILabel"; text = "IBAN:"; ObjectID = "zWN-j1-B4f"; */
+"zWN-j1-B4f.text" = "IBAN:";

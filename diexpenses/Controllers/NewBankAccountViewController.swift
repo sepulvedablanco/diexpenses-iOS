@@ -204,7 +204,9 @@ extension NewBankAccountViewController {
             
             if Diexpenses.dealWithGenericResponse(self, responseData: data, expectedCode: 39) {
                 Notificator.fireNotification(notificationName: Constants.Notifications.BANK_ACCOUNTS_CHANGED)
-                self.dismissViewControllerAnimated(true, completion: nil)
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.navigationController?.popViewControllerAnimated(true)
+                })
             }
         })
     }

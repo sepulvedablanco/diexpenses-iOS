@@ -25,7 +25,6 @@
 		F11AA2DA1C6012CA00AD805D /* GenericApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AA2D91C6012CA00AD805D /* GenericApiResponse.swift */; };
 		F11AAA4A1C8C4149009CE0C6 /* MovementsSubkindsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AAA491C8C4149009CE0C6 /* MovementsSubkindsViewController.swift */; };
 		F11AAA501C8C859A009CE0C6 /* Notificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AAA4F1C8C859A009CE0C6 /* Notificator.swift */; };
-		F11AAA521C8CF760009CE0C6 /* CustomValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AAA511C8CF760009CE0C6 /* CustomValidator.swift */; };
 		F11B1DE41C7E5BB00079B09B /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B1DE31C7E5BB00079B09B /* CustomPicker.swift */; };
 		F11D0C311C61480E00D4822A /* ing_direct100.png in Resources */ = {isa = PBXBuildFile; fileRef = F11D0C301C61480E00D4822A /* ing_direct100.png */; };
 		F11DA42C1C7095E10058E1D6 /* NameUserPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11DA42B1C7095E10058E1D6 /* NameUserPass.swift */; };
@@ -44,6 +43,7 @@
 		F1210BCC1C7520EB00EA93AD /* Santander_100.png in Resources */ = {isa = PBXBuildFile; fileRef = F1210BCB1C7520EB00EA93AD /* Santander_100.png */; };
 		F1210BCE1C75210000EA93AD /* targoBank_100.png in Resources */ = {isa = PBXBuildFile; fileRef = F1210BCD1C75210000EA93AD /* targoBank_100.png */; };
 		F1210BD01C75216A00EA93AD /* novoBank.png in Resources */ = {isa = PBXBuildFile; fileRef = F1210BCF1C75216A00EA93AD /* novoBank.png */; };
+		F1225B9F1C94AB0300261A1F /* CustomValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AAA511C8CF760009CE0C6 /* CustomValidator.swift */; };
 		F12CB0B31C73D29B00FFF841 /* MovementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CB0B21C73D29B00FFF841 /* MovementCell.swift */; };
 		F12CB0B51C73E17F00FFF841 /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = F12CB0B41C73E17F00FFF841 /* minus.png */; };
 		F12CB0B71C73E18500FFF841 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = F12CB0B61C73E18500FFF841 /* plus.png */; };
@@ -126,7 +126,7 @@
 		F1210BCB1C7520EB00EA93AD /* Santander_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Santander_100.png; sourceTree = "<group>"; };
 		F1210BCD1C75210000EA93AD /* targoBank_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = targoBank_100.png; sourceTree = "<group>"; };
 		F1210BCF1C75216A00EA93AD /* novoBank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = novoBank.png; sourceTree = "<group>"; };
-		F12965461C8F6BE700E07C54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		F1225BA11C94AB5900261A1F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F12CB0B21C73D29B00FFF841 /* MovementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementCell.swift; sourceTree = "<group>"; };
 		F12CB0B41C73E17F00FFF841 /* minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus.png; sourceTree = "<group>"; };
 		F12CB0B61C73E18500FFF841 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
@@ -582,7 +582,6 @@
 				F10807721C86528600468399 /* DigitRule.swift in Sources */,
 				F17A74631C56CAEA00BEF254 /* AppDelegate.swift in Sources */,
 				F19F0D421C5E5B12007EB848 /* User.swift in Sources */,
-				F11AAA521C8CF760009CE0C6 /* CustomValidator.swift in Sources */,
 				F10807661C86523E00468399 /* LoginViewController.swift in Sources */,
 				F10807631C86523E00468399 /* EntryPointViewController.swift in Sources */,
 				F19F0D471C5E5CA9007EB848 /* LoadingMask.swift in Sources */,
@@ -597,6 +596,7 @@
 				F11AAA4A1C8C4149009CE0C6 /* MovementsSubkindsViewController.swift in Sources */,
 				F1FC65471C922EB000DA03CC /* BasePicker.swift in Sources */,
 				F10807711C86528600468399 /* DecimalRule.swift in Sources */,
+				F1225B9F1C94AB0300261A1F /* CustomValidator.swift in Sources */,
 				F19F0D461C5E5CA9007EB848 /* BankCell.swift in Sources */,
 				F111CA8F1C8B6C9F00476135 /* MovementKindsViewController.swift in Sources */,
 				F15531811C67F89F001C6153 /* MovementPage.swift in Sources */,
@@ -657,7 +657,7 @@
 			children = (
 				F17A74691C56CAEA00BEF254 /* Base */,
 				F172800E1C57F4CB00E9F22E /* es */,
-				F12965461C8F6BE700E07C54 /* en */,
+				F1225BA11C94AB5900261A1F /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

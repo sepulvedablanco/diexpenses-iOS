@@ -8,7 +8,6 @@
 
 import SwiftValidator
 
-//Validator
 // MARK: - Generic APP form validator. It is an extension for SwiftValidator with the common source code.
 class CustomValidator: Validator {
     
@@ -39,6 +38,7 @@ class CustomValidator: Validator {
     func setValidStyle(input: UIView, errorLabel: UILabel) {
         input.layer.borderColor = Diexpenses.greenColor.CGColor
         input.layer.borderWidth = 0.5
+        input.layer.cornerRadius = 5.0
         // clear error label
         errorLabel.hidden = true
         errorLabel.text = ""
@@ -48,6 +48,7 @@ class CustomValidator: Validator {
     func setErrorStyle(input: UIView, errorLabel: UILabel, errorMessage: String) {
         input.layer.borderColor = Diexpenses.redColor.CGColor
         input.layer.borderWidth = 1.0
+        input.layer.cornerRadius = 5.0
         errorLabel.text = errorMessage
         errorLabel.hidden = false
     }

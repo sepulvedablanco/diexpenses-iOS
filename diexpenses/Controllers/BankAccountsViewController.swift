@@ -71,9 +71,7 @@ extension BankAccountsViewController {
         
         if let identifier = segue.identifier {
             if identifier == Constants.Segue.TO_NEW_BANK_ACCOUNT_VC {
-                if let destinationViewController = segue.destinationViewController as? UINavigationController {
-                    
-                    let newBankAccountViewController = destinationViewController.topViewController as! NewBankAccountViewController
+                if let newBankAccountViewController = segue.destinationViewController as? NewBankAccountViewController {
                     let bankCell = sender as? BankCell
                     if let cell = bankCell {
                         newBankAccountViewController.bankAccount = cell.bankAccount
