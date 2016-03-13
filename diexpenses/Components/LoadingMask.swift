@@ -11,28 +11,31 @@ import UIKit
 // MARK: - Loading mask for heavy operations.
 class LoadingMask {
 
-    var messageFrame : UIView!
+    var messageFrame: UIView!
+    var parentView: UIView!
     
-    func showMask(view: UIView) {
-        dispatch_async(dispatch_get_main_queue(), {
-            self.messageFrame = UIView(frame: CGRect(x: view.frame.midX - 40, y: view.frame.midY - 40 , width: 80, height: 80))
-            self.messageFrame.layer.cornerRadius = 15
-            self.messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
+    init(view: UIView) {
+        self.parentView = view
+        self.messageFrame = UIView(frame: CGRect(x: parentView.frame.midX - 40, y: parentView.frame.midY - 40 , width: 80, height: 80))
+        self.messageFrame.layer.cornerRadius = 15
+        self.messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
         
-            let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
-            activityIndicator.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
-            activityIndicator.startAnimating()
-            self.messageFrame.addSubview(activityIndicator)
-            view.addSubview(self.messageFrame)
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+        activityIndicator.startAnimating()
+        self.messageFrame.addSubview(activityIndicator)
+    }
+    
+    func showMask() {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.parentView.addSubview(self.messageFrame)
         })
     }
     
     func hideMask() {
-        if messageFrame != nil {
-            dispatch_async(dispatch_get_main_queue(), {
-                self.messageFrame.removeFromSuperview()
-            })
-        }
+        dispatch_async(dispatch_get_main_queue(), {
+            self.messageFrame.removeFromSuperview()
+        })
     }
     
 }

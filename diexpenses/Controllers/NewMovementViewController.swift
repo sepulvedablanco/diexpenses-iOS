@@ -411,11 +411,6 @@ extension NewMovementViewController {
     // MARK: Create a movement calling to diexpensesAPI
     func createMovement(movement: Movement) {
         
-        guard let _ = Diexpenses.user.id else {
-            NSLog("Without Internet connection or login not performed")
-            return
-        }
-        
         let newMovementJson = JsonUtils.JSONStringify(movement.toJSON()!, prettyPrinted: true)
         
         let newMovementParsed1 = newMovementJson.stringByReplacingOccurrencesOfString("[", withString: "{")

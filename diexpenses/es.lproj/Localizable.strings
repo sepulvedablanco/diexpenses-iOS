@@ -14,8 +14,8 @@
 "common.update" = "Actualizar";
 "common.save" = "Guardar";
 "common.done" = "Hecho";
-"common.accept" = "Aceptar";
 "common.page" = "Pagina";
+"common.accept" = "Aceptar";
 "common.loadingData" = "Cargando datos...";
 "common.totalMovements" = "MovimientosTotales";
 "common.noData" = "No hay datos";

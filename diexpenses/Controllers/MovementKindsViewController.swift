@@ -203,7 +203,7 @@ extension MovementKindsViewController {
             data, response, error in
             
             guard let _ =  data else {
-                NSLog("Without Internet connection")
+                Diexpenses.showError(self, message: NSLocalizedString("common.noInternetConnection", comment: "No Internet connection message"))
                 return
             }
             

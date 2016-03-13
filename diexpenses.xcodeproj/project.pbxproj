@@ -19,12 +19,8 @@
 		F10807701C86528600468399 /* CustomPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108076D1C86528600468399 /* CustomPasswordRule.swift */; };
 		F10807711C86528600468399 /* DecimalRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108076E1C86528600468399 /* DecimalRule.swift */; };
 		F10807721C86528600468399 /* DigitRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108076F1C86528600468399 /* DigitRule.swift */; };
-		F111CA8F1C8B6C9F00476135 /* MovementKindsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111CA8E1C8B6C9F00476135 /* MovementKindsViewController.swift */; };
 		F114EEE01C6649C700680980 /* ExpenseKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F114EEDF1C6649C700680980 /* ExpenseKind.swift */; };
-		F11AA2D71C60048800AD805D /* JsonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AA2D61C60048800AD805D /* JsonUtils.swift */; };
 		F11AA2DA1C6012CA00AD805D /* GenericApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AA2D91C6012CA00AD805D /* GenericApiResponse.swift */; };
-		F11AAA4A1C8C4149009CE0C6 /* MovementsSubkindsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AAA491C8C4149009CE0C6 /* MovementsSubkindsViewController.swift */; };
-		F11AAA501C8C859A009CE0C6 /* Notificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AAA4F1C8C859A009CE0C6 /* Notificator.swift */; };
 		F11B1DE41C7E5BB00079B09B /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B1DE31C7E5BB00079B09B /* CustomPicker.swift */; };
 		F11D0C311C61480E00D4822A /* ing_direct100.png in Resources */ = {isa = PBXBuildFile; fileRef = F11D0C301C61480E00D4822A /* ing_direct100.png */; };
 		F11DA42C1C7095E10058E1D6 /* NameUserPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11DA42B1C7095E10058E1D6 /* NameUserPass.swift */; };
@@ -43,7 +39,11 @@
 		F1210BCC1C7520EB00EA93AD /* Santander_100.png in Resources */ = {isa = PBXBuildFile; fileRef = F1210BCB1C7520EB00EA93AD /* Santander_100.png */; };
 		F1210BCE1C75210000EA93AD /* targoBank_100.png in Resources */ = {isa = PBXBuildFile; fileRef = F1210BCD1C75210000EA93AD /* targoBank_100.png */; };
 		F1210BD01C75216A00EA93AD /* novoBank.png in Resources */ = {isa = PBXBuildFile; fileRef = F1210BCF1C75216A00EA93AD /* novoBank.png */; };
-		F1225B9F1C94AB0300261A1F /* CustomValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AAA511C8CF760009CE0C6 /* CustomValidator.swift */; };
+		F128389C1C958A04000097C6 /* MovementKindsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128389B1C958A04000097C6 /* MovementKindsViewController.swift */; };
+		F128389E1C958A0A000097C6 /* MovementsSubkindsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128389D1C958A0A000097C6 /* MovementsSubkindsViewController.swift */; };
+		F12838A01C958A3C000097C6 /* CustomValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128389F1C958A3C000097C6 /* CustomValidator.swift */; };
+		F12838A41C958AB0000097C6 /* Notificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12838A31C958AB0000097C6 /* Notificator.swift */; };
+		F12838A61C958AB7000097C6 /* JsonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12838A51C958AB7000097C6 /* JsonUtils.swift */; };
 		F12CB0B31C73D29B00FFF841 /* MovementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CB0B21C73D29B00FFF841 /* MovementCell.swift */; };
 		F12CB0B51C73E17F00FFF841 /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = F12CB0B41C73E17F00FFF841 /* minus.png */; };
 		F12CB0B71C73E18500FFF841 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = F12CB0B61C73E18500FFF841 /* plus.png */; };
@@ -101,13 +101,8 @@
 		F108076D1C86528600468399 /* CustomPasswordRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomPasswordRule.swift; path = Validators/CustomPasswordRule.swift; sourceTree = "<group>"; };
 		F108076E1C86528600468399 /* DecimalRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DecimalRule.swift; path = Validators/DecimalRule.swift; sourceTree = "<group>"; };
 		F108076F1C86528600468399 /* DigitRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DigitRule.swift; path = Validators/DigitRule.swift; sourceTree = "<group>"; };
-		F111CA8E1C8B6C9F00476135 /* MovementKindsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementKindsViewController.swift; sourceTree = "<group>"; };
 		F114EEDF1C6649C700680980 /* ExpenseKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseKind.swift; sourceTree = "<group>"; };
-		F11AA2D61C60048800AD805D /* JsonUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonUtils.swift; path = Models/JsonUtils.swift; sourceTree = "<group>"; };
 		F11AA2D91C6012CA00AD805D /* GenericApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericApiResponse.swift; sourceTree = "<group>"; };
-		F11AAA491C8C4149009CE0C6 /* MovementsSubkindsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementsSubkindsViewController.swift; sourceTree = "<group>"; };
-		F11AAA4F1C8C859A009CE0C6 /* Notificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notificator.swift; sourceTree = "<group>"; };
-		F11AAA511C8CF760009CE0C6 /* CustomValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomValidator.swift; sourceTree = "<group>"; };
 		F11B1DE31C7E5BB00079B09B /* CustomPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
 		F11D0C301C61480E00D4822A /* ing_direct100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ing_direct100.png; sourceTree = "<group>"; };
 		F11DA42B1C7095E10058E1D6 /* NameUserPass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameUserPass.swift; sourceTree = "<group>"; };
@@ -127,6 +122,11 @@
 		F1210BCD1C75210000EA93AD /* targoBank_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = targoBank_100.png; sourceTree = "<group>"; };
 		F1210BCF1C75216A00EA93AD /* novoBank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = novoBank.png; sourceTree = "<group>"; };
 		F1225BA51C94BEA600261A1F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		F128389B1C958A04000097C6 /* MovementKindsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovementKindsViewController.swift; path = Controllers/MovementKindsViewController.swift; sourceTree = "<group>"; };
+		F128389D1C958A0A000097C6 /* MovementsSubkindsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovementsSubkindsViewController.swift; path = Controllers/MovementsSubkindsViewController.swift; sourceTree = "<group>"; };
+		F128389F1C958A3C000097C6 /* CustomValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomValidator.swift; path = Validators/CustomValidator.swift; sourceTree = "<group>"; };
+		F12838A31C958AB0000097C6 /* Notificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notificator.swift; path = Utils/Notificator.swift; sourceTree = "<group>"; };
+		F12838A51C958AB7000097C6 /* JsonUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonUtils.swift; path = Utils/JsonUtils.swift; sourceTree = "<group>"; };
 		F12CB0B21C73D29B00FFF841 /* MovementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementCell.swift; sourceTree = "<group>"; };
 		F12CB0B41C73E17F00FFF841 /* minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus.png; sourceTree = "<group>"; };
 		F12CB0B61C73E18500FFF841 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
@@ -214,8 +214,8 @@
 				F108075D1C86523E00468399 /* HomeViewController.swift */,
 				F108075E1C86523E00468399 /* LoginViewController.swift */,
 				F108075F1C86523E00468399 /* MovementsViewController.swift */,
-				F111CA8E1C8B6C9F00476135 /* MovementKindsViewController.swift */,
-				F11AAA491C8C4149009CE0C6 /* MovementsSubkindsViewController.swift */,
+				F128389B1C958A04000097C6 /* MovementKindsViewController.swift */,
+				F128389D1C958A0A000097C6 /* MovementsSubkindsViewController.swift */,
 				F10807601C86523E00468399 /* NewBankAccountViewController.swift */,
 				F10807611C86523E00468399 /* NewMovementViewController.swift */,
 				F10807621C86523E00468399 /* SignUpViewController.swift */,
@@ -226,8 +226,8 @@
 		F11AA2D81C6005C800AD805D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				F11AA2D61C60048800AD805D /* JsonUtils.swift */,
-				F11AAA4F1C8C859A009CE0C6 /* Notificator.swift */,
+				F12838A51C958AB7000097C6 /* JsonUtils.swift */,
+				F12838A31C958AB0000097C6 /* Notificator.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -363,7 +363,7 @@
 				F108076D1C86528600468399 /* CustomPasswordRule.swift */,
 				F108076E1C86528600468399 /* DecimalRule.swift */,
 				F108076F1C86528600468399 /* DigitRule.swift */,
-				F11AAA511C8CF760009CE0C6 /* CustomValidator.swift */,
+				F128389F1C958A3C000097C6 /* CustomValidator.swift */,
 			);
 			name = Validators;
 			sourceTree = "<group>";
@@ -575,10 +575,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F19E6ACF1C5A92F9008D6A8B /* Diexpenses.swift in Sources */,
+				F128389C1C958A04000097C6 /* MovementKindsViewController.swift in Sources */,
 				F11DA42C1C7095E10058E1D6 /* NameUserPass.swift in Sources */,
 				F10807651C86523E00468399 /* HomeViewController.swift in Sources */,
 				F114EEE01C6649C700680980 /* ExpenseKind.swift in Sources */,
+				F12838A01C958A3C000097C6 /* CustomValidator.swift in Sources */,
 				F108076A1C86523E00468399 /* SignUpViewController.swift in Sources */,
+				F128389E1C958A0A000097C6 /* MovementsSubkindsViewController.swift in Sources */,
 				F10807721C86528600468399 /* DigitRule.swift in Sources */,
 				F17A74631C56CAEA00BEF254 /* AppDelegate.swift in Sources */,
 				F19F0D421C5E5B12007EB848 /* User.swift in Sources */,
@@ -587,24 +590,21 @@
 				F19F0D471C5E5CA9007EB848 /* LoadingMask.swift in Sources */,
 				F10807671C86523E00468399 /* MovementsViewController.swift in Sources */,
 				F1F3F24E1C8B09C000A7929B /* CustomScrollView.swift in Sources */,
-				F11AAA501C8C859A009CE0C6 /* Notificator.swift in Sources */,
 				F155317F1C67F559001C6153 /* Movement.swift in Sources */,
 				F15C0B171C84FB0E00B6CD40 /* CustomDatePicker.swift in Sources */,
 				F10807691C86523E00468399 /* NewMovementViewController.swift in Sources */,
 				F11B1DE41C7E5BB00079B09B /* CustomPicker.swift in Sources */,
 				F12CB0B31C73D29B00FFF841 /* MovementCell.swift in Sources */,
-				F11AAA4A1C8C4149009CE0C6 /* MovementsSubkindsViewController.swift in Sources */,
 				F1FC65471C922EB000DA03CC /* BasePicker.swift in Sources */,
 				F10807711C86528600468399 /* DecimalRule.swift in Sources */,
-				F1225B9F1C94AB0300261A1F /* CustomValidator.swift in Sources */,
 				F19F0D461C5E5CA9007EB848 /* BankCell.swift in Sources */,
-				F111CA8F1C8B6C9F00476135 /* MovementKindsViewController.swift in Sources */,
 				F15531811C67F89F001C6153 /* MovementPage.swift in Sources */,
 				F19F0D411C5E5B12007EB848 /* BankAccount.swift in Sources */,
 				F10807681C86523E00468399 /* NewBankAccountViewController.swift in Sources */,
-				F11AA2D71C60048800AD805D /* JsonUtils.swift in Sources */,
+				F12838A61C958AB7000097C6 /* JsonUtils.swift in Sources */,
 				F10807701C86528600468399 /* CustomPasswordRule.swift in Sources */,
 				F108076C1C86525D00468399 /* BankAccountsViewController.swift in Sources */,
+				F12838A41C958AB0000097C6 /* Notificator.swift in Sources */,
 				F11AA2DA1C6012CA00AD805D /* GenericApiResponse.swift in Sources */,
 				F1CE1B3F1C5975C8002CA6C1 /* Constants.swift in Sources */,
 			);

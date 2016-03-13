@@ -12,7 +12,7 @@ import Gloss
 
 class HomeViewController: UIViewController {
 
-    let loadingMask = LoadingMask()
+    var loadingMask: LoadingMask!
     
     let date = NSDate()
     let calendar = NSCalendar.currentCalendar()
@@ -55,7 +55,8 @@ extension HomeViewController {
     func initVC() {
         registerNotifications()
         initChart()
-        loadingMask.showMask(view)
+        loadingMask = LoadingMask(view: view)
+        loadingMask.showMask()
         loadIncomes()
         loadExpenses()
         loadTotalAmount()
@@ -157,6 +158,12 @@ extension HomeViewController {
         return String.localizedStringWithFormat(Constants.API.AMOUNTS_URL, id, isExpense.description, month, year)
     }
 
+    // MARK: This function is called when no Internet connection is available.
+    func showWithoutInternetAlert() {
+        loadingMask.hideMask()
+        Diexpenses.showError(self, message: NSLocalizedString("common.noInternetConnection", comment: "No Internet connection message"))
+    }
+
     // MARK: Load current month expenses calling to diexpensesAPI
     func loadExpenses() {
         let components = calendar.components([.Month , .Year], fromDate: date)
@@ -175,8 +182,6 @@ extension HomeViewController {
                 
                 self.expensesLoad = true
                 self.checkDrawChart(self.incomesLoad)
-            } else {
-                NSLog("Without Internet connection")
             }
         })
     }
@@ -199,8 +204,6 @@ extension HomeViewController {
                 
                 self.incomesLoad = true
                 self.checkDrawChart(self.expensesLoad)
-            } else {
-                NSLog("Without Internet connection")
             }
         })
     }
@@ -220,7 +223,7 @@ extension HomeViewController {
                     self.totalAmountLabel.text = String.localizedStringWithFormat(localizedTotalAmount, Diexpenses.formatCurrency(numericTotalAmount))
                 })
             } else {
-                NSLog("Without Internet connection")
+                self.showWithoutInternetAlert()
             }
         })
     }

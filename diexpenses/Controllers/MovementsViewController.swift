@@ -240,7 +240,7 @@ extension MovementsViewController {
                     NSLog("An error has occurred: \(error.localizedDescription)")
                 }
             } else {
-                NSLog("Without Internet connection")
+                Diexpenses.showError(self, message: NSLocalizedString("common.noInternetConnection", comment: "No Internet connection message"))
             }
         })
     }
