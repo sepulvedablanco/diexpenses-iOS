@@ -38,10 +38,7 @@ struct Constants {
     
     struct API {
         
-        //static let BASE_URL = "https://secret-journey-2754.herokuapp.com/"
-        //static let BASE_URL = "https://diexpenses.herokuapp.com/"
-        static let BASE_URL = "https://diexpenses-herokuapp-com-u8gcrab3473z.eu2.runscope.net/" // runscope interceptor URL
-        //static let BASE_URL = "https://diexpensestest-herokuapp-com-u8gcrab3473z.runscope.net/" // test api
+        static let BASE_URL = "https://diexpenses.herokuapp.com/"
         static let LOGIN_URL = BASE_URL + "user/login"
         static let CREATE_USER_URL = BASE_URL + "user"
         static let AMOUNTS_URL = BASE_URL + "user/%@/financialMovements/amounts?e=%@&m=%@&y=%@"
@@ -67,7 +64,6 @@ struct Constants {
     
     struct Cell {
         
-        static let MOVEMENT_IDENTIFIER = "MovementCell"
         static let BASIC_IDENTIFIER = "BasicCell"
 
     }

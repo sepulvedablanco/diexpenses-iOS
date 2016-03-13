@@ -194,7 +194,7 @@ extension MovementsViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.Cell.MOVEMENT_IDENTIFIER, forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(MovementCell.identifier, forIndexPath: indexPath) as UITableViewCell
         
         let movementCell = cell as! MovementCell
         let movement = movements[indexPath.row]
