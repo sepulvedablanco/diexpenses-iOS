@@ -100,11 +100,13 @@ extension LoginViewController: ValidationDelegate {
     // MARK: Method called when validation failed
     func validationFailed(errors:[UITextField:ValidationError]) {
         customValidator.validationFailed(errors)
+        Diexpenses.switchButton(signInButton)
     }
     
     // MARK: Method called when form validation is succesfull
     func validationSuccessful() {
         doLogin()
+        Diexpenses.switchButton(signInButton)
     }
 }
 
@@ -122,7 +124,6 @@ extension LoginViewController {
         Diexpenses.doRequest(Constants.API.LOGIN_URL, headers: Diexpenses.getTypicalHeaders(false), verb: HttpVerbs.POST.rawValue, body: userPassJson, completionHandler: {
             data, response, error in
             
-            Diexpenses.switchButton(self.signInButton)
             if let d = data {
                 do {
                     let userJson: AnyObject! = try NSJSONSerialization.JSONObjectWithData(d, options: NSJSONReadingOptions(rawValue: 0))

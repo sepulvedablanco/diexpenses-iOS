@@ -50,6 +50,7 @@ extension MovementSubkindsViewController {
     
     // MARK: Initialize the View Controller
     func initVC() {
+        self.navigationItem.title = expenseKind.description
         self.refreshControl = Diexpenses.createRefreshControl(self, actionName: "refreshMovementsSubkinds:")
         movementesSubkindsTableView.addSubview(self.refreshControl)
         self.loadMovementsSubkinds()

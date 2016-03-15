@@ -40,6 +40,7 @@
 "home.balance.medium" = "No ahorras nada...";
 "home.balance.low" = "¡No gastes tanto!";
 
+"bankAccounts.edit.title" = "Editar Cuenta Bancaria";
 "bankAccounts.delete" = "Eliminar cuenta bancaria";
 "bankAccounts.delete.message" = "¿Está seguro de que desea eliminar la cuenta bancaria?";
 "bankAccounts.requiredDescription" = "Introduce la descripción";

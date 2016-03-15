@@ -64,6 +64,9 @@ extension NewBankAccountViewController {
     
     // MARK: Initialize the View Controller
     func initVC() {
+        if let _ = bankAccount {
+            self.navigationItem.title = NSLocalizedString("bankAccounts.edit.title", comment: "The edit bank account title")
+        }
         scrollView.configure(view)
         setTextFieldsDelegate()
         registerFieldsInValidator()
@@ -140,7 +143,7 @@ extension NewBankAccountViewController: ValidationDelegate {
     // MARK: Register the required fields
     func registerFieldsInValidator() {
         let requiredString = NSLocalizedString("common.validator.required", comment: "The required field message")
-        customValidator.registerField(descriptionTextField, errorLabel: descriptionErrorLabel, rules: [RequiredRule(message: NSLocalizedString("bankAccounts.requiredDescription", comment: "The required description message"))])
+        customValidator.registerField(descriptionTextField, errorLabel: descriptionErrorLabel, rules: [RequiredRule(message: requiredString)])
         customValidator.registerField(entityTextFied, errorLabel: entityErrorLabel, rules: [RequiredRule(message: requiredString), DigitRule(length: 4)])
         customValidator.registerField(officeTextFied, errorLabel: officeErrorLabel, rules: [RequiredRule(message: requiredString), DigitRule(length: 4)])
         customValidator.registerField(controlDigitTextFied, errorLabel: controlDigitErrorLabel, rules: [RequiredRule(message: requiredString), DigitRule(length: 2)])

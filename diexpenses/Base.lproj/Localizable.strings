@@ -40,6 +40,7 @@
 "home.balance.medium" = "Spares nothing ...";
 "home.balance.low" = "Do not spend much!";
 
+"bankAccounts.edit.title" = "Edit Bank Account";
 "bankAccounts.delete" = "Delete bank account";
 "bankAccounts.delete.message" = "Are you sure you want to delete the bank account?";
 "bankAccounts.requiredDescription" = "Enter a description";

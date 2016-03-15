@@ -107,11 +107,13 @@ extension SignUpViewController: ValidationDelegate {
     // MARK: Method called when validation failed
     func validationFailed(errors:[UITextField:ValidationError]) {
         customValidator.validationFailed(errors)
+        Diexpenses.switchButton(signUpButton)
     }
     
     // MARK: Method called when form validation is succesfull
     func validationSuccessful() {
         createUser()
+        Diexpenses.switchButton(signUpButton)
     }
 }
 
