@@ -361,7 +361,7 @@ extension NewMovementViewController {
                 do {
                     let expensesSubkindsJson: AnyObject! = (try NSJSONSerialization.JSONObjectWithData(d, options: NSJSONReadingOptions(rawValue: 0))  as? NSArray)!
                     let newExpensesSubkinds = ExpenseKind.modelsFromJSONArray(expensesSubkindsJson as! [JSON])!
-                    if newExpensesSubkinds.count == 0 {
+                    if newExpensesSubkinds.isEmpty {
                         self.expensesSubKinds = [ExpenseKind(description: NewMovementViewController.noData)]
                     } else {
                         self.expensesSubKinds = newExpensesSubkinds
