@@ -90,6 +90,16 @@ extension NewBankAccountViewController {
         accountNumberTextFied.text = bankAccount.accountNumber
         balanceTextFied.text = Diexpenses.formatDecimalValue(number: bankAccount.balance)
     }
+    
+    // MARK: Method called after insert or update bank account
+    func afterBankAccountOperation(data: NSData?, code: Int) {
+        if Diexpenses.dealWithGenericResponse(self, responseData: data, expectedCode: code) {
+            NSNotificationCenter.defaultCenter().postNotificationName(Constants.Notifications.BANK_ACCOUNTS_CHANGED, object: nil)
+            dispatch_async(dispatch_get_main_queue(), {
+                self.navigationController?.popViewControllerAnimated(true)
+            })
+        }
+    }
 }
 
 // MARK: - UITextFieldDelegate implementation for NewBankAccountViewController
@@ -184,10 +194,7 @@ extension NewBankAccountViewController {
         Diexpenses.doRequest(url, headers: Diexpenses.getTypicalHeaders(), verb: HttpVerbs.POST.rawValue, body: bankAccountJson, completionHandler: {
             data, response, error in
             
-            if Diexpenses.dealWithGenericResponse(self, responseData: data, expectedCode: 30) {
-                NSNotificationCenter.defaultCenter().postNotificationName(Constants.Notifications.BANK_ACCOUNTS_CHANGED, object: nil)
-                self.dismissViewControllerAnimated(true, completion: nil)
-            }
+            self.afterBankAccountOperation(data, code: 30)
         })
     }
     
@@ -205,12 +212,7 @@ extension NewBankAccountViewController {
         Diexpenses.doRequest(url, headers: Diexpenses.getTypicalHeaders(), verb: HttpVerbs.PUT.rawValue, body: newBankAccountJson, completionHandler: {
             data, response, error in
             
-            if Diexpenses.dealWithGenericResponse(self, responseData: data, expectedCode: 39) {
-                Notificator.fireNotification(notificationName: Constants.Notifications.BANK_ACCOUNTS_CHANGED)
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.navigationController?.popViewControllerAnimated(true)
-                })
-            }
+            self.afterBankAccountOperation(data, code: 39)
         })
     }
 }

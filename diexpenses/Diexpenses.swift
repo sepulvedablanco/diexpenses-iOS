@@ -16,7 +16,7 @@ class Diexpenses {
     static var user : User!
     
     static let DAY_MONTH_YEAR = "dd/MM/yyyy"
-    static let DAY_MONTH_YEAR_WITH_HOUR = "dd/MM/yyyy hh:mm:ss"
+    static let DAY_MONTH_YEAR_WITH_HOUR = "dd/MM/yyyy HH:mm:ss"
     
     static let iosBorderColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1.0)
     static let redColor = UIColor(red: 211/255, green: 73/255, blue: 78/255, alpha: 1.0)
