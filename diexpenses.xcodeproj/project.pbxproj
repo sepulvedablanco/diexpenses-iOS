@@ -29,7 +29,7 @@
 		F1210BB81C751F6000EA93AD /* BBVA_100.png in Resources */ = {isa = PBXBuildFile; fileRef = F1210BB71C751F6000EA93AD /* BBVA_100.png */; };
 		F1210BBA1C751F7500EA93AD /* cajamar_100.png in Resources */ = {isa = PBXBuildFile; fileRef = F1210BB91C751F7500EA93AD /* cajamar_100.png */; };
 		F1210BBC1C751FA900EA93AD /* DeutscheBank_100.png in Resources */ = {isa = PBXBuildFile; fileRef = F1210BBB1C751FA900EA93AD /* DeutscheBank_100.png */; };
-		F1210BBE1C751FC700EA93AD /* EspañaDuero_100.png in Resources */ = {isa = PBXBuildFile; fileRef = F1210BBD1C751FC700EA93AD /* EspañaDuero_100.png */; };
+		F1210BBE1C751FC700EA93AD /* EspanaDuero_100.png in Resources */ = {isa = PBXBuildFile; fileRef = F1210BBD1C751FC700EA93AD /* EspanaDuero_100.png */; };
 		F1210BC01C751FF800EA93AD /* evoBank_100.png in Resources */ = {isa = PBXBuildFile; fileRef = F1210BBF1C751FF800EA93AD /* evoBank_100.png */; };
 		F1210BC21C75201200EA93AD /* ibercaja_100.png in Resources */ = {isa = PBXBuildFile; fileRef = F1210BC11C75201200EA93AD /* ibercaja_100.png */; };
 		F1210BC41C75203500EA93AD /* kutxabank_100.png in Resources */ = {isa = PBXBuildFile; fileRef = F1210BC31C75203500EA93AD /* kutxabank_100.png */; };
@@ -111,7 +111,7 @@
 		F1210BB71C751F6000EA93AD /* BBVA_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BBVA_100.png; sourceTree = "<group>"; };
 		F1210BB91C751F7500EA93AD /* cajamar_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cajamar_100.png; sourceTree = "<group>"; };
 		F1210BBB1C751FA900EA93AD /* DeutscheBank_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeutscheBank_100.png; sourceTree = "<group>"; };
-		F1210BBD1C751FC700EA93AD /* EspañaDuero_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EspañaDuero_100.png"; sourceTree = "<group>"; };
+		F1210BBD1C751FC700EA93AD /* EspanaDuero_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EspanaDuero_100.png; sourceTree = "<group>"; };
 		F1210BBF1C751FF800EA93AD /* evoBank_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = evoBank_100.png; sourceTree = "<group>"; };
 		F1210BC11C75201200EA93AD /* ibercaja_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ibercaja_100.png; sourceTree = "<group>"; };
 		F1210BC31C75203500EA93AD /* kutxabank_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kutxabank_100.png; sourceTree = "<group>"; };
@@ -340,7 +340,7 @@
 				F1210BB71C751F6000EA93AD /* BBVA_100.png */,
 				F1210BB91C751F7500EA93AD /* cajamar_100.png */,
 				F1210BBB1C751FA900EA93AD /* DeutscheBank_100.png */,
-				F1210BBD1C751FC700EA93AD /* EspañaDuero_100.png */,
+				F1210BBD1C751FC700EA93AD /* EspanaDuero_100.png */,
 				F1210BBF1C751FF800EA93AD /* evoBank_100.png */,
 				F1210BC11C75201200EA93AD /* ibercaja_100.png */,
 				F11D0C301C61480E00D4822A /* ing_direct100.png */,
@@ -478,7 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1210BB81C751F6000EA93AD /* BBVA_100.png in Resources */,
-				F1210BBE1C751FC700EA93AD /* EspañaDuero_100.png in Resources */,
+				F1210BBE1C751FC700EA93AD /* EspanaDuero_100.png in Resources */,
 				F13EAA3C1C8A1986009343FA /* Entities.plist in Resources */,
 				F1210BC61C75206700EA93AD /* liberbank_100.png in Resources */,
 				F1210BC81C7520A000EA93AD /* openBank_100.png in Resources */,
