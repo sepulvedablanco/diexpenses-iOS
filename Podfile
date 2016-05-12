@@ -5,9 +5,9 @@ use_frameworks!
 
 target 'diexpenses' do
 
-pod 'Charts'
-pod 'Gloss'
-pod 'SwiftValidator' 
+pod 'Charts', '2.2.4'
+pod 'Gloss', '0.6.2'
+pod 'SwiftValidator', '3.0.3'
 
 end
 
