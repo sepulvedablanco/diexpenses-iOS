@@ -391,7 +391,7 @@
                         <outlet property="monthIncomeLabel" destination="is2-ea-66F" id="f4y-vc-NPa"/>
                         <outlet property="pieChart" destination="bWr-6V-6BS" id="L1Y-s4-QV4"/>
                         <outlet property="totalAmountLabel" destination="4A5-mv-AGf" id="uno-dN-QVl"/>
-                        <segue destination="ogP-hD-fqL" kind="presentation" identifier="toLoginViewController" id="pg7-QJ-H5D"/>
+                        <segue destination="ogP-hD-fqL" kind="showDetail" identifier="toLoginViewController" id="pg7-QJ-H5D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -418,7 +418,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iO5-dA-32h" id="fFv-PK-oPy">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete Bank Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wuh-No-SVz">
@@ -532,7 +532,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="88"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sgq-sN-4DA" id="gpN-oc-9eQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="87.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="88"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Ug-2H-EOr">
@@ -911,8 +911,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="ogP-hD-fqL" kind="presentation" identifier="fromEntryPointVCToLoginVC" id="Z4R-HM-j2T"/>
-                        <segue destination="49e-Tb-3d3" kind="presentation" identifier="fromEntryPointVCToHomeVC" id="USU-ir-xzT"/>
+                        <segue destination="ogP-hD-fqL" kind="showDetail" identifier="fromEntryPointVCToLoginVC" id="Z4R-HM-j2T"/>
+                        <segue destination="49e-Tb-3d3" kind="showDetail" identifier="fromEntryPointVCToHomeVC" id="USU-ir-xzT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWK-UG-QJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -986,7 +986,7 @@
                                         <rect key="frame" x="20" y="325" width="560" height="30"/>
                                         <state key="normal" title="Don't have an Account? Signup Now"/>
                                         <connections>
-                                            <segue destination="lfp-9d-n8H" kind="presentation" id="fgc-d1-96a"/>
+                                            <segue destination="lfp-9d-n8H" kind="showDetail" action="showViewController:sender:" id="fgc-d1-96a"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1032,7 +1032,7 @@
                         <outlet property="signInButton" destination="3Ub-Lh-NiP" id="yPl-W8-ezr"/>
                         <outlet property="usernameErrorLabel" destination="tTX-fF-NUq" id="Sfd-Lf-a5j"/>
                         <outlet property="usernameTextField" destination="hwq-eQ-AEa" id="MC8-wI-B6g"/>
-                        <segue destination="49e-Tb-3d3" kind="presentation" identifier="toHomeViewController" id="YOf-0a-niX"/>
+                        <segue destination="49e-Tb-3d3" kind="showDetail" identifier="toHomeViewController" id="YOf-0a-niX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fmr-sV-lXA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1100,7 +1100,7 @@
                                         <rect key="frame" x="20" y="412" width="559" height="30"/>
                                         <state key="normal" title="Have an account? Login Now"/>
                                         <connections>
-                                            <segue destination="ogP-hD-fqL" kind="presentation" id="gzh-sS-WKp"/>
+                                            <segue destination="ogP-hD-fqL" kind="showDetail" action="showViewController:sender:" id="gzh-sS-WKp"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBy-us-SPh">
@@ -1196,7 +1196,7 @@
                         <outlet property="signUpButton" destination="KjC-oI-4Qy" id="lvm-1p-1Pn"/>
                         <outlet property="usernameErrorLabel" destination="JBy-us-SPh" id="s6n-0e-913"/>
                         <outlet property="usernameTextField" destination="bWK-3R-J8A" id="h2W-w7-RiL"/>
-                        <segue destination="49e-Tb-3d3" kind="presentation" identifier="toHomeViewController" id="Knf-c7-bRI"/>
+                        <segue destination="49e-Tb-3d3" kind="showDetail" identifier="toHomeViewController" action="showViewController:sender:" id="Knf-c7-bRI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fXt-hc-4EX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1399,6 +1399,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Knf-c7-bRI"/>
-        <segue reference="gzh-sS-WKp"/>
+        <segue reference="Z4R-HM-j2T"/>
     </inferredMetricsTieBreakers>
 </document>
