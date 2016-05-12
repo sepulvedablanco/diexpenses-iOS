@@ -23,7 +23,9 @@ class MovementSubkindsViewController: UIViewController {
     }
     
     @IBAction func onNewMovementSubkind(sender: UIBarButtonItem) {
-        createAlert(NSLocalizedString("expenseSubkind.new", comment: "The new expense subkind message"), message: NSLocalizedString("expenseSubkind.new.message", comment: "The new expense subkind description"), actionButtonMessage: NSLocalizedString("common.save", comment: "The common message save"), expenseKind: nil, operation: .NEW_SUBKIND)
+        var expenseKind : ExpenseKind? = nil
+
+        createAlert(NSLocalizedString("expenseSubkind.new", comment: "The new expense subkind message"), message: NSLocalizedString("expenseSubkind.new.message", comment: "The new expense subkind description"), actionButtonMessage: NSLocalizedString("common.save", comment: "The common message save"), expenseKind: &expenseKind, operation: .NEW_SUBKIND)
     }
     
     override func viewDidLoad() {
@@ -51,7 +53,7 @@ extension MovementSubkindsViewController {
     // MARK: Initialize the View Controller
     func initVC() {
         self.navigationItem.title = expenseKind.description
-        self.refreshControl = Diexpenses.createRefreshControl(self, actionName: "refreshMovementsSubkinds:")
+        self.refreshControl = Diexpenses.createRefreshControl(self, actionName: #selector(MovementSubkindsViewController.refreshMovementsSubkinds(_:)))
         movementesSubkindsTableView.addSubview(self.refreshControl)
         self.loadMovementsSubkinds()
     }
@@ -63,7 +65,7 @@ extension MovementSubkindsViewController {
     }
     
     // MARK: Create a custom alert based on the kind of operation
-    func createAlert(title: String, message: String, actionButtonMessage: String, var expenseKind: ExpenseKind?, operation: KindsOperations) {
+    func createAlert(title: String, message: String, actionButtonMessage: String, inout expenseKind: ExpenseKind?, operation: KindsOperations) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         
         var style: UIAlertActionStyle = .Destructive
@@ -97,7 +99,7 @@ extension MovementSubkindsViewController {
                 return
             }
             if operation == .EDIT_SUBKIND {
-                expenseKind?.description = textField.text!
+                expenseKind!.description = textField.text!
                 self.editSubkind(expenseKind!)
                 return
             }
@@ -118,8 +120,8 @@ extension MovementSubkindsViewController: UITableViewDelegate {
             action, index in
             
             let cell = tableView.cellForRowAtIndexPath(indexPath)!
-            let movementSubkind = self.getMovementSubkindFromCell(cell)
-            self.createAlert(NSLocalizedString("expenseSubkind.delete", comment: "The delete expense subkind message"), message: String.localizedStringWithFormat(NSLocalizedString("expenseSubkind.delete.message", comment: "The delete expense subkind description"), movementSubkind.description), actionButtonMessage: NSLocalizedString("common.delete", comment: "The common message delete"), expenseKind: movementSubkind, operation: .DELETE_SUBKIND)
+            var movementSubkind = self.getMovementSubkindFromCell(cell)
+            self.createAlert(NSLocalizedString("expenseSubkind.delete", comment: "The delete expense subkind message"), message: String.localizedStringWithFormat(NSLocalizedString("expenseSubkind.delete.message", comment: "The delete expense subkind description"), movementSubkind!.description), actionButtonMessage: NSLocalizedString("common.delete", comment: "The common message delete"), expenseKind: &movementSubkind, operation: .DELETE_SUBKIND)
             
         }
         remove.backgroundColor = Diexpenses.redColor
@@ -128,15 +130,15 @@ extension MovementSubkindsViewController: UITableViewDelegate {
             action, index in
             
             let cell = tableView.cellForRowAtIndexPath(indexPath)!
-            let movementSubkind = self.getMovementSubkindFromCell(cell)
-            self.createAlert(NSLocalizedString("expenseSubkind.edit", comment: "The edit expense subkind message"), message: NSLocalizedString("expenseSubkind.edit.message", comment: "The edit expense subkind description"), actionButtonMessage: NSLocalizedString("common.update", comment: "The common message update"), expenseKind: movementSubkind, operation: .EDIT_SUBKIND)
+            var movementSubkind = self.getMovementSubkindFromCell(cell)
+            self.createAlert(NSLocalizedString("expenseSubkind.edit", comment: "The edit expense subkind message"), message: NSLocalizedString("expenseSubkind.edit.message", comment: "The edit expense subkind description"), actionButtonMessage: NSLocalizedString("common.update", comment: "The common message update"), expenseKind: &movementSubkind, operation: .EDIT_SUBKIND)
         }
         edit.backgroundColor = Diexpenses.greenColor
         
         return [remove, edit]
     }
     
-    func getMovementSubkindFromCell(cell: UITableViewCell) -> ExpenseKind {
+    func getMovementSubkindFromCell(cell: UITableViewCell) -> ExpenseKind? {
         let id = cell.tag
         let description = cell.textLabel?.text
         return ExpenseKind(id: id, description: description!)

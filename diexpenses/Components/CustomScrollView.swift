@@ -40,8 +40,8 @@ extension CustomScrollView {
     
     // MARK: Adding notifies on keyboard appearing
     func registerForKeyboardNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CustomScrollView.keyboardWasShown(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CustomScrollView.keyboardWillBeHidden(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
 
     // MARK: Removing notifies on keyboard appearing

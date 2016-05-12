@@ -65,9 +65,9 @@ extension HomeViewController {
     
     // MARK: Register of notifications fired when a bank account is created, updated or delete and when a movement is crearted or deleted
     func registerNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadTotalAmount", name:Constants.Notifications.BANK_ACCOUNTS_CHANGED, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadExpenses", name:Constants.Notifications.EXPENSES_CHANGED, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadIncomes", name:Constants.Notifications.INCOMES_CHANGED, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeViewController.loadTotalAmount), name:Constants.Notifications.BANK_ACCOUNTS_CHANGED, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeViewController.loadExpenses), name:Constants.Notifications.EXPENSES_CHANGED, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeViewController.loadIncomes), name:Constants.Notifications.INCOMES_CHANGED, object: nil)
     }
     
     // MARK: Configuration of the chart

@@ -21,7 +21,7 @@ class MovementsViewController: UIViewController {
         let todayCalendar = NSCalendar.currentCalendar()
         let components = todayCalendar.components([.Year], fromDate: todayDate)
         var years = [Int]()
-        for var index = components.year; index >= 2010; --index {
+        for index in components.year.stride(to: 2009, by: -1) {
             years.append(index)
         }
         return years
@@ -52,9 +52,9 @@ extension MovementsViewController {
     
     // MARK: Initialize the View Controller
     func initVC() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadMovements", name:Constants.Notifications.EXPENSES_CHANGED, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadMovements", name:Constants.Notifications.INCOMES_CHANGED, object: nil)
-        self.refreshControl = Diexpenses.createRefreshControl(self, actionName: "refreshMovements:")
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MovementsViewController.loadMovements), name:Constants.Notifications.EXPENSES_CHANGED, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MovementsViewController.loadMovements), name:Constants.Notifications.INCOMES_CHANGED, object: nil)
+        self.refreshControl = Diexpenses.createRefreshControl(self, actionName: #selector(MovementsViewController.refreshMovements(_:)))
         movementsTableView.addSubview(self.refreshControl)
         loadMonths()
         loadMovements()
@@ -94,7 +94,7 @@ extension MovementsViewController {
         let monthSymbols = dateFormatter.standaloneMonthSymbols
         
         months = [String]()
-        for var index = initialMonthIndex; index > 0; --index {
+        for index in initialMonthIndex.stride(to: 0, by: -1) {
             months.append(monthSymbols[index - 1])
         }
         

@@ -114,26 +114,26 @@ extension NewMovementViewController {
     // MARK: Configure custom pickers
     func configureCustomPickers() {
         
-        kindsCustomPicker = CustomPicker(target: self, uiTextField: kindTextField, items: getBarItems("onKindSelected", cancelSelector: "onCancelKind"))
+        kindsCustomPicker = CustomPicker(target: self, uiTextField: kindTextField, items: getBarItems(#selector(NewMovementViewController.onKindSelected), cancelSelector: #selector(NewMovementViewController.onCancelKind)))
         kindsCustomPicker.picker.delegate = self
         kindsCustomPicker.picker.dataSource = self
         kindTextField.text = NewMovementViewController.selectKind
         kindTextField.delegate = self
         
-        subkindsCustomPicker = CustomPicker(target: self, uiTextField: subkindTextField, items: getBarItems("onSubkindSelected", cancelSelector: "onCancelSubkind"))
+        subkindsCustomPicker = CustomPicker(target: self, uiTextField: subkindTextField, items: getBarItems(#selector(NewMovementViewController.onSubkindSelected), cancelSelector: #selector(NewMovementViewController.onCancelSubkind)))
         subkindsCustomPicker.picker.delegate = self
         subkindsCustomPicker.picker.dataSource = self
         subkindTextField.enabled = false
         subkindTextField.text = NewMovementViewController.selectKindFirst
         subkindTextField.delegate = self
         
-        bankAccountsCustomPicker = CustomPicker(target: self, uiTextField: bankAccountTextField, items: getBarItems("onBankAccountSelected", cancelSelector: "onCancelBankAccount"))
+        bankAccountsCustomPicker = CustomPicker(target: self, uiTextField: bankAccountTextField, items: getBarItems(#selector(NewMovementViewController.onBankAccountSelected), cancelSelector: #selector(NewMovementViewController.onCancelBankAccount)))
         bankAccountsCustomPicker.picker.delegate = self
         bankAccountsCustomPicker.picker.dataSource = self
         bankAccountTextField.text = NSLocalizedString("newMovement.select.bankAccount", comment: "The select bank account message")
         bankAccountTextField.delegate = self
         
-        transactionDateCustomPicker = CustomDatePicker(target: self, uiTextField: transactionDateTextField, items: getBarItems("onTransactionDateSelected", cancelSelector: "onCancelTransactionDate"))
+        transactionDateCustomPicker = CustomDatePicker(target: self, uiTextField: transactionDateTextField, items: getBarItems(#selector(NewMovementViewController.onTransactionDateSelected), cancelSelector: #selector(NewMovementViewController.onCancelTransactionDate)))
         transactionDateCustomPicker.picker.datePickerMode = .Date
         transactionDateTextField.text = Diexpenses.formatDate(NSDate(), format: Diexpenses.DAY_MONTH_YEAR)
         transactionDateTextField.delegate = self

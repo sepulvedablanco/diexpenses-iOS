@@ -44,8 +44,8 @@ extension BankAccountsViewController {
     
     // MARK: Initialize the View Controller
     func initVC() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadBankAccounts", name:Constants.Notifications.BANK_ACCOUNTS_CHANGED, object: nil)
-        refreshControl = Diexpenses.createRefreshControl(self, actionName: "refreshBankAccounts:")
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BankAccountsViewController.loadBankAccounts), name:Constants.Notifications.BANK_ACCOUNTS_CHANGED, object: nil)
+        refreshControl = Diexpenses.createRefreshControl(self, actionName: #selector(BankAccountsViewController.refreshBankAccounts(_:)))
         bankAccountsTableView.addSubview(self.refreshControl)
         self.loadBankAccounts()
     }
