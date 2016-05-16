@@ -156,6 +156,45 @@ extension Diexpenses {
     }
 }
 
+// MARK: - Business Logic Utils
+extension Diexpenses {
+    
+    static func getYears() -> [Int] {
+        return {
+            let todayDate = NSDate()
+            let todayCalendar = NSCalendar.currentCalendar()
+            let components = todayCalendar.components([.Year], fromDate: todayDate)
+            var years = [Int]()
+            for index in components.year.stride(to: 2009, by: -1) {
+                years.append(index)
+            }
+            return years
+            }()
+    }
+    
+    // MARK: Load month names an array based on the year
+    static func getMonths(isThisYear: Bool = true) -> [String] {
+        
+        var initialMonthIndex = 12
+        if isThisYear {
+            let todayDate = NSDate()
+            let todayCalendar = NSCalendar.currentCalendar()
+            let components = todayCalendar.components([.Month], fromDate: todayDate)
+            initialMonthIndex = components.month // Get current month
+        }
+        
+        let dateFormatter = NSDateFormatter()
+        let monthSymbols = dateFormatter.standaloneMonthSymbols
+        
+        var months = [String]()
+        for index in initialMonthIndex.stride(to: 0, by: -1) {
+            months.append(monthSymbols[index - 1])
+        }
+        
+        return months
+    }
+}
+
 enum HttpVerbs: String {
     case POST
     case GET

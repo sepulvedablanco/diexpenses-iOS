@@ -13,6 +13,8 @@ import SwiftValidator
 
 class NewBankAccountViewController: UIViewController {
     
+    var loadingMask: LoadingMask!
+
     let customValidator = CustomValidator()
     var bankAccount: BankAccount!
 
@@ -64,6 +66,7 @@ extension NewBankAccountViewController {
     
     // MARK: Initialize the View Controller
     func initVC() {
+        self.loadingMask = LoadingMask(view: view)
         if let _ = bankAccount {
             self.navigationItem.title = NSLocalizedString("bankAccounts.edit.title", comment: "The edit bank account title")
         }
@@ -93,6 +96,8 @@ extension NewBankAccountViewController {
     
     // MARK: Method called after insert or update bank account
     func afterBankAccountOperation(data: NSData?, code: Int) {
+        self.loadingMask.hideMask()
+
         if Diexpenses.dealWithGenericResponse(self, responseData: data, expectedCode: code) {
             NSNotificationCenter.defaultCenter().postNotificationName(Constants.Notifications.BANK_ACCOUNTS_CHANGED, object: nil)
             dispatch_async(dispatch_get_main_queue(), {
@@ -169,6 +174,9 @@ extension NewBankAccountViewController: ValidationDelegate {
 
     // MARK: Method called when form validation is succesfull
     func validationSuccessful() {
+        
+        loadingMask.showMask()
+        
         if let _  = bankAccount {
             updateBankAccount()
         } else {

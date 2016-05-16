@@ -60,6 +60,7 @@ struct Constants {
         static let CREATE_MOVEMENT_URL = BASE_URL + "user/%@/financialMovement"
         static let UD_MOVEMENT_URL = BASE_URL + "user/%@/financialMovement/%@" /* UD = Update and Delete */
         
+        static let STATISTICS_URL = BASE_URL + "user/%@/financialMovements/amounts?e=%@"
     }
     
     struct Cell {

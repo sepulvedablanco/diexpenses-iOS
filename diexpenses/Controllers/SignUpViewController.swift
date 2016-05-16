@@ -12,6 +12,8 @@ import SwiftValidator
 
 class SignUpViewController: UIViewController {
     
+    var loadingMask: LoadingMask!
+
     let customValidator = CustomValidator()
 
     @IBOutlet weak var signUpButton: UIButton!
@@ -52,6 +54,7 @@ extension SignUpViewController {
         scrollView.configure(view)
         setTextFieldsDelegate()
         registerFieldsInValidator()
+        self.loadingMask = LoadingMask(view: view)
     }
     
     // MARK: Redirection to HomeViewController. This method is called when new user is created
@@ -112,6 +115,7 @@ extension SignUpViewController: ValidationDelegate {
     
     // MARK: Method called when form validation is succesfull
     func validationSuccessful() {
+        self.loadingMask.showMask()
         createUser()
         Diexpenses.switchButton(signUpButton)
     }
@@ -149,6 +153,8 @@ extension SignUpViewController {
         
         Diexpenses.doRequest(Constants.API.LOGIN_URL, headers: Diexpenses.getTypicalHeaders(false), verb: HttpVerbs.POST.rawValue, body: userPassJson, completionHandler: {
             data, response, error in
+            
+            self.loadingMask.hideMask()
             
             if let d = data {
                 do {

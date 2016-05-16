@@ -107,8 +107,8 @@ extension HomeViewController {
             return
         }
         
-        let dataPoints = [NSLocalizedString("home.incomes", comment: "The incomes"),
-            NSLocalizedString("home.expenses", comment: "The expenses")]
+        let dataPoints = [NSLocalizedString("common.incomes", comment: "The incomes"),
+            NSLocalizedString("common.expenses", comment: "The expenses")]
         
         let values = [incomes, expenses]
 
@@ -121,7 +121,6 @@ extension HomeViewController {
         
         let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "")
         let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
-        //pieChartData.setValueTextColor(UIColor.blackColor())
         
         dispatch_async(dispatch_get_main_queue(), {
             self.pieChart.data = pieChartData

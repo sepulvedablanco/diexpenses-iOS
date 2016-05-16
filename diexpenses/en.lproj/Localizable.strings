@@ -27,13 +27,13 @@
 "common.validator.decimal" = "It must be a decimal value";
 "common.validator.password" = "At least 6 characters, containing uppercase, lowercase and digits";
 "common.validator.password.confirmation" = "Passwords do not match.";
+"common.incomes" = "Incomes";
+"common.expenses" = "Expenses";
 
 "home.greetings" = "Hello %@!";
 "home.totalAmount" = "Total amount: %@";
 "home.totalIncomes" = "Month incomes: %@";
 "home.totalExpenses" = "Month expenses: %@";
-"home.incomes" = "Incomes";
-"home.expenses" = "Expenses";
 "home.chart.nodata" = "Still no data this month";
 "home.chart.nodata.description" = "Recorded an income or expense";
 "home.balance.high" = "This month you are doing well";
@@ -73,3 +73,10 @@
 "newMovement.insert.kind" = "Select the kind of expense";
 "newMovement.insert.subkind" = "Select the subkind of expense";
 "newMovement.insert.bankAccount" = "Select the bank account";
+
+"statistics.historical" = "Historical";
+"statistics.allMonths" = "All months";
+"statistics.allKinds" = "All kinds";
+"statistics.kindFirst" = "Select a kind first";
+"statistics.allSubkinds" = "All subkinds";
+"statistics.allBankAccounts" = "All bank accounts";

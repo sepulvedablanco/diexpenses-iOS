@@ -17,6 +17,9 @@
 /* Class = "UILabel"; text = "Total amount:"; ObjectID = "4A5-mv-AGf"; */
 "4A5-mv-AGf.text" = "Total amount:";
 
+/* Class = "UIButton"; normalTitle = "See statistics"; ObjectID = "5B6-xk-ssz"; */
+"5B6-xk-ssz.normalTitle" = "See statistics";
+
 /* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "5E8-X2-w7e"; */
 "5E8-X2-w7e.title" = "Back";
 
@@ -26,11 +29,17 @@
 /* Class = "UILabel"; text = "Control digit:"; ObjectID = "72P-jm-DGl"; */
 "72P-jm-DGl.text" = "Control digit:";
 
+/* Class = "UILabel"; text = "Year:"; ObjectID = "7ew-cR-xCR"; */
+"7ew-cR-xCR.text" = "Year:";
+
 /* Class = "UILabel"; text = "Entity:"; ObjectID = "7l2-MO-zwt"; */
 "7l2-MO-zwt.text" = "Entity:";
 
 /* Class = "UINavigationItem"; title = "Movements History"; ObjectID = "BYI-5n-s31"; */
 "BYI-5n-s31.title" = "Movements History";
+
+/* Class = "UILabel"; text = "Bank account:"; ObjectID = "Cua-2Q-Qg4"; */
+"Cua-2Q-Qg4.text" = "Bank account:";
 
 /* Class = "UISegmentedControl"; DBl-YI-Pco.segmentTitles[0] = "Expense"; ObjectID = "DBl-YI-Pco"; */
 "DBl-YI-Pco.segmentTitles[0]" = "Expense";
@@ -68,6 +77,9 @@
 /* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "KjC-oI-4Qy"; */
 "KjC-oI-4Qy.normalTitle" = "Sign Up";
 
+/* Class = "UILabel"; text = "Month:"; ObjectID = "Lhx-0k-RLj"; */
+"Lhx-0k-RLj.text" = "Month:";
+
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "QPq-JM-OHD"; */
 "QPq-JM-OHD.placeholder" = "Password";
 
@@ -77,11 +89,11 @@
 /* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "SBM-mK-1Xb"; */
 "SBM-mK-1Xb.title" = "Save";
 
-/* Class = "UINavigationItem"; title = "Global Position"; ObjectID = "SzA-Ys-KLT"; */
-"SzA-Ys-KLT.title" = "Global Position";
-
 /* Class = "UINavigationItem"; title = "New Movement"; ObjectID = "TnB-5B-wy6"; */
 "TnB-5B-wy6.title" = "New Movement";
+
+/* Class = "UINavigationItem"; title = "Statistics"; ObjectID = "Ub2-Dl-dd7"; */
+"Ub2-Dl-dd7.title" = "Statistics";
 
 /* Class = "UILabel"; text = "Login"; ObjectID = "VDF-dr-WuE"; */
 "VDF-dr-WuE.text" = "Login";
@@ -107,6 +119,9 @@
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "b35-qx-jfR"; */
 "b35-qx-jfR.placeholder" = "Password";
 
+/* Class = "UITabBarItem"; title = "Statistics"; ObjectID = "b3R-1R-U1d"; */
+"b3R-1R-U1d.title" = "Statistics";
+
 /* Class = "UILabel"; text = "Concept:"; ObjectID = "bB4-FX-6Z1"; */
 "bB4-FX-6Z1.text" = "Concept:";
 
@@ -119,11 +134,17 @@
 /* Class = "UINavigationItem"; title = "Bank Accounts"; ObjectID = "d0L-oh-9wy"; */
 "d0L-oh-9wy.title" = "Bank Accounts";
 
+/* Class = "UINavigationItem"; title = "Global Position"; ObjectID = "gwL-6U-e1k"; */
+"gwL-6U-e1k.title" = "Global Position";
+
 /* Class = "UITextField"; placeholder = "Username"; ObjectID = "hwq-eQ-AEa"; */
 "hwq-eQ-AEa.placeholder" = "Username";
 
 /* Class = "UILabel"; text = "Month incomes:"; ObjectID = "is2-ea-66F"; */
 "is2-ea-66F.text" = "Month incomes:";
+
+/* Class = "UILabel"; text = "Subkind:"; ObjectID = "iyX-UB-gsl"; */
+"iyX-UB-gsl.text" = "Subkind:";
 
 /* Class = "UILabel"; text = "Balance:"; ObjectID = "j0V-On-yLe"; */
 "j0V-On-yLe.text" = "Balance:";
@@ -148,6 +169,9 @@
 
 /* Class = "UILabel"; text = "Sign Up"; ObjectID = "pLW-WY-osc"; */
 "pLW-WY-osc.text" = "Sign Up";
+
+/* Class = "UILabel"; text = "Kind:"; ObjectID = "pbZ-Gy-6QI"; */
+"pbZ-Gy-6QI.text" = "Kind:";
 
 /* Class = "UILabel"; text = "¡Hello!"; ObjectID = "pcC-38-q1o"; */
 "pcC-38-q1o.text" = "¡Hello!";

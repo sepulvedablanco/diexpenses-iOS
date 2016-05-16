@@ -19,6 +19,7 @@
 		F10807701C86528600468399 /* CustomPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108076D1C86528600468399 /* CustomPasswordRule.swift */; };
 		F10807711C86528600468399 /* DecimalRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108076E1C86528600468399 /* DecimalRule.swift */; };
 		F10807721C86528600468399 /* DigitRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108076F1C86528600468399 /* DigitRule.swift */; };
+		F11122D21CE712B700665068 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11122D11CE712B700665068 /* StatisticsViewController.swift */; };
 		F114EEE01C6649C700680980 /* ExpenseKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F114EEDF1C6649C700680980 /* ExpenseKind.swift */; };
 		F11AA2DA1C6012CA00AD805D /* GenericApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11AA2D91C6012CA00AD805D /* GenericApiResponse.swift */; };
 		F11B1DE41C7E5BB00079B09B /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B1DE31C7E5BB00079B09B /* CustomPicker.swift */; };
@@ -101,11 +102,13 @@
 		F108076D1C86528600468399 /* CustomPasswordRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomPasswordRule.swift; path = Validators/CustomPasswordRule.swift; sourceTree = "<group>"; };
 		F108076E1C86528600468399 /* DecimalRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DecimalRule.swift; path = Validators/DecimalRule.swift; sourceTree = "<group>"; };
 		F108076F1C86528600468399 /* DigitRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DigitRule.swift; path = Validators/DigitRule.swift; sourceTree = "<group>"; };
+		F11122D11CE712B700665068 /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		F114EEDF1C6649C700680980 /* ExpenseKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseKind.swift; sourceTree = "<group>"; };
 		F11AA2D91C6012CA00AD805D /* GenericApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericApiResponse.swift; sourceTree = "<group>"; };
 		F11B1DE31C7E5BB00079B09B /* CustomPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
 		F11D0C301C61480E00D4822A /* ing_direct100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ing_direct100.png; sourceTree = "<group>"; };
 		F11DA42B1C7095E10058E1D6 /* NameUserPass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameUserPass.swift; sourceTree = "<group>"; };
+		F11F24AD1CE9D6C300CBF208 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F1210BB31C751F0900EA93AD /* bankia_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bankia_100.png; sourceTree = "<group>"; };
 		F1210BB51C751F3C00EA93AD /* bankinter_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bankinter_100.png; sourceTree = "<group>"; };
 		F1210BB71C751F6000EA93AD /* BBVA_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BBVA_100.png; sourceTree = "<group>"; };
@@ -121,7 +124,6 @@
 		F1210BCB1C7520EB00EA93AD /* Santander_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Santander_100.png; sourceTree = "<group>"; };
 		F1210BCD1C75210000EA93AD /* targoBank_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = targoBank_100.png; sourceTree = "<group>"; };
 		F1210BCF1C75216A00EA93AD /* novoBank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = novoBank.png; sourceTree = "<group>"; };
-		F1225BA51C94BEA600261A1F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F128389B1C958A04000097C6 /* MovementKindsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovementKindsViewController.swift; path = Controllers/MovementKindsViewController.swift; sourceTree = "<group>"; };
 		F128389D1C958A0A000097C6 /* MovementsSubkindsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovementsSubkindsViewController.swift; path = Controllers/MovementsSubkindsViewController.swift; sourceTree = "<group>"; };
 		F128389F1C958A3C000097C6 /* CustomValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomValidator.swift; path = Validators/CustomValidator.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				F10807601C86523E00468399 /* NewBankAccountViewController.swift */,
 				F10807611C86523E00468399 /* NewMovementViewController.swift */,
 				F10807621C86523E00468399 /* SignUpViewController.swift */,
+				F11122D11CE712B700665068 /* StatisticsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				F114EEE01C6649C700680980 /* ExpenseKind.swift in Sources */,
 				F12838A01C958A3C000097C6 /* CustomValidator.swift in Sources */,
 				F108076A1C86523E00468399 /* SignUpViewController.swift in Sources */,
+				F11122D21CE712B700665068 /* StatisticsViewController.swift in Sources */,
 				F128389E1C958A0A000097C6 /* MovementsSubkindsViewController.swift in Sources */,
 				F10807721C86528600468399 /* DigitRule.swift in Sources */,
 				F17A74631C56CAEA00BEF254 /* AppDelegate.swift in Sources */,
@@ -657,7 +661,7 @@
 			children = (
 				F17A74691C56CAEA00BEF254 /* Base */,
 				F172800E1C57F4CB00E9F22E /* es */,
-				F1225BA51C94BEA600261A1F /* en */,
+				F11F24AD1CE9D6C300CBF208 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

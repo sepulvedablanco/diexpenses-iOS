@@ -11,6 +11,8 @@ import Gloss
 
 class MovementSubkindsViewController: UIViewController {
     
+    var loadingMask: LoadingMask!
+
     var expenseKind: ExpenseKind!
     var expensesSubkinds: [ExpenseKind] = []
     
@@ -54,7 +56,9 @@ extension MovementSubkindsViewController {
     func initVC() {
         self.navigationItem.title = expenseKind.description
         self.refreshControl = Diexpenses.createRefreshControl(self, actionName: #selector(MovementSubkindsViewController.refreshMovementsSubkinds(_:)))
-        movementesSubkindsTableView.addSubview(self.refreshControl)
+        self.movementesSubkindsTableView.addSubview(self.refreshControl)
+        self.loadingMask = LoadingMask(view: view)
+        self.loadingMask.showMask()
         self.loadMovementsSubkinds()
     }
     
@@ -79,6 +83,7 @@ extension MovementSubkindsViewController {
         alert.addAction(UIAlertAction(title: actionButtonMessage, style: style, handler: {
             (action) -> Void in
             if operation == .DELETE_SUBKIND {
+                self.loadingMask.showMask()
                 self.deleteSubkind(expenseKind!.id)
                 return
             }
@@ -95,10 +100,12 @@ extension MovementSubkindsViewController {
             }
             
             if operation == .NEW_SUBKIND {
+                self.loadingMask.showMask()
                 self.createSubkind(textField.text!)
                 return
             }
             if operation == .EDIT_SUBKIND {
+                self.loadingMask.showMask()
                 expenseKind!.description = textField.text!
                 self.editSubkind(expenseKind!)
                 return
@@ -188,6 +195,8 @@ extension MovementSubkindsViewController {
         let url = String.localizedStringWithFormat(Constants.API.LIST_FIN_MOV_SUBTYPES, expenseKind.id)
         Diexpenses.doRequest(url, headers: Diexpenses.getTypicalHeaders(), verb: HttpVerbs.GET.rawValue, body: nil, completionHandler: {
             data, response, error in
+            
+            self.loadingMask.hideMask()
             
             guard let _ =  data else {
                 NSLog("Without Internet connection")

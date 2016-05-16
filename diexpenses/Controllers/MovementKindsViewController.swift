@@ -11,6 +11,8 @@ import Gloss
 
 class MovementKindsViewController: UIViewController {
 
+    var loadingMask: LoadingMask!
+
     var expensesKinds : [ExpenseKind] = []
 
     @IBOutlet weak var movementsKindsTableView: UITableView!
@@ -48,7 +50,9 @@ extension MovementKindsViewController {
     // MARK: Initialize the View Controller
     func initVC() {
         self.refreshControl = Diexpenses.createRefreshControl(self, actionName: #selector(MovementKindsViewController.refreshMovementsKinds(_:)))
-        movementsKindsTableView.addSubview(self.refreshControl)
+        self.movementsKindsTableView.addSubview(self.refreshControl)
+        self.loadingMask = LoadingMask(view: view)
+        self.loadingMask.showMask()
         self.loadMovementsKinds()
     }
     
@@ -87,6 +91,7 @@ extension MovementKindsViewController {
         alert.addAction(UIAlertAction(title: actionButtonMessage, style: style, handler: {
             (action) -> Void in
             if operation == .DELETE_KIND {
+                self.loadingMask.showMask()
                 self.removeMovementKind((expenseKind!.id)!)
                 return
             }
@@ -103,10 +108,12 @@ extension MovementKindsViewController {
             }
             
             if operation == .NEW_KIND {
+                self.loadingMask.showMask()
                 self.createKind(textField.text!)
                 return
             }
             if operation == .EDIT_KIND {
+                self.loadingMask.showMask()
                 expenseKind!.description = textField.text!
                 self.editMovementKind(expenseKind!)
                 return
@@ -203,6 +210,8 @@ extension MovementKindsViewController {
         let url = String.localizedStringWithFormat(Constants.API.LIST_FIN_MOV_TYPES, Diexpenses.user.id)
         Diexpenses.doRequest(url, headers: Diexpenses.getTypicalHeaders(), verb: HttpVerbs.GET.rawValue, body: nil, completionHandler: {
             data, response, error in
+            
+            self.loadingMask.hideMask()
             
             guard let _ =  data else {
                 Diexpenses.showError(self, message: NSLocalizedString("common.noInternetConnection", comment: "No Internet connection message"))

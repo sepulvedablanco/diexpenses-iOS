@@ -12,7 +12,7 @@ public struct BankAccount {
     
     public let id: NSNumber!
     public let iban: String!
-    public let entity: String
+    public let entity: String!
     public let office: String!
     public let controlDigit: String!
     public let accountNumber: String!
@@ -20,7 +20,7 @@ public struct BankAccount {
     public let description: String!
     public let completeBankAccount: String!
 
-    public init(id: NSNumber!, iban: String!, entity: String, office: String, controlDigit: String, accountNumber: String, balance: NSNumber, description: String) {
+    public init(id: NSNumber!, iban: String!, entity: String!, office: String!, controlDigit: String!, accountNumber: String!, balance: NSNumber!, description: String) {
         self.id = id
         self.iban = iban
         self.entity = entity
@@ -34,6 +34,10 @@ public struct BankAccount {
 
     public init(iban: String!, entity: String, office: String, controlDigit: String, accountNumber: String, balance: NSNumber, description: String) {
         self.init(id: nil, iban: iban, entity: entity, office: office, controlDigit: controlDigit, accountNumber: accountNumber, balance: balance, description: description)
+    }
+    
+    public init(description: String) {
+        self.init(id: nil, iban: nil, entity: nil, office: nil, controlDigit: nil, accountNumber: nil, balance: nil, description: description)
     }
 }
 

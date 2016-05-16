@@ -11,21 +11,14 @@ import Gloss
 
 class MovementsViewController: UIViewController {
 
+    var loadingMask: LoadingMask!
+
     @IBOutlet weak var datePickerView: UIPickerView!
     @IBOutlet weak var movementsTableView: UITableView!
 
     var movements : [Movement] = []
     var months: [String] = []
-    let years: [Int] = {
-        let todayDate = NSDate()
-        let todayCalendar = NSCalendar.currentCalendar()
-        let components = todayCalendar.components([.Year], fromDate: todayDate)
-        var years = [Int]()
-        for index in components.year.stride(to: 2009, by: -1) {
-            years.append(index)
-        }
-        return years
-    }()
+    let years = Diexpenses.getYears()
     
     var refreshControl: UIRefreshControl!
     
@@ -55,7 +48,9 @@ extension MovementsViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MovementsViewController.loadMovements), name:Constants.Notifications.EXPENSES_CHANGED, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MovementsViewController.loadMovements), name:Constants.Notifications.INCOMES_CHANGED, object: nil)
         self.refreshControl = Diexpenses.createRefreshControl(self, actionName: #selector(MovementsViewController.refreshMovements(_:)))
-        movementsTableView.addSubview(self.refreshControl)
+        self.movementsTableView.addSubview(self.refreshControl)
+        self.loadingMask = LoadingMask(view: view)
+        self.loadingMask.showMask()
         loadMonths()
         loadMovements()
     }
@@ -82,21 +77,7 @@ extension MovementsViewController {
             return false
         }
         
-        var initialMonthIndex = 12
-        if isThisYear {
-            let todayDate = NSDate()
-            let todayCalendar = NSCalendar.currentCalendar()
-            let components = todayCalendar.components([.Month], fromDate: todayDate)
-            initialMonthIndex = components.month // Get current month
-        }
-        
-        let dateFormatter = NSDateFormatter()
-        let monthSymbols = dateFormatter.standaloneMonthSymbols
-        
-        months = [String]()
-        for index in initialMonthIndex.stride(to: 0, by: -1) {
-            months.append(monthSymbols[index - 1])
-        }
+        months = Diexpenses.getMonths()
         
         return true
     }
@@ -169,6 +150,8 @@ extension MovementsViewController: UITableViewDelegate {
             alert.addAction(UIAlertAction(title: NSLocalizedString("common.delete", comment: "The common message delete"), style: .Destructive, handler: {
                 (action) -> Void in
                 
+                self.loadingMask.showMask()
+
                 self.removeMovement(movementCell.movement)
             }))
             
@@ -228,6 +211,8 @@ extension MovementsViewController {
         Diexpenses.doRequest(url, headers: Diexpenses.getTypicalHeaders(), verb: HttpVerbs.GET.rawValue, body: nil, completionHandler: {
             data, response, error in
             
+            self.loadingMask.hideMask()
+            
             if let d = data {
                 do {
                     let movementsPageJson: AnyObject! = (try NSJSONSerialization.JSONObjectWithData(d, options: NSJSONReadingOptions(rawValue: 0))  as? NSDictionary)!
@@ -251,6 +236,8 @@ extension MovementsViewController {
         let movementsURL = String.localizedStringWithFormat(Constants.API.UD_MOVEMENT_URL, Diexpenses.user.id, movement.id)
         Diexpenses.doRequest(movementsURL, headers: Diexpenses.getTypicalHeaders(), verb: HttpVerbs.DELETE.rawValue, body: nil, completionHandler: {
             data, response, error in
+            
+            self.loadingMask.hideMask()
             
             if Diexpenses.dealWithGenericResponse(self, responseData: data, expectedCode: 133) {
                 Notificator.fireNotification(expense: movement.expense)

@@ -17,6 +17,7 @@ class NewMovementViewController: UIViewController {
     static let selectSubkind = NSLocalizedString("expenseSubkind.select", comment: "The select subkind message")
     static let selectKindFirst = NSLocalizedString("expenseSubkind.selectKind", comment: "The select kind first message")
 
+    var loadingMask: LoadingMask!
     var expensesKinds : [ExpenseKind] = [ExpenseKind(description: noData)]
     var expensesSubKinds : [ExpenseKind] = [ExpenseKind(description: noData)]
     var bankAccounts : [BankAccount] = []
@@ -78,7 +79,9 @@ class NewMovementViewController: UIViewController {
         }
         
         let movement = Movement(expense: isExpenses, concept: concept, transactionDate: selectedDate, amount: amount, financialMovementType: selectedKind, financialMovementSubtype: selectedSubkind, bankAccount: selectedBankAccount)
-                
+        
+        self.loadingMask.showMask()
+
         createMovement(movement)
     }
     
@@ -101,6 +104,7 @@ extension NewMovementViewController {
     
     // MARK: Initialize the View Controller
     func initVC() {
+        self.loadingMask = LoadingMask(view: view)
         setTextFieldsDelegate()
         configureCustomPickers()
         loadExpensesKinds()
@@ -255,10 +259,6 @@ extension NewMovementViewController: UITextFieldDelegate {
                 textField.resignFirstResponder()
                 self.amountTextField.becomeFirstResponder()
             }
-            /*else if textField == self.amountTextField {
-                textField.resignFirstResponder()
-                self.view.endEditing(true)
-            }*/
         })
         return true;
     }
@@ -419,6 +419,8 @@ extension NewMovementViewController {
         let createMovementURL = String.localizedStringWithFormat(Constants.API.CREATE_MOVEMENT_URL, Diexpenses.user.id)
         Diexpenses.doRequest(createMovementURL, headers: Diexpenses.getTypicalHeaders(), verb: HttpVerbs.POST.rawValue, body: newMovementParsed2, completionHandler: {
             data, response, error in
+            
+            self.loadingMask.hideMask()
             
             if Diexpenses.dealWithGenericResponse(self, responseData: data, expectedCode: 127) {
                 Notificator.fireNotification(expense: movement.expense)

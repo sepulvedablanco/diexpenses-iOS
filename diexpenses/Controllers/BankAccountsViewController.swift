@@ -11,6 +11,8 @@ import Gloss
 
 class BankAccountsViewController: UIViewController {
     
+    var loadingMask: LoadingMask!
+
     static let path = NSBundle.mainBundle().pathForResource("Entities", ofType: "plist")
     static let dataDictionary = NSDictionary(contentsOfFile: path!)!
 
@@ -45,8 +47,10 @@ extension BankAccountsViewController {
     // MARK: Initialize the View Controller
     func initVC() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BankAccountsViewController.loadBankAccounts), name:Constants.Notifications.BANK_ACCOUNTS_CHANGED, object: nil)
-        refreshControl = Diexpenses.createRefreshControl(self, actionName: #selector(BankAccountsViewController.refreshBankAccounts(_:)))
-        bankAccountsTableView.addSubview(self.refreshControl)
+        self.refreshControl = Diexpenses.createRefreshControl(self, actionName: #selector(BankAccountsViewController.refreshBankAccounts(_:)))
+        self.bankAccountsTableView.addSubview(self.refreshControl)
+        self.loadingMask = LoadingMask(view: view)
+        self.loadingMask.showMask()
         self.loadBankAccounts()
     }
     
@@ -167,6 +171,8 @@ extension BankAccountsViewController {
         let bankAccountsURL = String.localizedStringWithFormat(Constants.API.LIST_BANK_ACCOUNTS_URL, Diexpenses.user.id)
         Diexpenses.doRequest(bankAccountsURL, headers: Diexpenses.getTypicalHeaders(), verb: HttpVerbs.GET.rawValue, body: nil, completionHandler: {
             data, response, error in
+            
+            self.loadingMask.hideMask()
             
             if let d = data {
                 do {

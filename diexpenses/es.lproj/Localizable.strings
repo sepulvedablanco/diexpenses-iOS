@@ -27,13 +27,13 @@
 "common.validator.decimal" = "Debe ser un valor decimal";
 "common.validator.password" = "Al menos 6 caracteres, conteniendo mayúsculas, minúsculas y dígitos";
 "common.validator.password.confirmation" = "Las contraseñas no coinciden.";
+"common.incomes" = "Ingresos";
+"common.expenses" = "Gastos";
 
 "home.greetings" = "¡Hola %@!";
 "home.totalAmount" = "Ahorrado en total: %@";
 "home.totalIncomes" = "Ingresos del mes: %@";
 "home.totalExpenses" = "Gastos del mes: %@";
-"home.incomes" = "Ingresos";
-"home.expenses" = "Gastos";
 "home.chart.nodata" = "Todavía no hay datos este mes";
 "home.chart.nodata.description" = "Registra un ingreso o un gasto";
 "home.balance.high" = "Este mes vas bien";
@@ -73,3 +73,10 @@
 "newMovement.insert.kind" = "Selecciona el tipo de gasto";
 "newMovement.insert.subkind" = "Selecciona el subtipo de gasto";
 "newMovement.insert.bankAccount" = "Selecciona la cuenta bancaria";
+
+"statistics.historical" = "Histórico";
+"statistics.allMonths" = "Todos los meses";
+"statistics.allKinds" = "Todos los tipos";
+"statistics.kindFirst" = "Selecciona un tipo";
+"statistics.allSubkinds" = "Todos los subtipos";
+"statistics.allBankAccounts" = "Todas las cuentas";

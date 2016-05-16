@@ -12,6 +12,8 @@ import SwiftValidator
 
 class LoginViewController: UIViewController {
 
+    var loadingMask: LoadingMask!
+
     let customValidator = CustomValidator();
 
     @IBOutlet weak var signInButton: UIButton!
@@ -46,6 +48,7 @@ extension LoginViewController {
     func initVC() {
         setTextFieldsDelegate()
         registerFieldsInValidator()
+        self.loadingMask = LoadingMask(view: view)
     }
     
     // MARK: Set the user loaded in NSUserDefaults
@@ -105,6 +108,7 @@ extension LoginViewController: ValidationDelegate {
     
     // MARK: Method called when form validation is succesfull
     func validationSuccessful() {
+        loadingMask.showMask()
         doLogin()
         Diexpenses.switchButton(signInButton)
     }
@@ -123,6 +127,8 @@ extension LoginViewController {
         
         Diexpenses.doRequest(Constants.API.LOGIN_URL, headers: Diexpenses.getTypicalHeaders(false), verb: HttpVerbs.POST.rawValue, body: userPassJson, completionHandler: {
             data, response, error in
+            
+            self.loadingMask.hideMask()
             
             if let d = data {
                 do {
