@@ -106,9 +106,12 @@ extension MovementsViewController: UIPickerViewDelegate {
             if reload {
                 pickerView.reloadComponent(1)
             }
-            pickerView.selectRow(0, inComponent: 1, animated: true)
+            let monthSelected = datePickerView.selectedRowInComponent(1)
+            let newMonthSelected = months.count >= monthSelected ? monthSelected : 0
+            pickerView.selectRow(newMonthSelected, inComponent: 1, animated: true)
         }
         
+        self.loadingMask.showMask()
         loadMovements()
     }
 
